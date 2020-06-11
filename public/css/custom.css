@@ -1,0 +1,318 @@
+span.fc-title {
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+}
+span.fc-time {
+   display: none;
+}
+.fc-title {
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+}
+.fc-time {
+   display: none;
+}
+.english_color{
+	color:#ff7942 !important;
+}
+.math_color{
+	color:#0ccdfc !important;
+}
+.science_color{
+	color:#e74545 !important;
+}
+.social_color{
+	color:#56e248 !important;
+}
+.all_color{
+  color:#000 !important;
+}
+.great{
+color:#1bfc0c  !important;
+}
+.could{
+color:#ffed1b !important;
+}
+.needs{
+   color:#ec1327 !important; 
+}
+.btn.btn-sm.btn-primary.view-btn, .btn.btn-sm.btn-primary.complete-btn {
+  min-width: 0;
+  width: 50px;
+}
+.form-group.lptop label{
+width:100%;
+}
+.pagni .pagination li.active a {
+    border-radius: 5px;
+}
+
+.pagination li.active a {
+    z-index: 1;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.pagination li a{
+    border: none;
+    color: #000;
+    font-weight: 700;
+}
+
+.pagination li a {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+.textlog a {
+    text-decoration: underline;
+}
+.inlogin .allb{
+    text-decoration: underline;
+}
+.loginpart .form-group .form-control {
+    background-image: none;
+}
+
+.btn.file.multiteachers:before {
+     content: "Upload Multiple Teachers";
+}
+.ui-timepicker-container{position:absolute;overflow:hidden;box-sizing:border-box}
+.ui-timepicker,.ui-timepicker-viewport{box-sizing:content-box;height:120px;display:block;margin:0}
+.ui-timepicker{list-style:none;padding:0 1px;text-align:center}
+.ui-timepicker-viewport{padding:0;overflow:auto;overflow-x:hidden}
+.ui-timepicker-standard{font-family:Verdana,Arial,sans-serif;font-size:14px;background-color:#FFF;border:1px solid #AAA;color:#222;margin:0;padding:2px; border-radius:3px;}
+.ui-timepicker-standard a{border:1px solid transparent;color:#222;display:block;padding:.2em .4em;text-decoration:none}
+.ui-timepicker-standard .ui-state-hover{background-color:#DADADA;border:1px solid #999;font-weight:400;color:#212121}
+.ui-timepicker-standard .ui-menu-item{margin:0;padding:0}
+.ui-timepicker-corners,.ui-timepicker-corners .ui-corner-all{-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px}
+.ui-timepicker-hidden{display:none}
+.ui-timepicker-no-scrollbar .ui-timepicker{border:none}/*# sourceMappingURL=jquery.timepicker.min.css.map */
+.ui-timepicker-container.ui-timepicker-standard {
+    z-index: 9999 !important;
+}
+/*.fc-scroller {
+   overflow-y: hidden !important;
+}*/
+.form-group.has-error {
+    color: red;
+}
+.clsmodel .form-group label span.required {
+    display: inline-block;
+    width: auto;
+}
+.clsmodel .form-group span.required {
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+    font-size: 14px;
+    padding-top: 10px;
+}
+.form-group.has-error input, .form-group.has-error textarea , .form-group.has-error select {
+    border: 1px solid red;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+.loading { 
+    /*border: 1px solid #4a3c98;*/
+    padding: 20px;
+    margin: 40px 5px;
+    width: 200px;
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+}
+.loading img {
+  width: 150px;
+}
+.row.parent-guardian {
+    padding-left: 20px;
+    border-left: 1px solid #d1d5da;
+    margin-left: 20px;
+}
+p.alert.alert-danger.text-center.file-import-alert {  
+    position: absolute;
+    z-index: 9;
+    left: 0%;
+    top: 22%;
+}
+p.alert.alert-success.text-center.file-import-alert {
+    position: absolute;
+    z-index: 9;
+    left: 20%;
+    top: 33%;
+}
+li.ng-scope.current-user {
+    background: #ccc;
+}
+.vanilla-rotate {
+  display: none;
+}
+.textlogin label.underline a {
+  text-decoration: underline;
+}
+.row.teacher-school-info {
+    margin-top: 10px;
+    border-top: 1px solid #d1d5da;
+    padding: 5px 0;
+}
+
+.dropdown-menu.notify-drop {
+  /*min-width: 330px;*/
+  background-color: #fff;
+ /* min-height: 360px;*/
+  max-height: 360px;
+}
+.dropdown-menu.notify-drop .notify-drop-title {
+  border-bottom: 1px solid #e2e2e2;
+  padding: 5px 15px 10px 15px;
+}
+.dropdown-menu.notify-drop .drop-content {
+  min-height: 280px;
+  max-height: 280px;
+  overflow-y: scroll;
+}
+.dropdown-menu.notify-drop .drop-content::-webkit-scrollbar-track
+{
+  background-color: #F5F5F5;
+}
+
+.dropdown-menu.notify-drop .drop-content::-webkit-scrollbar
+{
+  width: 8px;
+  background-color: #F5F5F5;
+}
+
+.dropdown-menu.notify-drop .drop-content::-webkit-scrollbar-thumb
+{
+  background-color: #ccc;
+}
+.dropdown-menu.notify-drop .drop-content > li {
+  border-bottom: 1px solid #e2e2e2;
+  padding: 10px 0px 5px 0px;
+}
+.dropdown-menu.notify-drop .drop-content > li:nth-child(2n+0) {
+  background-color: #fafafa;
+}
+.dropdown-menu.notify-drop .drop-content > li:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+.dropdown-menu.notify-drop .drop-content > li:hover {
+  background-color: #fcfcfc;
+}
+.dropdown-menu.notify-drop .drop-content > li:last-child {
+  border-bottom: none;
+}
+.dropdown-menu.notify-drop .drop-content > li .notify-img {
+  float: left;
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  margin: 0px 0px 8px 0px;
+}
+.dropdown-menu.notify-drop .allRead {
+  margin-right: 7px;
+}
+.dropdown-menu.notify-drop .rIcon {
+  float: right;
+  color: #000;
+}
+.dropdown-menu.notify-drop .rIcon:hover {
+  color: #000;
+}
+.dropdown-menu.notify-drop .drop-content > li a {
+  font-size: 12px;
+  font-weight: normal;
+}
+.dropdown-menu.notify-drop .drop-content > li {
+  font-weight: bold;
+  font-size: 11px;
+}
+.dropdown-menu.notify-drop .drop-content > li hr {
+  margin: 5px 0;
+  width: 70%;
+  border-color: #e2e2e2;
+}
+.dropdown-menu.notify-drop .drop-content .pd-l0 {
+  padding-left: 0;
+}
+.dropdown-menu.notify-drop .drop-content > li p {
+  font-size: 11px;
+  color: #666;
+  font-weight: normal;
+  margin: 3px 0;
+}
+.dropdown-menu.notify-drop .drop-content > li p.time {
+  font-size: 10px;
+  font-weight: 600;
+  top: -6px;
+  margin: 8px 0px 0px 0px;
+  padding: 0px 3px;
+  border: 1px solid #e2e2e2;
+  position: relative;
+  background-image: linear-gradient(#fff,#f2f2f2);
+  display: inline-block;
+  border-radius: 2px;
+  color: #B97745;
+}
+.dropdown-menu.notify-drop .drop-content > li p.time:hover {
+  background-image: linear-gradient(#fff,#fff);
+}
+.dropdown-menu.notify-drop .notify-drop-footer {
+  border-top: 1px solid #e2e2e2;
+  bottom: 0;
+  position: relative;
+  padding: 8px 15px;
+}
+.dropdown-menu.notify-drop .notify-drop-footer a {
+  color: #777;
+  text-decoration: none;
+}
+.dropdown-menu.notify-drop .notify-drop-footer a:hover {
+  color: #333;
+}
+a.list-group-item.list-group-item-action.active {
+    background: #fff !important;
+    color: #4a3c98 !important;
+}
+
+input.btn.btn-primary.update-parent {
+  min-width: 50%; 
+  margin: 0 auto !important;
+  margin-left: 25% !important;
+}
+
+h4.engtext.ng-binding.writingtext, .writing_color {
+  color:rgb(153, 0, 255) !important;
+}
+h4.engtext.ng-binding.readingtext, .reading_color {
+  color:rgb(152, 0, 0) !important;
+}
+h4.engtext.ng-binding.spellingtext, .spelling_color {
+  color:rgb(17, 85, 204) !important;
+}
+.col-lg-12 .hr {
+  border: 1px solid #e9ecef;
+    margin-bottom: 10px;
+}
+.form-group.school_details {
+  display: none;
+}
