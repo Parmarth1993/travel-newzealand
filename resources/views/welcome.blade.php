@@ -197,7 +197,7 @@
                      <div class="row">
                         <div class="col-lg-4 col-md-12 mapform">
                            <div class="map-newzealand">
-                              <p class="countryname">Catlins, Otago</p>
+                              <p class="countryname">Catlins, Otago1</p>
                               <span class="iconmake"></span> 
                               <img src="img/news-land-img.png">
                            </div>
@@ -285,7 +285,7 @@
                      <div class="row">
                         <div class="col-lg-4 col-md-12 mapform">
                            <div class="map-newzealand">
-                              <p class="countryname">Catlins, Otago</p>
+                              <p class="countryname">Catlins, Otago2</p>
                               <span class="iconmake"></span> 
                               <img src="img/news-land-img.png">
                            </div>
@@ -386,95 +386,95 @@
                   <div class="owl-carousel owl-theme">
                      <div class="item">
                         <div class="imgcontainer">
-                           <span class="iconheart"></span>
+                           
                            <h4>Waitomo Glowworm Caves Waikat</h4>
                            <a href=""> <img src="img/imghome001.jpg"></a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                        <a href="" class="learnmorebtn">LEARN MORE ></a>
+                       
                      </div>
                      <div class="item">
                         <div class="imgcontainer">
-                           <span class="iconheart fill"></span>
+                           
                            <h4>Mckenzie - Riding through the vineyards</h4>
                            <a href=""> <img src="img/imghome002.jpg"></a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                        <a href="" class="learnmorebtn">LEARN MORE ></a>
+                       
                      </div>
                      <div class="item">
                         <div class="imgcontainer">
-                           <span class="iconheart"></span>
+                           
                            <h4>Lake Taupo riverboat cruise</h4>
                            <a href=""> <img src="img/imghome003.jpg"></a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                        <a href="" class="learnmorebtn">LEARN MORE ></a>
+                       
                      </div>
                      <div class="item">
                         <div class="imgcontainer">
-                           <span class="iconheart"></span>
+                           
                            <h4>Fiordland - mountian hiking for a large group
                            </h4>
                            <a href=""> <img src="img/imghome004.jpg"></a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                        <a href="" class="learnmorebtn">LEARN MORE ></a>
+                       
                      </div>
                      <div class="item">
                         <div class="imgcontainer">
-                           <span class="iconheart"></span>
+                           
                            <h4>Waitomo Glowworm Caves Waikat</h4>
                            <a href=""> <img src="img/imghome003.jpg"></a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                        <a href="" class="learnmorebtn">LEARN MORE ></a>
+                       
                      </div>
                      <div class="item">
                         <div class="imgcontainer">
-                           <span class="iconheart"></span>
+                           
                            <h4>Waitomo Glowworm Caves Waikat</h4>
                            <a href=""> <img src="img/imghome001.jpg"></a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                        <a href="" class="learnmorebtn">LEARN MORE ></a>
+                       
                      </div>
                      <div class="item">
                         <div class="imgcontainer">
-                           <span class="iconheart fill"></span>
+                           
                            <h4>Mckenzie - Riding through the vineyards</h4>
                            <a href=""> <img src="img/imghome002.jpg"></a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                        <a href="" class="learnmorebtn">LEARN MORE ></a>
+                       
                      </div>
                      <div class="item">
                         <div class="imgcontainer">
-                           <span class="iconheart"></span>
+                           
                            <h4>Lake Taupo riverboat cruise</h4>
                            <a href=""> <img src="img/imghome003.jpg"></a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                        <a href="" class="learnmorebtn">LEARN MORE ></a>
+                       
                      </div>
                      <div class="item">
                         <div class="imgcontainer">
-                           <span class="iconheart"></span>
+                           
                            <h4>Fiordland - mountian hiking for a large group
                            </h4>
                            <a href=""> <img src="img/imghome004.jpg"></a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                        <a href="" class="learnmorebtn">LEARN MORE ></a>
+                       
                      </div>
                      <div class="item">
                         <div class="imgcontainer">
-                           <span class="iconheart"></span>
+                           
                            <h4>Waitomo Glowworm Caves Waikat</h4>
                            <a href=""> <img src="img/imghome003.jpg"></a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                        <a href="" class="learnmorebtn">LEARN MORE ></a>
+                       
                      </div>
                   </div>
                </div>
