@@ -62,34 +62,6 @@ class AdminController extends Controller
     	return view('admin.add-accomodation');	
     }
 
-    public function addProperties(Request $request) {
-        if($request->isMethod('post')) {
-            $input = $request->all();
-            //print_r($request->logo);die;
-            try {
-
-                 // Image Upload
-                 $image = $request->file('logo');
-                 $name = time().'.'.$image->getClientOriginalExtension();
-                 $destinationPath = public_path('/uploads/profiles');
-                 $image->move($destinationPath, $name);
-
-                 $input['logo'] = $name;
-
-                $card = Properties::create($input);
-                return redirect('/admin/properties')->with('success', 'Properties Created Successfully.');
-
-            } catch(Exception $e) {
-                return redirect('/admin/properties/add')->with('error', $e->getMessage());
-            }
-        } 
-        $accomodations = Accomodations::all();
-        $highlights = Highlights::all();
-        $itineraries = Itineraries::all();
-
-        return view('admin.add-properties')->with([ "accomodations" => $accomodations, "highlights" => $highlights, "itineraries" => $itineraries]);  
-    }
-
     public function addHighlight(Request $request) {
     	if($request->isMethod('post')) {
             $input = $request->all();
@@ -172,5 +144,68 @@ class AdminController extends Controller
         } 
     	$itinerarie = Itineraries::where(['id' => $id])->first(); 
     	return view('admin.edit-itinerarie')->with(['itinerarie' => $itinerarie]);	
+    }
+
+    public function addProperties(Request $request) {
+        if($request->isMethod('post')) {
+            $input = $request->all();
+            //print_r($request->logo);die;
+            try {
+
+                 // Image Upload
+                 $image = $request->file('logo');
+                 $name = time().'.'.$image->getClientOriginalExtension();
+                 $destinationPath = public_path('/uploads/profiles');
+                 $image->move($destinationPath, $name);
+
+                 $input['logo'] = $name;
+                 $input['activities'] = serialize($input['activities']);
+                $card = Properties::create($input);
+                return redirect('/admin/properties')->with('success', 'Properties Created Successfully.');
+
+            } catch(Exception $e) {
+                return redirect('/admin/properties/add')->with('error', $e->getMessage());
+            }
+        } 
+        $accomodations = Accomodations::all();
+        $highlights = Highlights::all();
+        $itineraries = Itineraries::all();
+
+        return view('admin.add-properties')->with([ "accomodations" => $accomodations, "highlights" => $highlights, "itineraries" => $itineraries]);  
+    }
+
+     public function editProperties(Request $request) {
+     	$id = $request->id;
+        if($request->isMethod('post')) {
+            $input = $request->all();
+            try {
+                 // Image Upload
+            	if(!empty($request->file('logo')) && isset($request->file)) {
+	                 $image = $request->file('logo');
+	                 $name = time().'.'.$image->getClientOriginalExtension();
+	                 $destinationPath = public_path('/uploads/profiles');
+	                 $image->move($destinationPath, $name);
+
+	                 $input['logo'] = $name;
+	             } else {
+	             	$input['logo'] = $input['logo2'];
+	             }
+	            $input = $request->only('name', 'description','logo','accommodation','highlight','itineraries','activities','type');
+                $input['activities'] = serialize($input['activities']);
+                $card = Properties::where(['id' => $id])
+                		->update($input);
+                return redirect('/admin/properties')->with('success', 'Properties Updated Successfully.');
+
+            } catch(Exception $e) {
+                return redirect('/admin/properties/edit/' . $id)->with('error', $e->getMessage());
+            }
+        } 
+
+        $accomodations = Accomodations::all();
+        $highlights = Highlights::all();
+        $itineraries = Itineraries::all();
+        $property = Properties::where(['id' => $id])->first();
+
+        return view('admin.edit-property')->with([ "accomodations" => $accomodations, "highlights" => $highlights, "itineraries" => $itineraries, 'property' => $property]);  
     }
 }
