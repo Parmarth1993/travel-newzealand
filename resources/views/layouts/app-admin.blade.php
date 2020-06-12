@@ -32,7 +32,7 @@
       <div class="" id="wrapper">
          <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container-fluid">
-               <a class="navbar-brand js-scroll-trigger logomain" href="/"><img src="{{ asset('img/logomain.png')}}" ></a>
+               <a class="navbar-brand js-scroll-trigger logomain" href="/"><img src="{{ asset('img/mainlogo.png')}}" ></a>
                <button class="navbar-toggler navbar-toggler-right buttonmenu" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                   <i class="fas fa-bars"></i>
                </button>
@@ -64,6 +64,7 @@
                         <a href="" class="list-group-item list-group-item-action">Dashboard</a>
                      @endif
                   @endif
+                  <a href="/admin/properties" class="list-group-item list-group-item-action">Properties</a>
                   <a href="/admin/accomodations" class="list-group-item list-group-item-action">Accomodations</a>
                   <a href="/admin/highlights" class="list-group-item list-group-item-action">Highlights</a>
                   <a href="/admin/itineraries" class="list-group-item list-group-item-action">Itineraries</a>

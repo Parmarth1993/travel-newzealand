@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 use App\User;
 use App\Accomodations;
+use App\Properties;
 use App\Highlights;
 use App\Itineraries;
 
@@ -24,6 +25,11 @@ class AdminController extends Controller
 	public function index(Request $request) {
     	//$profile = User::where(['id' => Auth::user()->id])->first();
     	return view('admin.index');
+    }
+
+    public function properties(Request $request) {
+        $properties = Properties::all();
+        return view('admin.properties')->with([ "properties" => $properties]); 
     }
 
     public function accomodations(Request $request) {
@@ -54,6 +60,34 @@ class AdminController extends Controller
             }
         } 
     	return view('admin.add-accomodation');	
+    }
+
+    public function addProperties(Request $request) {
+        if($request->isMethod('post')) {
+            $input = $request->all();
+            //print_r($request->logo);die;
+            try {
+
+                 // Image Upload
+                 $image = $request->file('logo');
+                 $name = time().'.'.$image->getClientOriginalExtension();
+                 $destinationPath = public_path('/uploads/profiles');
+                 $image->move($destinationPath, $name);
+
+                 $input['logo'] = $name;
+
+                $card = Properties::create($input);
+                return redirect('/admin/properties')->with('success', 'Properties Created Successfully.');
+
+            } catch(Exception $e) {
+                return redirect('/admin/properties/add')->with('error', $e->getMessage());
+            }
+        } 
+        $accomodations = Accomodations::all();
+        $highlights = Highlights::all();
+        $itineraries = Itineraries::all();
+
+        return view('admin.add-properties')->with([ "accomodations" => $accomodations, "highlights" => $highlights, "itineraries" => $itineraries]);  
     }
 
     public function addHighlight(Request $request) {

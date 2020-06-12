@@ -837,7 +837,7 @@ background: #ff7942 !important;
 .dropdown-toggle { color: #ffffff !important; padding: 0px !important; display: flex; align-items: center; justify-content: center; }
 .loginlogout .dropdown-item{font-size:14px; }
 .dropdown-toggle span { width: 40px; height: 40px; overflow: hidden; border-radius: 100px; margin-left: 33px; }
-.loginlogout .dropdown-toggle::after {content: ""; position: absolute; right: 65px; }
+.loginlogout .dropdown-toggle::after {content: ""; position: absolute; right: 115px; }
 .dropdown-toggle span img {
     max-width: 100%;
     height: auto;
