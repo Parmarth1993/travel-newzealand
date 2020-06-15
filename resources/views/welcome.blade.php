@@ -101,7 +101,7 @@
          <div class="nabtab">
             <ul class="nav nav-tabs besttab">
                <li><a data-toggle="tab" href="#accomodations">Accomodations <span>Best places to stay</span></a></li>
-               <li><a data-toggle="tab" href="#activities">Activities <span>Great things to do</span></a></li>
+               <li><a data-toggle="tab" href="#highlights">Highlights <span>Great things to do</span></a></li>
                <li><a data-toggle="tab" href="#itineraries" class="active">Itineraries <span>Luxury timelines</span></a></li>
             </ul>
             <div class="tab-content maintabview">
@@ -180,7 +180,7 @@
                      </div>
                   </div>
                </div>
-               <div id="activities" class="tab-pane">
+               <div id="highlights" class="tab-pane">
                   <div class="container-fluid">
                      <div class="row">
                         <div class="col-lg-4 col-md-12 mapform">
