@@ -88,7 +88,7 @@ a.learnb{}
 .adventuretab {justify-content: space-between; border: navajowhite; }
 .newsland-slider {background: #f0f0f0; padding: 60px 0 60px 100px; }
 .titlemid{}
-.adventuretab li {flex: 0 0 23%; max-width: 23%; }
+.adventuretab li {flex: 0 0 49%; max-width: 49%; }
 .adventuretab li a { background: #000000; color: #fff; padding: 15px 28px; display: block; font-weight: 700; text-transform: uppercase; font-size: 16px; text-decoration: none; text-align: center; font-family: 'Lato', sans-serif; }
 .adventuretab li a.active{  background:#2e9cca; }
 .nabtab {}

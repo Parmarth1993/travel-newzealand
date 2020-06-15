@@ -96,6 +96,7 @@
          </div>
       </header>
       <!-- Main Content -->
+      <?php //echo "<pre>";print_r($properties);?>
       <section class="tabviewnab">
          <div class="nabtab">
             <ul class="nav nav-tabs besttab">
@@ -156,26 +157,12 @@
                               </div>
                               <div class="bottomparttab">
                                  <ul class="nav nav-tabs adventuretab">
-                                    <li><a href="javascript:void(0)">Cuisine</a></li>
-                                    <li><a href="javascript:void(0)" class="active">Adventure</a></li>
-                                    <li><a href="javascript:void(0)">Heli-skiing</a></li>
-                                    <li><a href="javascript:void(0)" >Learn more</a></li>
+                                    <li><a data-toggle="tab" href="#about">About</a></li>
+                                    <li><a data-toggle="tab" href="#highlights">Highlights</a></li>
                                  </ul>
                                  <div class="tab-content adventureview">
                                     <div  class="tab-pane in active">
                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et d quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                       <div class="logosbtn">
-                                          <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
-                                       </div>
-                                    </div>
-                                    <div  class="tab-pane">
-                                       <p>Lorem  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                       <div class="logosbtn">
-                                          <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
-                                       </div>
-                                    </div>
-                                    <div class="tab-pane">
-                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
                                        <div class="logosbtn">
                                           <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
@@ -244,26 +231,12 @@
                               </div>
                               <div class="bottomparttab">
                                  <ul class="nav nav-tabs adventuretab">
-                                    <li><a href="javascript:void(0)">Cuisine</a></li>
-                                    <li><a href="javascript:void(0)" class="active">Adventure</a></li>
-                                    <li><a href="javascript:void(0)">Heli-skiing</a></li>
-                                    <li><a href="javascript:void(0)" >Learn more</a></li>
+                                    <li><a data-toggle="tab" href="#about">About</a></li>
+                                    <li><a data-toggle="tab" href="#highlights">Highlights</a></li>
                                  </ul>
                                  <div class="tab-content adventureview">
                                     <div  class="tab-pane in active">
                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et d quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                       <div class="logosbtn">
-                                          <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
-                                       </div>
-                                    </div>
-                                    <div  class="tab-pane">
-                                       <p>Lorem  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                       <div class="logosbtn">
-                                          <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
-                                       </div>
-                                    </div>
-                                    <div class="tab-pane">
-                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
                                        <div class="logosbtn">
                                           <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
@@ -332,31 +305,17 @@
                               </div>
                               <div class="bottomparttab">
                                  <ul class="nav nav-tabs adventuretab">
-                                    <li><a data-toggle="tab" href="#cuisine">Cuisine</a></li>
-                                    <li><a data-toggle="tab" href="#adventure" class="active">Adventure</a></li>
-                                    <li><a data-toggle="tab" href="#heli-skiing">Heli-skiing</a></li>
-                                    <li><a data-toggle="tab" href="#learn" >Learn more</a></li>
+                                    <li><a data-toggle="tab" href="#about">About</a></li>
+                                    <li><a data-toggle="tab" href="#highlights">Highlights</a></li>
                                  </ul>
                                  <div class="tab-content adventureview">
-                                    <div id="cuisine" class="tab-pane in active">
+                                    <div id="about" class="tab-pane in active">
                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et d quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                                        <div class="logosbtn">
                                           <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
-                                    <div id="adventure" class="tab-pane">
-                                       <p>Lorem  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                       <div class="logosbtn">
-                                          <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
-                                       </div>
-                                    </div>
-                                    <div id="heli-skiing" class="tab-pane">
-                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-                                       <div class="logosbtn">
-                                          <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
-                                       </div>
-                                    </div>
-                                    <div id="learn" class="tab-pane">
+                                    <div id="highlights" class="tab-pane">
                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                                        <div class="logosbtn">
                                           <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
