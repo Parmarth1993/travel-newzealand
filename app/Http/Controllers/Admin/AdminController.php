@@ -149,7 +149,7 @@ class AdminController extends Controller
     public function addProperties(Request $request) {
         if($request->isMethod('post')) {
             $input = $request->all();
-            //print_r($request->logo);die;
+            //print_r($input);die;
             try {
 
                  // Image Upload
@@ -160,6 +160,7 @@ class AdminController extends Controller
 
                  $input['logo'] = $name;
                  $input['activities'] = serialize($input['activities']);
+                 $input['location'] = serialize($input['location']);
                 $card = Properties::create($input);
                 return redirect('/admin/properties')->with('success', 'Properties Created Successfully.');
 

@@ -17,6 +17,8 @@ class CreatePropertiesTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
+            $table->text('address');
+            $table->string('location')->nullable();
             $table->text('logo')->nullable();
             $table->string('accommodation')->nullable();
             $table->string('highlight')->nullable();

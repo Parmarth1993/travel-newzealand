@@ -33,6 +33,17 @@
                      <textarea name="description" class="form-control" value="" required></textarea>
                   </div>
                   <div class="form-group">
+                     <label>Address</label>
+                     <input id="autocomplete"
+                      name= "address"
+                      placeholder="Enter your address"
+                      onFocus="geolocate()"
+                      onChange="getLatLOng()"
+                      type="text" class="form-control" required/>
+                  </div>
+                  <input type="hidden" name="location[lat]" id="lat_val">
+                  <input type="hidden" name="location[long]" id="long_val">
+                  <div class="form-group">
                      <label>Select Logo</label>
                      <input type="file" name="logo" id="file-upload" class="file" required>
                   </div>
@@ -88,4 +99,47 @@
       </div>
    </section>
 </div>
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPlxYBIjisvG84Q8mQo8RHWZqXJBUibKk&libraries=places"></script>
+<script>
+
+   var placeSearch, autocomplete;
+
+   autocomplete = new google.maps.places.Autocomplete(
+   document.getElementById('autocomplete'), {types: ['geocode']});
+   autocomplete.addListener('place_changed', fillInAddress);
+
+  function fillInAddress() {
+   // Get the place details from the autocomplete object.
+   var place = autocomplete.getPlace();
+   //console.log(place);
+   var address = '';
+     if (place.address_components) {
+       address = [
+         (place.address_components[0] && place.address_components[0].short_name || ''),
+         (place.address_components[1] && place.address_components[1].short_name || ''),
+         (place.address_components[2] && place.address_components[2].short_name || '')
+       ].join(' ');
+     }
+     //console.log(address, place.geometry.location.lat(), place.geometry.location.lng());
+     $('#lat_val').val(place.geometry.location.lat());
+     $('#long_val').val(place.geometry.location.lng());
+}
+
+   // Bias the autocomplete object to the user's geographical location,
+   // as supplied by the browser's 'navigator.geolocation' object.
+   function geolocate() {
+     if (navigator.geolocation) {
+       navigator.geolocation.getCurrentPosition(function(position) {
+         var geolocation = {
+           lat: position.coords.latitude,
+           lng: position.coords.longitude
+         };
+         var circle = new google.maps.Circle(
+             {center: geolocation, radius: position.coords.accuracy});
+         autocomplete.setBounds(circle.getBounds());
+        
+       });
+     }
+   }
+    </script>
 @endsection

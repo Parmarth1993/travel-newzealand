@@ -38,7 +38,11 @@ class HomeController extends Controller
                         ->join('highlights', 'highlights.id', '=', 'properties.highlight')
                         ->join('itineraries', 'itineraries.id', '=', 'properties.itineraries')
                         ->select(DB::raw('properties.*, accomodations.name as accname, accomodations.description as accdescription, highlights.name as highname, highlights.description as highdesc,itineraries.name as itname, itineraries.description as itdescription'))
-                        ->get();               
+                        ->get();
+        foreach ($properties as $key => $value) {
+                                           # code...
+                  $value->location  = unserialize($value->location);                       
+                                       }                               
         return view('welcome')->with([ "properties" => $properties]);
     }
 
