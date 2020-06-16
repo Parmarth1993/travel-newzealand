@@ -42,7 +42,7 @@ class HomeController extends Controller
         foreach ($properties as $key => $value) {
                                            # code...
                   $value->location  = unserialize($value->location);                       
-                                       }                               
+        }                               
         return view('welcome')->with([ "properties" => $properties]);
     }
 
