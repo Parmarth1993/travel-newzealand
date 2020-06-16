@@ -31,7 +31,6 @@
                         <tr>
                            <th>Name</th>
                            <th>Address</th>
-                           <th>Description</th>
                            <th>Type</th>
                            <th>Actions</th>
                         </tr>
@@ -40,7 +39,6 @@
                         <tr>
                            <th>Name</th>
                            <th>Address</th>
-                           <th>Description</th>
                            <th>Type</th>
                            <th>Actions</th>
                         </tr>
@@ -50,7 +48,6 @@
                         <tr class="plan-{{$property->id}}">
                            <td>{{$property->name}}</td>
                            <td>{{$property->address}}</td>
-                           <td>{{$property->description}}</td>
                            <td>{{$property->type}}</td>
                            <td>
                               <a href="/admin/properties/edit/{{$property->id}}" >Edit</a>

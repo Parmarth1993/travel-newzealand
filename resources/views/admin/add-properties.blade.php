@@ -28,10 +28,10 @@
                      <label>Name</label>
                      <input type="text" name="name" class="form-control" value="" required>
                   </div>
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                      <label>Description</label>
                      <textarea name="description" class="form-control" value="" required></textarea>
-                  </div>
+                  </div> -->
                   <div class="form-group">
                      <label>Address</label>
                      <input id="autocomplete"
@@ -48,15 +48,15 @@
                      <input type="file" name="logo" id="file-upload" class="file" required>
                   </div>
                   <div class="form-group">
-                     <label>Select Accomodation</label>
-                     <select name="accommodation" class="form-control">
-                        <option value="">Select Accomodation</option>
-                        @foreach($accomodations as $accomodation)
-                         <option value="{{$accomodation->id}}">{{$accomodation->name}}</option>
-                        @endforeach
+                     <label>Category</label>
+                     <select name="category" class="form-control" required>
+                        <option value="">Select Category</option>
+                        <option value="1">Accomodations</option>
+                        <option value="2">Highlights</option>
+                        <option value="3">Itineraries</option>                        
                      </select>
                   </div>
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                      <label>Select Highlight</label>
                      <select name="highlight" class="form-control">
                         <option value="">Select Highlight</option>
@@ -73,7 +73,7 @@
                          <option value="{{$itinerary->id}}">{{$itinerary->name}}</option>
                         @endforeach
                      </select>
-                  </div>
+                  </div> -->
                   <div class="form-group">
                      <label>Select Activities</label>
                      <input type="checkbox" name="activities[]" value="Helicopter">Helicopter
@@ -82,8 +82,28 @@
                      <input type="checkbox" name="activities[]" value="Food">Food
                      <input type="checkbox" name="activities[]" value="Army">Army
                      <input type="checkbox" name="activities[]" value="Religion">Religion
-                     <input type="checkbox" name="activities[]" value="Videos">Videos
+                     <!-- <input type="checkbox" name="activities[]" value="Videos">Videos -->
                   </div>
+
+                  <div class="form-group">
+                    <label>Media Type</label>
+                     <select name="media_type" id="media_type" class="form-control" required>
+                        <option value="">Select Type</option>
+                        <option value="1">Images</option>
+                        <option value="2">Videos</option>
+                     </select>
+                  </div>
+
+                  <div class="form-group" id="upload-image">
+                    <label>Select Images <span>(multiple select allowed)</span></label>
+                     <input type="file" name="images[]" class="form-control" multiple>
+                  </div>
+
+                  <div class="form-group" id="upload-video">
+                    <label>Select Videos <span>(multiple select allowed)</span></label>
+                     <input type="file" name="videos[]" class="form-control" multiple>
+                  </div>
+
                   <div class="form-group">
                      <label>Select Type</label>
                      <select name="type" class="form-control" required>

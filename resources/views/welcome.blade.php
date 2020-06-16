@@ -185,9 +185,10 @@
                      <div class="row">
                         <div class="col-lg-4 col-md-12 mapform">
                            <div class="map-newzealand">
-                              <p class="countryname">Catlins, Otago1</p>
+                              <div id="map-canvas-highlights"></div>
+                              <!-- <p class="countryname">Catlins, Otago1</p>
                               <span class="iconmake"></span> 
-                              <img src="img/news-land-img.png">
+                              <img src="img/news-land-img.png"> -->
                            </div>
                         </div>
                         <div class="col-lg-8 col-md-12 tabform">
@@ -259,9 +260,10 @@
                      <div class="row">
                         <div class="col-lg-4 col-md-12 mapform">
                            <div class="map-newzealand">
-                              <p class="countryname">Catlins, Otago2</p>
+                              <!-- <p class="countryname">Catlins, Otago2</p>
                               <span class="iconmake"></span> 
-                              <img src="img/news-land-img.png">
+                              <img src="img/news-land-img.png"> -->
+                              <div id="map-canvas-itineraries"></div>
                            </div>
                         </div>
                         <div class="col-lg-8 col-md-12 tabform">
@@ -637,9 +639,12 @@
 
       //function initMap() {
       setTimeout(function(){
-        var propertiesArray = <?php echo json_encode($properties); ?>;
+        var accomodationsArray = <?php echo json_encode($accomodations); ?>;
+        var highlightsArray = <?php echo json_encode($highlights); ?>;
+        var itinerariesArray = <?php echo json_encode($itineraries); ?>;
 
         var auck = {lat: -41.2864603, lng: 174.776236};
+        //map 1
         var map = new google.maps.Map(document.getElementById('map-canvas'), {
           zoom: 5,
           center: auck,
@@ -648,20 +653,20 @@
           minzoom: 5,
           maxzoom: 15
         });
-          for(var i = 0; i < propertiesArray.length ; i++) {
+          for(var i = 0; i < accomodationsArray.length ; i++) {
 
             //place marker
-            if(propertiesArray[i].address && propertiesArray[i].address != '' && propertiesArray[i].address != null) { 
+            if(accomodationsArray[i].address && accomodationsArray[i].address != '' && accomodationsArray[i].address != null) { 
               
               var infoWindow = new google.maps.InfoWindow();
 
-              var data = propertiesArray[i];
-              var latlong = {lat: parseFloat(propertiesArray[i].location.lat), lng: parseFloat(propertiesArray[i].location.long)};      
+              var data = accomodationsArray[i];
+              var latlong = {lat: parseFloat(accomodationsArray[i].location.lat), lng: parseFloat(accomodationsArray[i].location.long)};      
               var marker = new google.maps.Marker({
                 position: latlong,
                 map: map,
                 //icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+ 35,
-                title: propertiesArray[i].name
+                title: accomodationsArray[i].name
               });
 
               //Attach click event to the marker.
@@ -675,6 +680,80 @@
             }
         }
        
+
+       //map 2
+       var map = new google.maps.Map(document.getElementById('map-canvas-highlights'), {
+          zoom: 5,
+          center: auck,
+          fullscreenControl: false,
+          backgroundColor: '#FFF',
+          minzoom: 5,
+          maxzoom: 15
+        });
+          for(var i = 0; i < highlightsArray.length ; i++) {
+
+            //place marker
+            if(highlightsArray[i].address && highlightsArray[i].address != '' && highlightsArray[i].address != null) { 
+              
+              var infoWindow = new google.maps.InfoWindow();
+
+              var data = highlightsArray[i];
+              var latlong = {lat: parseFloat(highlightsArray[i].location.lat), lng: parseFloat(highlightsArray[i].location.long)};      
+              var marker = new google.maps.Marker({
+                position: latlong,
+                map: map,
+                //icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+ 35,
+                title: highlightsArray[i].name
+              });
+
+              //Attach click event to the marker.
+              (function (marker, data) {
+                  google.maps.event.addListener(marker, "click", function (e) {
+                      //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
+                      infoWindow.setContent("<div ><h3>" + data.description + "</h3></div");
+                      infoWindow.open(map, marker);
+                  });
+              })(marker, data);
+            }
+        }
+
+        //map 3
+
+        var map = new google.maps.Map(document.getElementById('map-canvas-itineraries'), {
+          zoom: 5,
+          center: auck,
+          fullscreenControl: false,
+          backgroundColor: '#FFF',
+          minzoom: 5,
+          maxzoom: 15
+        });
+          for(var i = 0; i < itinerariesArray.length ; i++) {
+
+            //place marker
+            if(itinerariesArray[i].address && itinerariesArray[i].address != '' && itinerariesArray[i].address != null) { 
+              
+              var infoWindow = new google.maps.InfoWindow();
+
+              var data = itinerariesArray[i];
+              var latlong = {lat: parseFloat(itinerariesArray[i].location.lat), lng: parseFloat(itinerariesArray[i].location.long)};      
+              var marker = new google.maps.Marker({
+                position: latlong,
+                map: map,
+                //icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+ 35,
+                title: itinerariesArray[i].name
+              });
+
+              //Attach click event to the marker.
+              (function (marker, data) {
+                  google.maps.event.addListener(marker, "click", function (e) {
+                      //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
+                      infoWindow.setContent("<div ><h3>" + data.description + "</h3></div");
+                      infoWindow.open(map, marker);
+                  });
+              })(marker, data);
+            }
+        }
+
       }, 1000);
         
       //}

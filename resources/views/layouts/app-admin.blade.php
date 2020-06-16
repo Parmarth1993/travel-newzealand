@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="">
       <meta name="author" content="">
-      <title>Teacher parent connect</title>
+      <title>Travel New Zeland</title>
       <meta name="csrf-token" content="{{ csrf_token() }}">
       <!-- Bootstrap core CSS -->
       <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -65,9 +65,16 @@
                      @endif
                   @endif
                   <a href="/admin/properties" class="list-group-item list-group-item-action">Properties</a>
-                  <a href="/admin/accomodations" class="list-group-item list-group-item-action">Accomodations</a>
-                  <a href="/admin/highlights" class="list-group-item list-group-item-action">Highlights</a>
-                  <a href="/admin/itineraries" class="list-group-item list-group-item-action">Itineraries</a>
+                  <a data-toggle="dropdown" class="list-group-item list-group-item-action">Categories <span class="caret"></span></a>
+                  <div class="dropdown">
+                     <ul class="dropdown-menu">
+                        <a href="/admin/accomodation/edit/1" class="list-group-item list-group-item-action">Accomodations</a>
+                        <a href="/admin/highlight/edit/1" class="list-group-item list-group-item-action">Highlights</a>
+                        <a href="/admin/itinerarie/edit/1" class="list-group-item list-group-item-action">Itineraries</a>
+                    </ul>
+                  </div>
+                 <!--  <a href="/admin/highlights" class="list-group-item list-group-item-action">Highlights</a>
+                  <a href="/admin/itineraries" class="list-group-item list-group-item-action">Itineraries</a> -->
                </div>
             </div>
 
@@ -85,5 +92,21 @@
       <script src="{{asset('js/moment.min.js')}}"></script>
       <script src="{{asset('js/admin/custom.js')}}"></script>
       <script src="{{asset('js/sweetalert.min.js')}}"></script>
+
+      <script type="text/javascript">
+         $(document).ready(function() {
+            $('#upload-image').hide();
+            $('#upload-video').hide();
+            $('#media_type').change(function() {
+               if($(this).val() == '1') {
+                  $('#upload-image').show();
+                  $('#upload-video').hide();
+               } else {
+                  $('#upload-image').hide();
+                  $('#upload-video').show();
+               }
+            });
+         });
+      </script>
    </body>
 </html>

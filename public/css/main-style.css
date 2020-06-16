@@ -355,3 +355,13 @@ div#map-canvas {
     width: 440px;
     height: 550px;
 }
+
+div#map-canvas-highlights {
+    width: 440px;
+    height: 550px;
+}
+
+div#map-canvas-itineraries {
+    width: 440px;
+    height: 550px;
+}
