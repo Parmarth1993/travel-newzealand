@@ -673,7 +673,7 @@
               (function (marker, data) {
                   google.maps.event.addListener(marker, "click", function (e) {
                       //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
-                      infoWindow.setContent("<div ><h3>" + data.address + "</h3></div");
+                      infoWindow.setContent("<div ><h3>" + data.description + "</h3></div");
                       infoWindow.open(map, marker);
                   });
               })(marker, data);
@@ -710,7 +710,7 @@
               (function (marker, data) {
                   google.maps.event.addListener(marker, "click", function (e) {
                       //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
-                      infoWindow.setContent("<div ><h3>" + data.address + "</h3></div");
+                      infoWindow.setContent("<div ><h3>" + data.description + "</h3></div");
                       infoWindow.open(map, marker);
                   });
               })(marker, data);
@@ -747,7 +747,7 @@
               (function (marker, data) {
                   google.maps.event.addListener(marker, "click", function (e) {
                       //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
-                      infoWindow.setContent("<div ><h3>" + data.address + "</h3></div");
+                      infoWindow.setContent("<div ><h3>" + data.description + "</h3></div");
                       infoWindow.open(map, marker);
                   });
               })(marker, data);
