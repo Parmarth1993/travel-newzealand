@@ -112,6 +112,14 @@
                         <option value="Premium">Premium</option>
                      </select>
                   </div>
+                  <div class="form-group" >
+                    <label>About </label>
+                    <textarea name="about" class="form-control"></textarea>
+                  </div>
+                  <div class="form-group" >
+                    <label>Highlights </label>
+                    <textarea name="highlights" class="form-control"></textarea>
+                  </div>
                   <input type="submit" name="" class="btn btn-primary ml-auto" value="Add Property">
                </div>
             </div>

@@ -16,6 +16,6 @@ class Properties extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'location','address', 'media_type', 'logo','category','activities', 'images', 'videos', 'type'
+        'name', 'location','address','about','highlights', 'media_type', 'logo','category','activities', 'images', 'videos', 'type'
     ];
 }

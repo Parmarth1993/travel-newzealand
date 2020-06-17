@@ -18,6 +18,17 @@
       <link rel="stylesheet" href="css/owl.carousel.css">
       <!-- <link rel="stylesheet" href="css/owl.theme.default.min.css"> -->
    </head>
+   <style>
+    #acco_activities li  a{
+      display: none;
+    }
+    #high_activities li  a{
+      display: none;
+    }
+    #iti_activities li  a{
+      display: none;
+    }
+   </style>
    <body>
       <a id="top"></a>
       <!-- Navigation -->
@@ -119,10 +130,10 @@
                         <div class="col-lg-8 col-md-12 tabform">
                            <div class="alltabview">
                               <div class="alltopview-logo">
-                                 <img src="img/minarat-logo.png">
+                                 <img id="acc_logo" src="img/minarat-logo.png" height="50" width="100">
                               </div>
                               <div class="upperparttab">
-                                 <ul class="nav nav-tabs stationnab">
+                                 <ul class="nav nav-tabs stationnab" id="acco_activities">
                                     <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Helicopter" class="helicopter active"></a></li>
                                     <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Hili Area" class="hiliarea"></a></li>
                                     <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Fishing" class="fishing"></a></li>
@@ -157,18 +168,18 @@
                               </div>
                               <div class="bottomparttab">
                                  <ul class="nav nav-tabs adventuretab">
-                                    <li><a data-toggle="tab" href="#about">About</a></li>
-                                    <li><a data-toggle="tab" href="#highlights">Highlights</a></li>
+                                    <li><a data-toggle="tab" class="active" href="#about_desc">About</a></li>
+                                    <li><a data-toggle="tab" href="#highlights_desc">Highlights</a></li>
                                  </ul>
                                  <div class="tab-content adventureview">
-                                    <div  class="tab-pane in active">
-                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et d quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                    <div class="tab-pane in active" id="about_desc">
+                                       <p id="about_accom"></p>
                                        <div class="logosbtn">
                                           <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
-                                    <div class="tab-pane">
-                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                    <div class="tab-pane" id="highlights_desc">
+                                       <p id="high_accom"></p>
                                        <div class="logosbtn">
                                           <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
@@ -194,10 +205,10 @@
                         <div class="col-lg-8 col-md-12 tabform">
                            <div class="alltabview">
                               <div class="alltopview-logo">
-                                 <img src="img/minarat-logo.png">
+                                 <img id="high_logo" src="img/minarat-logo.png" height="50" width="100">
                               </div>
                               <div class="upperparttab">
-                                 <ul class="nav nav-tabs stationnab">
+                                 <ul class="nav nav-tabs stationnab" id="high_activities">
                                     <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Helicopter" class="helicopter active"></a></li>
                                     <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Hili Area" class="hiliarea"></a></li>
                                     <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Fishing" class="fishing"></a></li>
@@ -232,18 +243,18 @@
                               </div>
                               <div class="bottomparttab">
                                  <ul class="nav nav-tabs adventuretab">
-                                    <li><a data-toggle="tab" href="#about">About</a></li>
-                                    <li><a data-toggle="tab" href="#highlights">Highlights</a></li>
+                                    <li><a data-toggle="tab" class="active" href="#about_highdesc">About</a></li>
+                                    <li><a data-toggle="tab" href="#highlights_highdesc">Highlights</a></li>
                                  </ul>
                                  <div class="tab-content adventureview">
-                                    <div  class="tab-pane in active">
-                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et d quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                    <div  class="tab-pane in active" id="about_highdesc">
+                                       <p id="about_highs"></p>
                                        <div class="logosbtn">
                                           <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
-                                    <div class="tab-pane">
-                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                    <div class="tab-pane" id="highlights_highdesc">
+                                       <p id="high_highs"></p>
                                        <div class="logosbtn">
                                           <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
@@ -269,10 +280,10 @@
                         <div class="col-lg-8 col-md-12 tabform">
                            <div class="alltabview">
                               <div class="alltopview-logo">
-                                 <img src="img/minarat-logo.png">
+                                 <img id="iti_logo" src="img/minarat-logo.png" height="50" width="100">
                               </div>
                               <div class="upperparttab">
-                                 <ul class="nav nav-tabs stationnab">
+                                 <ul class="nav nav-tabs stationnab" id="iti_activities">
                                     <li><a data-toggle="tab" href="#stationview-1" data-tool="tooltip" data-placement="right" title="Helicopter" class="helicopter active"></a></li>
                                     <li><a data-toggle="tab" href="#stationview-2" data-tool="tooltip" data-placement="right" title="Hili Area" class="hiliarea"></a></li>
                                     <li><a data-toggle="tab" href="#stationview-3" data-tool="tooltip" data-placement="right" title="Fishing" class="fishing"></a></li>
@@ -307,18 +318,18 @@
                               </div>
                               <div class="bottomparttab">
                                  <ul class="nav nav-tabs adventuretab">
-                                    <li><a data-toggle="tab" href="#about">About</a></li>
-                                    <li><a data-toggle="tab" href="#highlights">Highlights</a></li>
+                                    <li><a data-toggle="tab" class="active" href="#about_itdesc">About</a></li>
+                                    <li><a data-toggle="tab" href="#highlights_itdesc">Highlights</a></li>
                                  </ul>
                                  <div class="tab-content adventureview">
-                                    <div id="about" class="tab-pane in active">
-                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et d quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                    <div  class="tab-pane in active" id="about_itdesc">
+                                       <p id="iti_about"></p>
                                        <div class="logosbtn">
                                           <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
-                                    <div id="highlights" class="tab-pane">
-                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                    <div class="tab-pane" id="highlights_itdesc">
+                                       <p id="iti_highs"></p>
                                        <div class="logosbtn">
                                           <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
@@ -657,6 +668,16 @@
 
             //place marker
             if(accomodationsArray[i].address && accomodationsArray[i].address != '' && accomodationsArray[i].address != null) { 
+
+               for (var act in accomodationsArray[0].activities){
+                  var actname = accomodationsArray[0].activities[act].toLowerCase();
+                  actname = actname.replace(/ /g,'')
+                  //console.log(actname);
+                  $('.upperparttab #acco_activities li a.'+actname).css('display','block');
+               }
+               $('#about_accom').text(accomodationsArray[0].about);
+               $('#high_accom').text(accomodationsArray[0].highlights);
+               $('#acc_logo').attr('src','uploads/properties/'+accomodationsArray[0].logo);
               
               var infoWindow = new google.maps.InfoWindow();
 
@@ -675,6 +696,16 @@
                       //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
                       infoWindow.setContent("<div ><h3>" + data.name + "</h3></div");
                       infoWindow.open(map, marker);
+                      $('#acco_activities li a').css('display','none');
+                      $('#about_accom').text(data.about);
+                      $('#high_accom').text(data.highlights);
+                      $('#acc_logo').attr('src','uploads/properties/'+data.logo);
+                      for (var actdata in data.activities){
+                        var actnamedata = data.activities[actdata].toLowerCase();
+                        actnamedata = actnamedata.replace(/ /g,'')
+                        //console.log(actnamedata);
+                        $('.upperparttab #acco_activities li a.'+actnamedata).css('display','block');
+                      }
                   });
               })(marker, data);
             }
@@ -694,6 +725,16 @@
 
             //place marker
             if(highlightsArray[i].address && highlightsArray[i].address != '' && highlightsArray[i].address != null) { 
+
+               $('#about_highs').text(highlightsArray[0].about);
+               $('#high_highs').text(highlightsArray[0].highlights);
+               $('#high_logo').attr('src','uploads/properties/'+highlightsArray[0].logo);
+               for (var acthigh in highlightsArray[0].activities){
+                  var actnamehigh = highlightsArray[0].activities[acthigh].toLowerCase();
+                  actnamehigh = actnamehigh.replace(/ /g,'')
+                  //console.log(actnamehigh);
+                  $('.upperparttab #high_activities li a.'+actnamehigh).css('display','block');
+               }
               
               var infoWindow = new google.maps.InfoWindow();
 
@@ -712,6 +753,16 @@
                       //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
                       infoWindow.setContent("<div ><h3>" + data.name + "</h3></div");
                       infoWindow.open(map, marker);
+                      $('#high_activities li a').css('display','none');
+                      $('#about_highs').text(data.about);
+                      $('#high_highs').text(data.highlights);
+                      $('#high_logo').attr('src','uploads/properties/'+data.logo);
+                      for (var actdatahigh in data.activities){
+                        var actnamedatahigh = data.activities[actdatahigh].toLowerCase();
+                        actnamedatahigh = actnamedatahigh.replace(/ /g,'')
+                        //console.log(actnamedatahigh);
+                        $('.upperparttab #high_activities li a.'+actnamedatahigh).css('display','block');
+                      }
                   });
               })(marker, data);
             }
@@ -731,6 +782,16 @@
 
             //place marker
             if(itinerariesArray[i].address && itinerariesArray[i].address != '' && itinerariesArray[i].address != null) { 
+
+               $('#iti_about').text(itinerariesArray[0].about);
+               $('#iti_highs').text(itinerariesArray[0].highlights);
+               $('#iti_logo').attr('src','uploads/properties/'+itinerariesArray[0].logo);
+               for (var actit in itinerariesArray[0].activities){
+                  var actnameit = itinerariesArray[0].activities[actit].toLowerCase();
+                  actnameit = actnameit.replace(/ /g,'')
+                  //console.log(actnameit);
+                  $('.upperparttab #iti_activities li a.'+actnameit).css('display','block');
+               }
               
               var infoWindow = new google.maps.InfoWindow();
 
@@ -749,6 +810,16 @@
                       //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
                       infoWindow.setContent("<div ><h3>" + data.name + "</h3></div");
                       infoWindow.open(map, marker);
+                      $('#iti_activities li a').css('display','none');
+                      $('#iti_about').text(data.about);
+                      $('#iti_highs').text(data.highlights);
+                      $('#iti_logo').attr('src','uploads/properties/'+data.logo);
+                      for (var actdatait in data.activities){
+                        var actnamedatait = data.activities[actdatait].toLowerCase();
+                        actnamedatait = actnamedatait.replace(/ /g,'')
+                        //console.log(actnamedatait);
+                        $('.upperparttab #iti_activities li a.'+actnamedatait).css('display','block');
+                      }
                   });
               })(marker, data);
             }
