@@ -20,9 +20,9 @@ class CreatePropertiesTable extends Migration
             $table->string('location')->nullable();
             $table->text('logo')->nullable();
             $table->integer('category');
-            $table->text('activities');
-            $table->text('images')->nullable();
-            $table->text('videos')->nullable();
+            $table->longText('activities');
+            $table->text('highlights');
+            $table->text('about');
             $table->string('type');
             $table->timestamps();
         });

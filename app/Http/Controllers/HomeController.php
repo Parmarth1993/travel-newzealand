@@ -45,15 +45,15 @@ class HomeController extends Controller
         foreach ($properties as $key => $value) {
                                            # code...
                   $value->location  = unserialize($value->location);   
-                  if($value->category == '1')                     {
+                  if($value->category == '1') {
                     array_push($accomodations, $value);
-                  } else if($value->category == '2')                     {
+                  } else if($value->category == '2') {
                     array_push($highlights, $value);
                   } else {
                     array_push($itineraries, $value);
                   }
         }                               
-        return view('welcome')->with([ "itineraries" => $itineraries, 'highlights' => $highlights, 'accomodations' => $accomodations]);
+        return view('welcome')->with([ 'itineraries' => $itineraries, 'highlights' => $highlights, 'accomodations' => $accomodations]);
     }
 
 }

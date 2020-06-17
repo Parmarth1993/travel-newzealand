@@ -28,10 +28,6 @@
                      <label>Name</label>
                      <input type="text" name="name" class="form-control" value="" required>
                   </div>
-                  <!-- <div class="form-group">
-                     <label>Description</label>
-                     <textarea name="description" class="form-control" value="" required></textarea>
-                  </div> -->
                   <div class="form-group">
                      <label>Address</label>
                      <input id="autocomplete"
@@ -56,52 +52,30 @@
                         <option value="3">Itineraries</option>                        
                      </select>
                   </div>
-                  <!-- <div class="form-group">
-                     <label>Select Highlight</label>
-                     <select name="highlight" class="form-control">
-                        <option value="">Select Highlight</option>
-                        @foreach($highlights as $highlight)
-                         <option value="{{$highlight->id}}">{{$highlight->name}}</option>
-                        @endforeach
-                     </select>
-                  </div>
                   <div class="form-group">
-                     <label>Select Itineraries</label>
-                     <select name="itineraries" class="form-control">
-                        <option value="">Select Itineraries</option>
-                        @foreach($itineraries as $itinerary)
-                         <option value="{{$itinerary->id}}">{{$itinerary->name}}</option>
-                        @endforeach
-                     </select>
-                  </div> -->
-                  <div class="form-group">
-                     <label>Select Activities</label>
-                     <input type="checkbox" name="activities[]" value="Helicopter">Helicopter
-                     <input type="checkbox" name="activities[]" value="Hili Area">Hili Area
-                     <input type="checkbox" name="activities[]" value="Fishing">Fishing
-                     <input type="checkbox" name="activities[]" value="Food">Food
-                     <input type="checkbox" name="activities[]" value="Army">Army
-                     <input type="checkbox" name="activities[]" value="Religion">Religion
-                     <!-- <input type="checkbox" name="activities[]" value="Videos">Videos -->
-                  </div>
-
-                  <div class="form-group">
-                    <label>Media Type</label>
-                     <select name="media_type" id="media_type" class="form-control" required>
-                        <option value="">Select Type</option>
-                        <option value="1">Images</option>
-                        <option value="2">Videos</option>
-                     </select>
-                  </div>
-
-                  <div class="form-group" id="upload-image">
-                    <label>Select Images <span>(multiple select allowed)</span></label>
-                     <input type="file" name="images[]" class="form-control" multiple>
-                  </div>
-
-                  <div class="form-group" id="upload-video">
-                    <label>Select Videos <span>(multiple select allowed)</span></label>
-                     <input type="file" name="videos[]" class="form-control" multiple>
+                     <label>Select Activities <button type="button" id="addMoreBtn" class="btn btn-primary btn-sm">Add More</button></label>
+                     <div class="activities_selector" id="activities_selector">
+                        <label id="firstLabl">Select Activities <button type="button" id="removeBtn" class="btn btn-primary btn-sm removeBtn" data-id="1">Remove</button></label>
+                        <select name="activities[]" class="form-control" required onchange="return showAddMore(this.value)">
+                          <option value="">Select Activities</option>
+                          <option value="Helicopter">Helicopter</option>
+                          <option value="Hili Area">Hili Area</option>
+                          <option value="Fishing">Fishing</option>
+                          <option value="Food">Food</option>
+                          <option value="Army">Army</option>
+                          <option value="Religion">Religion</option>
+                       </select>
+                       <br>
+                       <label>Select Media Type</label>
+                       <select name="activity_media_type[]" class="form-control" required="">
+                         <option value="image">Image</option>
+                         <option value="video">Video</option>
+                       </select>
+                       <br>
+                       <label>Select Media</label>
+                       <input type="file" name="activity_media[]" required="">
+                       <br>
+                     </div>
                   </div>
 
                   <div class="form-group">
@@ -111,6 +85,14 @@
                         <option value="Luxury">Luxury</option>
                         <option value="Premium">Premium</option>
                      </select>
+                  </div>
+                  <div class="form-group" >
+                    <label>About </label>
+                    <textarea name="about" class="form-control" required></textarea>
+                  </div>
+                  <div class="form-group" >
+                    <label>Highlights </label>
+                    <textarea name="highlights" class="form-control" required></textarea>
                   </div>
                   <input type="submit" name="" class="btn btn-primary ml-auto" value="Add Property">
                </div>

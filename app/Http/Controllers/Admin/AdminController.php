@@ -149,8 +149,9 @@ class AdminController extends Controller
     public function addProperties(Request $request) {
         if($request->isMethod('post')) {
             $input = $request->all();
-            $property_images = array();
-            $property_videos = array();
+            $activities = $input['activities'];
+            $activitiesData = array();
+            
             try {
 
                  // Image Upload
@@ -158,33 +159,19 @@ class AdminController extends Controller
                 $logo_name = time().'.'.$image->getClientOriginalExtension();
                 $destinationPath = public_path('/uploads/properties');
                 $image->move($destinationPath, $logo_name);
-                $images = $request->images;
-                $videos = $request->videos;
-                
-                if(isset($images) && !empty($images)) {
-                 	$counter = 0;
-	                foreach ($images as $key => $image) {
-	                 	$image_name = $counter . time().'.'.$image->getClientOriginalExtension();
-		                $image->move($destinationPath, $image_name);
-		                array_push($property_images, $image_name);
-		                $counter++;
-	                }
-                	$input['images'] = serialize($property_images);
-                }
 
-                if(isset($videos) && !empty($videos)) {
-                 	$counter = 0;
-	                foreach ($videos as $key => $video) {
-	                 	$video_name = $counter . time().'.'.$video->getClientOriginalExtension();
-		                $video->move($destinationPath, $video_name);
-		                array_push($property_videos, $video_name);
-		                $counter++;
-	                }
-                	$input['videos'] = serialize($property_videos);
+                for($i = 0; $i < sizeof($activities); $i++) {
+
+                	$media = $input['activity_media'][$i];
+                	$media_name = $i . time().'.'.$media->getClientOriginalExtension();
+	                $media->move($destinationPath, $media_name);
+		            
+	                array_push($activitiesData, array('name' => $activities[$i], 'type' => $input['activity_media_type'][$i], 'media' => $media_name));
+
                 }
 
                 $input['logo'] = $logo_name;
-                $input['activities'] = serialize($input['activities']);
+                $input['activities'] = serialize($activitiesData);
                 $input['location'] = serialize($input['location']);
                 $card = Properties::create($input);
                 return redirect('/admin/properties')->with('success', 'Properties Created Successfully.');
@@ -193,17 +180,19 @@ class AdminController extends Controller
                 return redirect('/admin/properties/add')->with('error', $e->getMessage());
             }
         } 
-        $accomodations = Accomodations::all();
-        $highlights = Highlights::all();
-        $itineraries = Itineraries::all();
 
-        return view('admin.add-properties')->with([ "accomodations" => $accomodations, "highlights" => $highlights, "itineraries" => $itineraries]);  
+
+        return view('admin.add-properties');  
     }
 
      public function editProperties(Request $request) {
      	$id = $request->id;
         if($request->isMethod('post')) {
             $input = $request->all();
+            $activity_media = $input['activity_media'];
+            $activities = $input['activities'];
+            $activitiesData = array();
+            $destinationPath = public_path('/uploads/properties');
             try {
                  // Image Upload
             	if(!empty($request->file('logo')) && isset($request->file)) {
@@ -213,12 +202,29 @@ class AdminController extends Controller
 	                 $image->move($destinationPath, $name);
 
 	                 $input['logo'] = $name;
-	             } else {
+	            } else {
 	             	$input['logo'] = $input['logo2'];
-	             }
-	            $input = $request->only('name', 'description','logo','accommodation','highlight','itineraries','activities','type');
-                $input['activities'] = serialize($input['activities']);
-                $card = Properties::where(['id' => $id])
+	            }
+
+
+	            for($i = 0; $i < sizeof($activities); $i++) {
+
+	            	if(!empty($input['activity_media'][$i]) && isset($input['activity_media'][$i])) {
+	                	$media = $input['activity_media'][$i];
+	                	$media_name = $i . time().'.'.$media->getClientOriginalExtension();
+		                $media->move($destinationPath, $media_name);
+			            
+		                array_push($activitiesData, array('name' => $activities[$i], 'type' => $input['activity_media_type'][$i], 'media' => $media_name));
+
+		            } else {
+		            	array_push($activitiesData, array('name' => $activities[$i], 'type' => $input['activity_media_type'][$i], 'media' => $input['activity_media_hidden'][$i]));
+		            }
+
+                }
+
+	            $input = $request->only('name', 'location','address', 'logo','category','activities', 'type', 'about', 'highlights');
+                $input['activities'] = serialize($activitiesData);
+	            $card = Properties::where(['id' => $id])
                 		->update($input);
                 return redirect('/admin/properties')->with('success', 'Properties Updated Successfully.');
 
@@ -227,11 +233,10 @@ class AdminController extends Controller
             }
         } 
 
-        $accomodations = Accomodations::all();
-        $highlights = Highlights::all();
-        $itineraries = Itineraries::all();
-        $property = Properties::where(['id' => $id])->first();
 
-        return view('admin.edit-property')->with([ "accomodations" => $accomodations, "highlights" => $highlights, "itineraries" => $itineraries, 'property' => $property]);  
+        $property = Properties::where(['id' => $id])->first();
+        $property['activities'] = unserialize($property['activities']);
+
+        return view('admin.edit-property')->with(['property' => $property]);  
     }
 }

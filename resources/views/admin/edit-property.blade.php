@@ -29,52 +29,63 @@
                      <input type="text" name="name" class="form-control" value="{{$property->name}}" required>
                   </div>
                   <div class="form-group">
-                     <label>Description</label>
-                     <textarea name="description" class="form-control" required>{{$property->description}}</textarea>
+                     <label>Address</label>
+                     <input id="autocomplete"
+                      name="address"
+                      placeholder="Enter your address"
+                      onFocus="geolocate()"
+                      onChange="getLatLOng()"
+                      type="text" class="form-control" value="{{$property->address}}" required/>
                   </div>
+                  <input type="hidden" name="location[lat]" id="lat_val">
+                  <input type="hidden" name="location[long]" id="long_val">
                   <div class="form-group">
                      <label>Select Logo</label>
                      <input type="file" name="logo" id="file-upload" class="file">
                      <input type="hidden" name="logo2" value="{{$property->logo}}">
-                     <img src="/uploads/profiles/{{$property->logo}}" width="150" style="border: 1px solid #000">
+                     <img src="/uploads/properties/{{$property->logo}}" width="150" style="border: 1px solid #000">
                   </div>
+                 
                   <div class="form-group">
-                     <label>Select Accomodation</label>
-                     <select name="accommodation" class="form-control">
-                        <option value="">Select Accomodation</option>
-                        @foreach($accomodations as $accomodation)
-                         <option value="{{$accomodation->id}}" @if($accomodation->id == $property->accommodation) selected='selected' @endif>{{$accomodation->name}}</option>
-                        @endforeach
-                     </select>
+                     <label>Select Activities <button type="button" id="addMoreBtn" class="edit btn btn-primary btn-sm">Add More</button></label>
+                     @php ($counter = 0)
+                     @for($i = 0; $i < sizeOf($property['activities']); $i++) 
+                           <div class="activities_selector" id="activities_selector{{$counter}}">
+                              <label id="firstLab{{$counter}}">Select Activities <button type="button" id="removeBtn{{$counter}}" class="btn btn-primary btn-sm removeBtn" data-id="{{$counter}}">Remove</button></label>
+                           <select name="activities[]" class="form-control" required onchange="return showAddMore(this.value)">
+                             <option value="">Select Activities</option>
+                             <option value="Helicopter" @if($property['activities'][$i]['name'] == 'Helicopter') selected='selected' @endif>Helicopter</option>
+                             <option value="Hili Area" @if($property['activities'][$i]['name'] == 'Hili Area') selected='selected' @endif>Hili Area</option>
+                             <option value="Fishing" @if($property['activities'][$i]['name'] == 'Fishing') selected='selected' @endif>Fishing</option>
+                             <option value="Food" @if($property['activities'][$i]['name'] == 'Food') selected='selected' @endif>Food</option>
+                             <option value="Army" @if($property['activities'][$i]['name'] == 'Army') selected='selected' @endif>Army</option>
+                             <option value="Religion" @if($property['activities'][$i]['name'] == 'Religion') selected='selected' @endif>Religion</option>
+                          </select>
+                          <br>
+                          <label>Select Media Type</label>
+                          <select name="activity_media_type[]" class="form-control" required="">
+                            <option value="image" @if($property['activities'][$i]['type'] == 'image') selected='selected' @endif>Image</option>
+                            <option value="video" @if($property['activities'][$i]['type'] == 'video') selected='selected' @endif>Video</option>
+                          </select>
+                          <br>
+                          <label>Select Media</label>
+                          <input type="file" name="activity_media[]" >
+                          <input type="hidden" name="activity_media_hidden[]" value="{{$property['activities'][$i]['media']}}">
+                          @if($property['activities'][$i]['type'] == 'image')
+                           <img src="/uploads/properties/{{$property['activities'][$i]['media']}}" width="150" style="border: 1px solid #000">
+                          @else
+                           <video width="150" style="border: 1px solid #000" controls>
+                             <source src="/uploads/properties/{{$property['activities'][$i]['media']}}" width="150" >
+                             Your browser does not support the video tag.
+                           </video>
+                          @endif
+                          <br>
+                        </div>
+                       @php ($counter++)
+                     @endfor
                   </div>
-                  <div class="form-group">
-                     <label>Select Highlight</label>
-                     <select name="highlight" class="form-control">
-                        <option value="">Select Highlight</option>
-                        @foreach($highlights as $highlight)
-                         <option value="{{$highlight->id}}"  @if($highlight->id == $property->highlight) selected='selected' @endif>{{$highlight->name}}</option>
-                        @endforeach
-                     </select>
-                  </div>
-                  <div class="form-group">
-                     <label>Select Itineraries</label>
-                     <select name="itineraries" class="form-control">
-                        <option value="">Select Itineraries</option>
-                        @foreach($itineraries as $itinerary)
-                         <option value="{{$itinerary->id}}"  @if($itinerary->id == $property->itineraries) selected='selected' @endif>{{$itinerary->name}}</option>
-                        @endforeach
-                     </select>
-                  </div>
-                  <div class="form-group">
-                     <label>Select Activities</label>
-                     <input type="checkbox" name="activities[]" value="Helicopter" <?php if(in_array("Helicopter", unserialize($property->activities))) { echo 'checked="checked"'; }?>>Helicopter
-                     <input type="checkbox" name="activities[]" value="Hili Area" <?php if(in_array("Hili Area", unserialize($property->activities))) { echo 'checked="checked"'; }?>>Hili Area
-                     <input type="checkbox" name="activities[]" value="Fishing" <?php if(in_array("Fishing", unserialize($property->activities))) { echo 'checked="checked"'; }?>>Fishing
-                     <input type="checkbox" name="activities[]" value="Food" <?php if(in_array("Food", unserialize($property->activities))) { echo 'checked="checked"'; }?>>Food
-                     <input type="checkbox" name="activities[]" value="Army" <?php if(in_array("Army", unserialize($property->activities))) { echo 'checked="checked"'; }?>>Army
-                     <input type="checkbox" name="activities[]" value="Religion" <?php if(in_array("Religion", unserialize($property->activities))) { echo 'checked="checked"'; }?>>Religion
-                     <input type="checkbox" name="activities[]" value="Videos" <?php if(in_array("Videos", unserialize($property->activities))) { echo 'checked="checked"'; }?>>Videos
-                  </div>
+
+
                   <div class="form-group">
                      <label>Select Type</label>
                      <select name="type" class="form-control" required>
@@ -83,7 +94,17 @@
                         <option value="Premium" @if("Premium" == $property->type) selected='selected' @endif>Premium</option>
                      </select>
                   </div>
-                  <input type="submit" name="" class="btn btn-primary ml-auto" value="Add Property">
+
+                  <div class="form-group" >
+                    <label>About </label>
+                    <textarea name="about" class="form-control" required>{{$property->about}}</textarea>
+                  </div>
+                  <div class="form-group" >
+                    <label>Highlights </label>
+                    <textarea name="highlights" class="form-control" required>{{$property->highlights}}</textarea>
+                  </div>
+
+                  <input type="submit" name="" class="btn btn-primary ml-auto" value="Update Property">
                </div>
             </div>
          </form>

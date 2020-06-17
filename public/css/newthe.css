@@ -1441,3 +1441,15 @@ nav#mainNav {padding-bottom: 40px; }
 }
 
 
+#addMoreBtn {
+  display: none;
+}
+#addMoreBtn.edit {
+  display: block;
+}
+#firstLabl, #firstLab0 {
+    display: none;
+}
+#removeBtn, #removeBtn0 {
+    display: none;
+}
