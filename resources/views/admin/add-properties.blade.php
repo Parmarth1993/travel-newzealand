@@ -47,13 +47,13 @@
                      <label>Category</label>
                      <select name="category" class="form-control" required>
                         <option value="">Select Category</option>
-                        <option value="1">Accomodations</option>
-                        <option value="2">Highlights</option>
-                        <option value="3">Itineraries</option>                        
+                        @foreach($categories as $category)                    
+                          <option value="{{$category->id}}">{{$category->name}}</option>
+                        @endforeach
                      </select>
                   </div>
                   <div class="form-group">
-                     <label>Select Activities <button type="button" id="addMoreBtn" class="btn btn-primary btn-sm">Add More</button></label>
+                     <label>Select Activities </label>
                      <div class="activities_selector" id="activities_selector">
                         <label id="firstLabl">Select Activities <button type="button" id="removeBtn" class="btn btn-primary btn-sm removeBtn" data-id="1">Remove</button></label>
                         <select name="activities[]" class="form-control" required onchange="return showAddMore(this.value)">
@@ -67,15 +67,19 @@
                        </select>
                        <br>
                        <label>Select Media Type</label>
-                       <select name="activity_media_type[]" class="form-control" required="">
+                       <select name="activity_media_type[]" class="form-control" required="" onchange="return selectMediaType(this.value)">
                          <option value="image">Image</option>
                          <option value="video">Video</option>
                        </select>
                        <br>
-                       <label>Select Media</label>
-                       <input type="file" name="activity_media[]" required="">
-                       <br>
+                       <label class="image-file">Select Image</label>
+                       <input type="file" class="image-file" name="activity_media_image[]" >
+                       <label class="vide-link">Enter Video Link</label>
+                       <input type="url" class="vide-link form-control" name="activity_media_video[]" >
+                       <br>                      
                      </div>
+                     <button type="button" id="addMoreBtn" class="btn btn-primary btn-sm">Add More</button>
+                     <br>
                   </div>
 
                   <div class="form-group">

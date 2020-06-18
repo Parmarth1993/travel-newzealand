@@ -5,7 +5,7 @@
       <div class="container">
          <div class="row headingtop">
             <div class="col-lg-4 col-md-4 col-sm-4 col-12">
-               <h2 class="textlog">Properties</h2>
+               <h2 class="textlog">Categories</h2>
             </div>
          </div>
          <div class="row">
@@ -21,40 +21,37 @@
             @endif
          </div>
          <div class="form-group d-flex">                                
-            <a href="/admin/properties/add" class="btn btn-primary ml-auto" >Add Properties</a>
+            <a href="/admin/category/add" class="btn btn-primary ml-auto" >Add Category</a>
          </div>
-          <div class="card shadow mb-4">
+         <div class="card shadow mb-4">
             <div class="card-body">
                <div class="table-responsive">
                   <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0">
                      <thead>
                         <tr>
                            <th>Name</th>
-                           <th>Address</th>
-                           <th>Type</th>
-                           <th>Category</th>
+                           <th>Description</th>
+                           <th>Is Active</th>
                            <th>Actions</th>
                         </tr>
                      </thead>
                      <tfoot>
                         <tr>
                            <th>Name</th>
-                           <th>Address</th>
-                           <th>Type</th>
-                           <th>Category</th>
+                           <th>Description</th>
+                           <th>Is Active</th>
                            <th>Actions</th>
                         </tr>
                      </tfoot>
                      <tbody>
-                        @foreach($properties as $property)
-                        <tr class="plan-{{$property->id}}">
-                           <td>{{$property->name}}</td>
-                           <td>{{$property->address}}</td>
-                           <td>{{$property->type}}</td>
-                           <td>{{$property->c_name}}</td>
+                        @foreach($categories as $category)
+                        <tr class="plan-{{$category->id}}">
+                           <td>{{$category->name}}</td>
+                           <td>{{$category->description}}</td>
+                           <td>@if($category->active == 1) Yes @else No @endif</td>
                            <td>
-                              <a href="/admin/properties/edit/{{$property->id}}" >Edit</a>
-                              <a href="javascript:vood(0);" data-id="{{$property->id}}" class="delete-plan">Delete</a>
+                              <a href="/admin/category/edit/{{$category->id}}" >Edit</a>
+                              <a href="javascript:vood(0);" data-id="{{$category->id}}" class="delete-plan">Delete</a>
                            </td>
                         </tr>
                         @endforeach

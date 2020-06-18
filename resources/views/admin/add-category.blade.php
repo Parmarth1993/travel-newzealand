@@ -5,7 +5,7 @@
       <div class="container">
          <div class="row headingtop">
             <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-               <h2 class="textlog">Add New Accomodation</h2>
+               <h2 class="textlog">Add New Category</h2>
             </div>
          </div>
          <div class="row">
@@ -20,7 +20,7 @@
             </p>
             @endif
          </div>
-         <form action="{{route('add_accomodation')}}" name="profile_form" method="POST">
+         <form action="{{route('add_category')}}" name="profile_form" method="POST">
             @csrf
             <div class="row">
                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
@@ -32,7 +32,7 @@
                      <label>Description</label>
                      <textarea name="description" class="form-control" value="" required></textarea>
                   </div>
-                  <input type="submit" name="" class="btn btn-primary ml-auto" value="Add Accomodation">
+                  <input type="submit" name="" class="btn btn-primary ml-auto" value="Add Category">
                </div>
             </div>
          </form>

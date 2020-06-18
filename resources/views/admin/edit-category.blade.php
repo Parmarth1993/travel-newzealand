@@ -5,7 +5,7 @@
       <div class="container">
          <div class="row headingtop">
             <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-               <h2 class="textlog">Update Accomodation</h2>
+               <h2 class="textlog">Update Category</h2>
             </div>
          </div>
          <div class="row">
@@ -20,18 +20,27 @@
             </p>
             @endif
          </div>
-         <form action="{{route('edit_accomodation', $accomodation->id)}}" name="profile_form" method="POST">
+         <form action="{{route('edit_category', $category->id)}}" name="profile_form" method="POST">
             @csrf
             <div class="row">
                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                   <div class="form-group">
                      <label>Name</label>
-                     <input type="text" name="name" class="form-control" value="{{$accomodation->name}}" required>
+                     <input type="text" name="name" class="form-control" value="{{$category->name}}" required>
                   </div>
                   <div class="form-group">
                      <label>Description</label>
-                     <textarea name="description" class="form-control" value="" required>{{$accomodation->name}}</textarea>
+                     <textarea name="description" class="form-control" value="" required>{{$category->description}}</textarea>
                   </div>
+
+                  <div class="form-group">
+                     <label>Is Active</label>
+                     <select name="active" class="form-control">
+                        <option value="1" @if($category->active == '1') selected='selected' @endif >Yes</option>
+                        <option value="0" @if($category->active == '0') selected='selected' @endif >No</option>
+                     </select>
+                  </div>
+
                   <input type="submit" name="" class="btn btn-primary ml-auto" value="Update Accomodation">
                </div>
             </div>

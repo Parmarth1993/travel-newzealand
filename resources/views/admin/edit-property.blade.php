@@ -45,7 +45,17 @@
                      <input type="hidden" name="logo2" value="{{$property->logo}}">
                      <img src="/uploads/properties/{{$property->logo}}" width="150" style="border: 1px solid #000">
                   </div>
-                 
+                  
+                  <div class="form-group">
+                     <label>Category</label>
+                     <select name="category" class="form-control" required>
+                        <option value="">Select Category</option>
+                        @foreach($categories as $category)                    
+                          <option value="{{$category->id}}" @if($category->id == $property->category) selected='selected' @endif>{{$category->name}}</option>
+                        @endforeach
+                     </select>
+                  </div>
+
                   <div class="form-group">
                      <label>Select Activities <button type="button" id="addMoreBtn" class="edit btn btn-primary btn-sm">Add More</button></label>
                      @php ($counter = 0)
@@ -68,16 +78,15 @@
                             <option value="video" @if($property['activities'][$i]['type'] == 'video') selected='selected' @endif>Video</option>
                           </select>
                           <br>
-                          <label>Select Media</label>
-                          <input type="file" name="activity_media[]" >
-                          <input type="hidden" name="activity_media_hidden[]" value="{{$property['activities'][$i]['media']}}">
+                          <label class="image-file">Select Image</label>
+                          <input type="file" name="activity_media_image[]" >
+                          <input type="hidden" name="activity_media_image_hidden[]" value="{{$property['activities'][$i]['media']}}">
+                          <label class="vide-link">Enter Video Link</label>
+                          <input type="url" class="vide-link form-control" name="activity_media_video[]" >
                           @if($property['activities'][$i]['type'] == 'image')
                            <img src="/uploads/properties/{{$property['activities'][$i]['media']}}" width="150" style="border: 1px solid #000">
                           @else
-                           <video width="150" style="border: 1px solid #000" controls>
-                             <source src="/uploads/properties/{{$property['activities'][$i]['media']}}" width="150" >
-                             Your browser does not support the video tag.
-                           </video>
+                           <iframe width="150" src="{{$property['activities'][$i]['media']}}"></iframe>
                           @endif
                           <br>
                         </div>

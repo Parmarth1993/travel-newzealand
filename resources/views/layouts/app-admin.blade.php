@@ -65,14 +65,14 @@
                      @endif
                   @endif
                   <a href="/admin/properties" class="list-group-item list-group-item-action">Properties</a>
-                  <a data-toggle="dropdown" class="list-group-item list-group-item-action">Categories <span class="caret"></span></a>
-                  <div class="dropdown">
+                  <a href="/admin/categories" class="list-group-item list-group-item-action">Categories</a>
+                  <!-- <div class="dropdown">
                      <ul class="dropdown-menu">
                         <a href="/admin/accomodation/edit/1" class="list-group-item list-group-item-action">Accomodations</a>
                         <a href="/admin/highlight/edit/1" class="list-group-item list-group-item-action">Highlights</a>
                         <a href="/admin/itinerarie/edit/1" class="list-group-item list-group-item-action">Itineraries</a>
                     </ul>
-                  </div>
+                  </div> -->
                  <!--  <a href="/admin/highlights" class="list-group-item list-group-item-action">Highlights</a>
                   <a href="/admin/itineraries" class="list-group-item list-group-item-action">Itineraries</a> -->
                </div>
@@ -94,8 +94,8 @@
       <script src="{{asset('js/sweetalert.min.js')}}"></script>
 
       <script type="text/javascript">
+         var activitiesCounter = 0;
          $(document).ready(function() {
-            var activitiesCounter = 0;
             $('#upload-image').hide();
             $('#upload-video').hide();
             //$('#addMoreBtn').hide();
@@ -141,6 +141,41 @@
               $('#addMoreBtn').show();
             } else {
               $('#addMoreBtn').hide();
+            }
+         }
+
+         function selectMediaType(value) {
+            if(value == 'video') {
+               if(activitiesCounter == 0) {
+                  $('#activities_selector .image-file').hide();
+                  $('#activities_selector .vide-link').show();
+
+                  $('#activities_selector .image-file').removeAttr('required');
+                  $('#activities_selector .vide-link').attr('required', true);
+
+               } else {
+                  $('#activities_selector' + activitiesCounter + ' .image-file').hide();
+                  $('#activities_selector' + activitiesCounter + ' .vide-link').show();
+
+                  $('#activities_selector' + activitiesCounter + ' .image-file').removeAttr('required');
+                  $('#activities_selector' + activitiesCounter + ' .vide-link').attr('required', true);
+               }
+            } else {
+
+               if(activitiesCounter == 0) {
+                  $('#activities_selector .image-file').show();
+                  $('#activities_selector .vide-link').hide();
+
+                  $('#activities_selector .image-file').attr('required', true);
+                  $('#activities_selector .vide-link').removeAttr('required');
+
+               } else {
+                  $('#activities_selector' + activitiesCounter + ' .image-file').show();
+                  $('#activities_selector' + activitiesCounter + ' .vide-link').hide();
+
+                  $('#activities_selector' + activitiesCounter + ' .image-file').attr('required', true);
+                  $('#activities_selector' + activitiesCounter + ' .vide-link').removeAttr('required');
+               }
             }
          }
       </script>

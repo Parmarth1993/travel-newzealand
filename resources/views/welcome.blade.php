@@ -145,24 +145,11 @@
                                     <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Videos" class="videos"></a></li>
                                  </ul>
                                  <div class="container">
-                                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                                     <ol class="carousel-indicators">
-                                       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                       <li data-target="#myCarousel" data-slide-to="1"></li>
-                                       <li data-target="#myCarousel" data-slide-to="2"></li>
-                                     </ol>
-                                     <div class="carousel-inner"></div>
-                                    
-                                     
-                                   <!--  <div class="tab-pane in active">
-                                       <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo.jpg"> </div>
+                                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                        <ol class="carousel-indicators" id="ol_acco"></ol>
+                                        <div id="carouse_acco" class="carousel-inner"></div>
                                     </div>
-                                    
-                                    <div class="tab-pane">
-                                       <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo1.jpg"> </div>
-                                    </div> -->
                                  </div>
-                              </div>
                               </div>
                               <div class="bottomparttab">
                                  <ul class="nav nav-tabs adventuretab">
@@ -215,27 +202,10 @@
                                     <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Religion" class="religion"></a></li>
                                     <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Videos" class="videos"></a></li>
                                  </ul>
-                                 <div class="tab-content stationviewpart">
-                                    <div class="tab-pane in active">
-                                       <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo.jpg"> </div>
-                                    </div>
-                                    <div class="tab-pane">
-                                       <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo1.jpg"> </div>
-                                    </div>
-                                    <div class="tab-pane">
-                                       <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo.jpg"> </div>
-                                    </div>
-                                    <div class="tab-pane">
-                                       <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo1.jpg"> </div>
-                                    </div>
-                                    <div class="tab-pane">
-                                       <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo.jpg"> </div>
-                                    </div>
-                                    <div class="tab-pane">
-                                       <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo1.jpg"> </div>
-                                    </div>
-                                    <div class="tab-pane">
-                                       <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo1.jpg"> </div>
+                                 <div class="container">
+                                    <div id="myCarouse2" class="carousel slide" data-ride="carousel">
+                                        <ol class="carousel-indicators" id="ol_high"></ol>
+                                        <div id="carouse_high" class="carousel-inner"></div>
                                     </div>
                                  </div>
                               </div>
@@ -290,27 +260,10 @@
                                     <li><a data-toggle="tab" href="#stationview-6" data-tool="tooltip" data-placement="right" title="Religion" class="religion"></a></li>
                                     <li><a data-toggle="tab" href="#stationview-7" data-tool="tooltip" data-placement="right" title="Videos" class="videos"></a></li>
                                  </ul>
-                                 <div class="tab-content stationviewpart">
-                                    <div id="stationview-1" class="tab-pane in active">
-                                       <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo.jpg"> </div>
-                                    </div>
-                                    <div id="stationview-2" class="tab-pane">
-                                       <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo2.jpg"> </div>
-                                    </div>
-                                    <div id="stationview-3" class="tab-pane">
-                                       <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo2.jpg"> </div>
-                                    </div>
-                                    <div id="stationview-4" class="tab-pane">
-                                       <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo1.jpg"> </div>
-                                    </div>
-                                    <div id="stationview-5" class="tab-pane">
-                                       <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo2.jpg"> </div>
-                                    </div>
-                                    <div id="stationview-6" class="tab-pane">
-                                       <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo1.jpg"> </div>
-                                    </div>
-                                    <div id="stationview-7" class="tab-pane">
-                                       <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo2.jpg"> </div>
+                                 <div class="container">
+                                    <div id="myCarouse3" class="carousel slide" data-ride="carousel">
+                                        <ol class="carousel-indicators" id="ol_iti"></ol>
+                                        <div class="carousel-inner" id="carouse_iti"></div>
                                     </div>
                                  </div>
                               </div>
@@ -668,89 +621,131 @@
         });
          var counter=0;
          var classact = '';
-         for (var act in accomodationsArray[0].activities){
+         if(accomodationsArray.length) {
+            for (var act in accomodationsArray[0].activities){
 
-            if(counter === 0){
-               classact = 'active';
-            }else{
-               classact = '';
+               if(counter === 0){
+                  classact = 'active';
+               }else{
+                  classact = '';
+               }
+
+               var actname = accomodationsArray[0].activities[act].name.toLowerCase();
+               actname = actname.replace(/ /g,'')
+                     //console.log(actname);
+               $('.upperparttab #acco_activities li a.'+actname).css('display','block');
+
+               $('#ol_acco').append('<li data-target="#myCarousel" data-slide-to="'+ counter +'" class="'+ classact +'"></li>');               
+
+               if(accomodationsArray[0].activities[act].type == 'image') {
+                  $('#carouse_acco.carousel-inner').append('<div class="item '+classact+' '+actname+' "><img width="100%" src="uploads/properties/'+accomodationsArray[0].activities[act].media+'" alt="Image" type="'+ accomodationsArray[0].activities[act].type +'"></div>');
+               } else {
+                  $('#carouse_acco.carousel-inner').append('<div class="item '+classact+' '+actname+' "><iframe width="100%" src="'+accomodationsArray[0].activities[act].media+'" alt="video" type="'+ accomodationsArray[0].activities[act].type +'"></div>');
+               }
+
+               counter++;
             }
+            for(var i = 0; i < accomodationsArray.length ; i++) {
 
-            var actname = accomodationsArray[0].activities[act].name.toLowerCase();
-            actname = actname.replace(/ /g,'')
-                  //console.log(actname);
-            $('.upperparttab #acco_activities li a.'+actname).css('display','block');
-            $('.carousel-inner').append('<div class="item '+classact+' '+actname+' "><img width="100%" src="uploads/properties/'+accomodationsArray[0].activities[act].media+'" alt="Image"></div>');
-            counter++;
+               //place marker
+               if(accomodationsArray[i].address && accomodationsArray[i].address != '' && accomodationsArray[i].address != null) { 
+
+                  $('#about_accom').text(accomodationsArray[0].about);
+                  $('#high_accom').text(accomodationsArray[0].highlights);
+                  $('#acc_logo').attr('src','uploads/properties/'+accomodationsArray[0].logo);
+                 
+                 var infoWindow = new google.maps.InfoWindow();
+
+                 var data = accomodationsArray[i];
+                 var latlong = {lat: parseFloat(accomodationsArray[i].location.lat), lng: parseFloat(accomodationsArray[i].location.long)};      
+                 var marker = new google.maps.Marker({
+                   position: latlong,
+                   map: map,
+                   //icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+ 35,
+                   title: accomodationsArray[i].name
+                 });
+
+                 //Attach click event to the marker.
+                 (function (marker, data) {
+                     google.maps.event.addListener(marker, "click", function (e) {
+                        $('#carouse_acco.carousel-inner').html('');
+                        $('#ol_acco').html('');
+                         //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
+                         infoWindow.setContent("<div ><h3>" + data.name + "</h3></div");
+                         infoWindow.open(map, marker);
+                         $('#acco_activities li a').css('display','none');
+                         $('.carousel-inner').html('');
+                         $('#about_accom').text(data.about);
+                         $('#high_accom').text(data.highlights);
+                         $('#acc_logo').attr('src','uploads/properties/'+data.logo);
+                         var counterdata=0;
+                         var classactdata = '';
+                         for (var actdata in data.activities){
+                           if(counterdata === 0){
+                              classactdata = 'active';
+                           }else{
+                              classactdata = '';
+                           }
+                           var actnamedata = data.activities[actdata].name.toLowerCase();
+                           actnamedata = actnamedata.replace(/ /g,'');
+
+                           $('#ol_acco').append('<li data-target="#myCarousel" data-slide-to="'+ counterdata +'" class="'+ classact +'"></li>'); 
+
+                           //console.log(actnamedata);
+                           $('.upperparttab #acco_activities li a.'+actnamedata).css('display','block');
+                           if(data.activities[actdata].type == 'image') {
+                              $('#carouse_acco.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><img width="100%" src="uploads/properties/'+data.activities[actdata].media+'" alt="Image" type="'+ data.activities[actdata].type +'"></div>');
+                           } else {
+                              $('#carouse_acco.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><iframe width="100%" src="'+data.activities[actdata].media+'" alt="video" type="'+ data.activities[actdata].type +'"></div>');
+                           }
+                           counterdata++;
+                         }
+                     });
+                 })(marker, data);
+               }
+            }
          }
-          for(var i = 0; i < accomodationsArray.length ; i++) {
-
-            //place marker
-            if(accomodationsArray[i].address && accomodationsArray[i].address != '' && accomodationsArray[i].address != null) { 
-
-               $('#about_accom').text(accomodationsArray[0].about);
-               $('#high_accom').text(accomodationsArray[0].highlights);
-               $('#acc_logo').attr('src','uploads/properties/'+accomodationsArray[0].logo);
-              
-              var infoWindow = new google.maps.InfoWindow();
-
-              var data = accomodationsArray[i];
-              var latlong = {lat: parseFloat(accomodationsArray[i].location.lat), lng: parseFloat(accomodationsArray[i].location.long)};      
-              var marker = new google.maps.Marker({
-                position: latlong,
-                map: map,
-                //icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+ 35,
-                title: accomodationsArray[i].name
-              });
-
-              //Attach click event to the marker.
-              (function (marker, data) {
-                  google.maps.event.addListener(marker, "click", function (e) {
-                      //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
-                      infoWindow.setContent("<div ><h3>" + data.name + "</h3></div");
-                      infoWindow.open(map, marker);
-                      $('#acco_activities li a').css('display','none');
-                      $('.carousel-inner').html('');
-                      $('#about_accom').text(data.about);
-                      $('#high_accom').text(data.highlights);
-                      $('#acc_logo').attr('src','uploads/properties/'+data.logo);
-                      var counterdata=0;
-                      var classactdata = '';
-                      for (var actdata in data.activities){
-                        if(counterdata === 0){
-                           classactdata = 'active';
-                        }else{
-                           classactdata = '';
-                        }
-                        var actnamedata = data.activities[actdata].name.toLowerCase();
-                        actnamedata = actnamedata.replace(/ /g,'')
-                        //console.log(actnamedata);
-                        $('.upperparttab #acco_activities li a.'+actnamedata).css('display','block');
-                        $('.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><img width="100%" src="uploads/properties/'+data.activities[actdata].media+'" alt="Image"></div>');
-                        counterdata++;
-                      }
-                  });
-              })(marker, data);
-            }
-        }
        
 
-       //map 2
-       var map = new google.maps.Map(document.getElementById('map-canvas-highlights'), {
+      //map 2
+      var map = new google.maps.Map(document.getElementById('map-canvas-highlights'), {
           zoom: 5,
           center: auck,
           fullscreenControl: false,
           backgroundColor: '#FFF',
           minzoom: 5,
           maxzoom: 15
-        });
+      });
+
+      var counter_high=0;
+      var classact_high = '';
+      if(highlightsArray.length) {
          for (var acthigh in highlightsArray[0].activities){
             var actnamehigh = highlightsArray[0].activities[acthigh].name.toLowerCase();
             actnamehigh = actnamehigh.replace(/ /g,'')
                   //console.log(actnamehigh);
-            $('.upperparttab #high_activities li a.'+actnamehigh).css('display','block');
+            if(counter_high === 0){
+               classact_high = 'active';
+            }else{
+               classact_high = '';
+            }
+
+            var actname_high = highlightsArray[0].activities[acthigh].name.toLowerCase();
+            actname_high = actname_high.replace(/ /g,'')
+                  //console.log(actname_high);
+            $('.upperparttab #high_activities li a.'+actname_high).css('display','block');
+
+            $('#ol_high').append('<li data-target="#myCarouse2" data-slide-to="'+ counter_high +'" class="'+ classact_high +'"></li>');
+
+            if(highlightsArray[0].activities[acthigh].type == 'image') {
+               $('#carouse_high.carousel-inner').append('<div class="item '+classact_high+' '+actname_high+' "><img width="100%" src="uploads/properties/'+highlightsArray[0].activities[acthigh].media+'" alt="Image" type="'+ highlightsArray[0].activities[acthigh].type +'"></div>');
+            } else {
+               $('#carouse_high.carousel-inner').append('<div class="item '+classact_high+' '+actname_high+' "><iframe width="100%" src="'+highlightsArray[0].activities[acthigh].media+'" alt="video" type="'+ highlightsArray[0].activities[acthigh].type +'"></div>');
+            }
+
+               counter_high++;
          }
-          for(var i = 0; i < highlightsArray.length ; i++) {
+         for(var i = 0; i < highlightsArray.length ; i++) {
 
             //place marker
             if(highlightsArray[i].address && highlightsArray[i].address != '' && highlightsArray[i].address != null) { 
@@ -773,6 +768,8 @@
               //Attach click event to the marker.
               (function (marker, data) {
                   google.maps.event.addListener(marker, "click", function (e) {
+                     $('#carouse_high.carousel-inner').html('');
+                     $('#ol_high').html('');
                       //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
                       infoWindow.setContent("<div ><h3>" + data.name + "</h3></div");
                       infoWindow.open(map, marker);
@@ -780,17 +777,34 @@
                       $('#about_highs').text(data.about);
                       $('#high_highs').text(data.highlights);
                       $('#high_logo').attr('src','uploads/properties/'+data.logo);
-                      for (var actdatahigh in data.activities){
-                        var actnamedatahigh = data.activities[actdatahigh].name.toLowerCase();
-                        actnamedatahigh = actnamedatahigh.replace(/ /g,'')
-                        //console.log(actnamedatahigh);
-                        $('.upperparttab #high_activities li a.'+actnamedatahigh).css('display','block');
+                      var counterdata=0;
+                      var classactdata = '';
+                      for (var actdata in data.activities){
+                      //console.log('data.activities ', data.activities[actdata])
+                        if(counterdata === 0){
+                           classactdata = 'active';
+                        }else{
+                           classactdata = '';
+                        }
+                        var actnamedata = data.activities[actdata].name.toLowerCase();
+                        actnamedata = actnamedata.replace(/ /g,'')
+                        //console.log(actnamedata);
+                        $('.upperparttab #high_activities li a.'+actnamedata).css('display','block');
+
+                        $('#ol_high').append('<li data-target="#myCarouse2" data-slide-to="'+ counterdata +'" class="'+ classactdata +'"></li>');
+
+                        if(data.activities[actdata].type == 'image') {
+                           $('#carouse_high.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><img width="100%" src="uploads/properties/'+data.activities[actdata].media+'" alt="Image"></div>');
+                        } else {
+                            $('#carouse_high.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><iframe width="100%" src="'+data.activities[actdata].media+'" alt="video" type="'+ data.activities[actdata].type +'"></div>');
+                        }
+                        counterdata++;
                       }
                   });
               })(marker, data);
             }
         }
-
+      }
         //map 3
 
         var map = new google.maps.Map(document.getElementById('map-canvas-itineraries'), {
@@ -801,53 +815,93 @@
           minzoom: 5,
           maxzoom: 15
         });
-         for (var actit in itinerariesArray[0].activities){
-            var actnameit = itinerariesArray[0].activities[actit].name.toLowerCase();
-            actnameit = actnameit.replace(/ /g,'')
-                  //console.log(actnameit);
-            $('.upperparttab #iti_activities li a.'+actnameit).css('display','block');
-         }
-          for(var i = 0; i < itinerariesArray.length ; i++) {
+         var counter_iti=0;
+         var classact_iti = '';
+         if(itinerariesArray.length) {
+            for (var act in itinerariesArray[0].activities){
 
-            //place marker
-            if(itinerariesArray[i].address && itinerariesArray[i].address != '' && itinerariesArray[i].address != null) { 
+               if(counter_iti === 0){
+                  classact_iti = 'active';
+               }else{
+                  classact_iti = '';
+               }
 
-               $('#iti_about').text(itinerariesArray[0].about);
-               $('#iti_highs').text(itinerariesArray[0].highlights);
-               $('#iti_logo').attr('src','uploads/properties/'+itinerariesArray[0].logo);
-              
-              var infoWindow = new google.maps.InfoWindow();
+               var actname_iti = itinerariesArray[0].activities[act].name.toLowerCase();
+               actname_iti = actname_iti.replace(/ /g,'')
+                     //console.log(actname_iti);
+               $('.upperparttab #acco_activities li a.'+actname_iti).css('display','block');
 
-              var data = itinerariesArray[i];
-              var latlong = {lat: parseFloat(itinerariesArray[i].location.lat), lng: parseFloat(itinerariesArray[i].location.long)};      
-              var marker = new google.maps.Marker({
-                position: latlong,
-                map: map,
-                //icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+ 35,
-                title: itinerariesArray[i].name
-              });
+               $('#ol_iti').append('<li data-target="#myCarouse3" data-slide-to="'+ counter_iti +'" class="'+ classact_iti +'"></li>');
 
-              //Attach click event to the marker.
-              (function (marker, data) {
-                  google.maps.event.addListener(marker, "click", function (e) {
-                      //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
-                      infoWindow.setContent("<div ><h3>" + data.name + "</h3></div");
-                      infoWindow.open(map, marker);
-                      $('#iti_activities li a').css('display','none');
-                      $('#iti_about').text(data.about);
-                      $('#iti_highs').text(data.highlights);
-                      $('#iti_logo').attr('src','uploads/properties/'+data.logo);
-                      for (var actdatait in data.activities){
-                        var actnamedatait = data.activities[actdatait].name.toLowerCase();
-                        actnamedatait = actnamedatait.replace(/ /g,'')
-                        //console.log(actnamedatait);
-                        $('.upperparttab #iti_activities li a.'+actnamedatait).css('display','block');
-                      }
-                  });
-              })(marker, data);
+               if(itinerariesArray[0].activities[act].type == 'image') {
+                  $('#carouse_iti.carousel-inner').append('<div class="item '+classact_iti+' '+actname_iti+' "><img width="100%" src="uploads/properties/'+itinerariesArray[0].activities[act].media+'" alt="Image" type="'+ itinerariesArray[0].activities[act].type +'"></div>');
+               } else {
+                  $('#carouse_iti.carousel-inner').append('<div class="item '+classact_iti+' '+actname_iti+' "><iframe width="100%" src="'+itinerariesArray[0].activities[act].media+'" alt="video" type="'+ itinerariesArray[0].activities[act].type +'"></div>');
+               }
+
+               counter_iti++;
             }
-        }
 
+            for(var i = 0; i < itinerariesArray.length ; i++) {
+
+               //place marker
+               if(itinerariesArray[i].address && itinerariesArray[i].address != '' && itinerariesArray[i].address != null) { 
+
+                  $('#iti_about').text(itinerariesArray[0].about);
+                  $('#iti_highs').text(itinerariesArray[0].highlights);
+                  $('#iti_logo').attr('src','uploads/properties/'+itinerariesArray[0].logo);
+                 
+                 var infoWindow = new google.maps.InfoWindow();
+
+                 var data = itinerariesArray[i];
+                 var latlong = {lat: parseFloat(itinerariesArray[i].location.lat), lng: parseFloat(itinerariesArray[i].location.long)};      
+                 var marker = new google.maps.Marker({
+                   position: latlong,
+                   map: map,
+                   //icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+ 35,
+                   title: itinerariesArray[i].name
+                 });
+
+                 //Attach click event to the marker.
+                 (function (marker, data) {
+                     google.maps.event.addListener(marker, "click", function (e) {
+                        $('#carouse_iti.carousel-inner').html('');
+                        $('#ol_iti').html('');
+                         //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
+                         infoWindow.setContent("<div ><h3>" + data.name + "</h3></div");
+                         infoWindow.open(map, marker);
+                         $('#iti_activities li a').css('display','none');
+                         $('#iti_about').text(data.about);
+                         $('#iti_highs').text(data.highlights);
+                         $('#iti_logo').attr('src','uploads/properties/'+data.logo);
+                         var counterdata=0;
+                         var classactdata = '';
+                         for (var actdata in data.activities){
+                         //console.log('data.activities ', data.activities[actdata])
+                           if(counterdata === 0){
+                              classactdata = 'active';
+                           }else{
+                              classactdata = '';
+                           }
+                           var actnamedata = data.activities[actdata].name.toLowerCase();
+                           actnamedata = actnamedata.replace(/ /g,'')
+                           //console.log(actnamedata);
+                           $('.upperparttab #iti_activities li a.'+actnamedata).css('display','block');
+
+                           $('#ol_iti').append('<li data-target="#myCarouse3" data-slide-to="'+ counterdata +'" class="'+ classactdata +'"></li>');
+
+                           if(data.activities[actdata].type == 'image') {
+                              $('#carouse_iti.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><img width="100%" src="uploads/properties/'+data.activities[actdata].media+'" alt="Image"></div>');
+                           } else {
+                               $('#carouse_iti.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><iframe width="100%" src="'+data.activities[actdata].media+'" alt="video" type="'+ data.activities[actdata].type +'"></div>');
+                           }
+                           counterdata++;
+                         }
+                     });
+                 })(marker, data);
+               }
+            }
+         }
       }, 1000);
         
       //}
