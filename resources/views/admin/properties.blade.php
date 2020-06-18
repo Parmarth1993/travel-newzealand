@@ -32,6 +32,7 @@
                            <th>Name</th>
                            <th>Address</th>
                            <th>Type</th>
+                           <th>Category</th>
                            <th>Actions</th>
                         </tr>
                      </thead>
@@ -40,6 +41,7 @@
                            <th>Name</th>
                            <th>Address</th>
                            <th>Type</th>
+                           <th>Category</th>
                            <th>Actions</th>
                         </tr>
                      </tfoot>
@@ -49,6 +51,7 @@
                            <td>{{$property->name}}</td>
                            <td>{{$property->address}}</td>
                            <td>{{$property->type}}</td>
+                           <td>{{$property->category}}</td>
                            <td>
                               <a href="/admin/properties/edit/{{$property->id}}" >Edit</a>
                               <a href="javascript:vood(0);" data-id="{{$property->id}}" class="delete-plan">Delete</a>

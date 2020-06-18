@@ -9,6 +9,7 @@
       <!-- Bootstrap core CSS -->
       <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
       <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!-- <link href="css/boot-carousel.css" rel="stylesheet"> -->
       <!-- Custom fonts for this template -->
       <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
       <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
@@ -28,6 +29,7 @@
     #iti_activities li  a{
       display: none;
     }
+    .carousel-inner>.item>a>img,.carousel-inner>.item>img,.img-responsive,.thumbnail a>img,.thumbnail>img{display:block;max-width:100%;height:auto} .carousel{position:relative}.carousel-inner{position:relative;width:90%;overflow:hidden;margin-bottom:50px;}.carousel-inner>.item{position:relative;display:none;-webkit-transition:.6s ease-in-out left;-o-transition:.6s ease-in-out left;transition:.6s ease-in-out left}.carousel-inner>.item>a>img,.carousel-inner>.item>img{line-height:1}@media all and (transform-3d),(-webkit-transform-3d){.carousel-inner>.item{-webkit-transition:-webkit-transform .6s ease-in-out;-o-transition:-o-transform .6s ease-in-out;transition:-webkit-transform .6s ease-in-out;transition:transform .6s ease-in-out;transition:transform .6s ease-in-out,-webkit-transform .6s ease-in-out,-o-transform .6s ease-in-out;-webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-perspective:1000px;perspective:1000px}.carousel-inner>.item.active.right,.carousel-inner>.item.next{-webkit-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0);left:0}.carousel-inner>.item.active.left,.carousel-inner>.item.prev{-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0);left:0}.carousel-inner>.item.active,.carousel-inner>.item.next.left,.carousel-inner>.item.prev.right{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);left:0}}.carousel-inner>.active,.carousel-inner>.next,.carousel-inner>.prev{display:block}.carousel-inner>.active{left:0}.carousel-inner>.next,.carousel-inner>.prev{position:absolute;top:0;width:100%}.carousel-inner>.next{left:100%}.carousel-inner>.prev{left:-100%}.carousel-inner>.next.left,.carousel-inner>.prev.right{left:0}.carousel-inner>.active.left{left:-100%}.carousel-inner>.active.right{left:100%}.carousel-control{position:absolute;top:0;bottom:0;left:0;width:15%;font-size:20px;color:#fff;text-align:center;text-shadow:0 1px 2px rgba(0,0,0,.6);background-color:rgba(0,0,0,0);filter:alpha(opacity=50);opacity:.5}.carousel-control.left{background-image:-webkit-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);background-image:-o-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);background-image:-webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.0001)));background-image:linear-gradient(to right,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);background-repeat:repeat-x}.carousel-control.right{right:0;left:auto;background-image:-webkit-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);background-image:-o-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);background-image:-webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.0001)),to(rgba(0,0,0,.5)));background-image:linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);background-repeat:repeat-x}.carousel-control:focus,.carousel-control:hover{color:#fff;text-decoration:none;outline:0;filter:alpha(opacity=90);opacity:.9}.carousel-control .glyphicon-chevron-left,.carousel-control .glyphicon-chevron-right,.carousel-control .icon-next,.carousel-control .icon-prev{position:absolute;top:50%;z-index:5;display:inline-block;margin-top:-10px}.carousel-control .glyphicon-chevron-left,.carousel-control .icon-prev{left:50%;margin-left:-10px}.carousel-control .glyphicon-chevron-right,.carousel-control .icon-next{right:50%;margin-right:-10px}.carousel-control .icon-next,.carousel-control .icon-prev{width:20px;height:20px;font-family:serif;line-height:1}.carousel-control .icon-prev:before{content:"\2039"}.carousel-control .icon-next:before{content:"\203a"}.carousel-indicators{position:absolute;bottom:10px;left:50%;z-index:15;width:60%;padding-left:0;margin-left:-30%;text-align:center;list-style:none}.carousel-indicators li{display:inline-block;width:10px;height:10px;margin:1px;text-indent:-999px;cursor:pointer;background-color:#000\9;background-color:rgba(0,0,0,0);border:1px solid #000;border-radius:10px}.carousel-indicators .active{width:12px;height:12px;margin:0;background-color:#fff}.carousel-caption{position:absolute;right:15%;bottom:20px;left:15%;z-index:10;padding-top:20px;padding-bottom:20px;color:#fff;text-align:center;text-shadow:0 1px 2px rgba(0,0,0,.6)}.carousel-caption .btn{text-shadow:none}@media screen and (min-width:768px){.carousel-control .glyphicon-chevron-left,.carousel-control .glyphicon-chevron-right,.carousel-control .icon-next,.carousel-control .icon-prev{width:30px;height:30px;margin-top:-10px;font-size:30px}.carousel-control .glyphicon-chevron-left,.carousel-control .icon-prev{margin-left:-10px}.carousel-control .glyphicon-chevron-right,.carousel-control .icon-next{margin-right:-10px}.carousel-caption{right:20%;left:20%;padding-bottom:30px}.carousel-indicators{bottom:20px}}
    </style>
    <body>
       <a id="top"></a>
@@ -142,29 +144,25 @@
                                     <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Religion" class="religion"></a></li>
                                     <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Videos" class="videos"></a></li>
                                  </ul>
-                                 <div class="tab-content stationviewpart">
-                                    <div class="tab-pane in active">
+                                 <div class="container">
+                                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                     <ol class="carousel-indicators">
+                                       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                       <li data-target="#myCarousel" data-slide-to="1"></li>
+                                       <li data-target="#myCarousel" data-slide-to="2"></li>
+                                     </ol>
+                                     <div class="carousel-inner"></div>
+                                    
+                                     
+                                   <!--  <div class="tab-pane in active">
                                        <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo.jpg"> </div>
                                     </div>
+                                    
                                     <div class="tab-pane">
                                        <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo1.jpg"> </div>
-                                    </div>
-                                    <div class="tab-pane">
-                                       <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo.jpg"> </div>
-                                    </div>
-                                    <div class="tab-pane">
-                                       <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo1.jpg"> </div>
-                                    </div>
-                                    <div class="tab-pane">
-                                       <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo.jpg"> </div>
-                                    </div>
-                                    <div class="tab-pane">
-                                       <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo1.jpg"> </div>
-                                    </div>
-                                    <div class="tab-pane">
-                                       <div class="vidopart"> <a class="playbtn" data-toggle="modal" data-target="#videopop"></a><img src="img/imgvideo1.jpg"> </div>
-                                    </div>
+                                    </div> -->
                                  </div>
+                              </div>
                               </div>
                               <div class="bottomparttab">
                                  <ul class="nav nav-tabs adventuretab">
@@ -587,8 +585,12 @@
             </div>
          </div>
       </div>
-      <script src="vendor/jquery/jquery.min.js"></script>
-      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <!-- <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+      <script src="js/jquery.min.js"></script>
+
+      <script src="js/bootstrap.min.js"></script>
+
       <script src="js/mainscript.js"></script>
       <!-- Custom scripts for this template -->
       <script src="js/owl.carousel.js"></script>     
@@ -637,7 +639,7 @@
                      items:3
                  }
                }
-            });         
+            });      
       </script>
       <script>
          $(document).ready(function(){
@@ -664,17 +666,28 @@
           minzoom: 5,
           maxzoom: 15
         });
+         var counter=0;
+         var classact = '';
+         for (var act in accomodationsArray[0].activities){
+
+            if(counter === 0){
+               classact = 'active';
+            }else{
+               classact = '';
+            }
+
+            var actname = accomodationsArray[0].activities[act].name.toLowerCase();
+            actname = actname.replace(/ /g,'')
+                  //console.log(actname);
+            $('.upperparttab #acco_activities li a.'+actname).css('display','block');
+            $('.carousel-inner').append('<div class="item '+classact+' '+actname+' "><img width="100%" src="uploads/properties/'+accomodationsArray[0].activities[act].media+'" alt="Image"></div>');
+            counter++;
+         }
           for(var i = 0; i < accomodationsArray.length ; i++) {
 
             //place marker
             if(accomodationsArray[i].address && accomodationsArray[i].address != '' && accomodationsArray[i].address != null) { 
 
-               for (var act in accomodationsArray[0].activities){
-                  var actname = accomodationsArray[0].activities[act].toLowerCase();
-                  actname = actname.replace(/ /g,'')
-                  //console.log(actname);
-                  $('.upperparttab #acco_activities li a.'+actname).css('display','block');
-               }
                $('#about_accom').text(accomodationsArray[0].about);
                $('#high_accom').text(accomodationsArray[0].highlights);
                $('#acc_logo').attr('src','uploads/properties/'+accomodationsArray[0].logo);
@@ -697,14 +710,24 @@
                       infoWindow.setContent("<div ><h3>" + data.name + "</h3></div");
                       infoWindow.open(map, marker);
                       $('#acco_activities li a').css('display','none');
+                      $('.carousel-inner').html('');
                       $('#about_accom').text(data.about);
                       $('#high_accom').text(data.highlights);
                       $('#acc_logo').attr('src','uploads/properties/'+data.logo);
+                      var counterdata=0;
+                      var classactdata = '';
                       for (var actdata in data.activities){
-                        var actnamedata = data.activities[actdata].toLowerCase();
+                        if(counterdata === 0){
+                           classactdata = 'active';
+                        }else{
+                           classactdata = '';
+                        }
+                        var actnamedata = data.activities[actdata].name.toLowerCase();
                         actnamedata = actnamedata.replace(/ /g,'')
                         //console.log(actnamedata);
                         $('.upperparttab #acco_activities li a.'+actnamedata).css('display','block');
+                        $('.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><img width="100%" src="uploads/properties/'+data.activities[actdata].media+'" alt="Image"></div>');
+                        counterdata++;
                       }
                   });
               })(marker, data);
@@ -721,6 +744,12 @@
           minzoom: 5,
           maxzoom: 15
         });
+         for (var acthigh in highlightsArray[0].activities){
+            var actnamehigh = highlightsArray[0].activities[acthigh].name.toLowerCase();
+            actnamehigh = actnamehigh.replace(/ /g,'')
+                  //console.log(actnamehigh);
+            $('.upperparttab #high_activities li a.'+actnamehigh).css('display','block');
+         }
           for(var i = 0; i < highlightsArray.length ; i++) {
 
             //place marker
@@ -729,12 +758,6 @@
                $('#about_highs').text(highlightsArray[0].about);
                $('#high_highs').text(highlightsArray[0].highlights);
                $('#high_logo').attr('src','uploads/properties/'+highlightsArray[0].logo);
-               for (var acthigh in highlightsArray[0].activities){
-                  var actnamehigh = highlightsArray[0].activities[acthigh].toLowerCase();
-                  actnamehigh = actnamehigh.replace(/ /g,'')
-                  //console.log(actnamehigh);
-                  $('.upperparttab #high_activities li a.'+actnamehigh).css('display','block');
-               }
               
               var infoWindow = new google.maps.InfoWindow();
 
@@ -758,7 +781,7 @@
                       $('#high_highs').text(data.highlights);
                       $('#high_logo').attr('src','uploads/properties/'+data.logo);
                       for (var actdatahigh in data.activities){
-                        var actnamedatahigh = data.activities[actdatahigh].toLowerCase();
+                        var actnamedatahigh = data.activities[actdatahigh].name.toLowerCase();
                         actnamedatahigh = actnamedatahigh.replace(/ /g,'')
                         //console.log(actnamedatahigh);
                         $('.upperparttab #high_activities li a.'+actnamedatahigh).css('display','block');
@@ -778,6 +801,12 @@
           minzoom: 5,
           maxzoom: 15
         });
+         for (var actit in itinerariesArray[0].activities){
+            var actnameit = itinerariesArray[0].activities[actit].name.toLowerCase();
+            actnameit = actnameit.replace(/ /g,'')
+                  //console.log(actnameit);
+            $('.upperparttab #iti_activities li a.'+actnameit).css('display','block');
+         }
           for(var i = 0; i < itinerariesArray.length ; i++) {
 
             //place marker
@@ -786,12 +815,6 @@
                $('#iti_about').text(itinerariesArray[0].about);
                $('#iti_highs').text(itinerariesArray[0].highlights);
                $('#iti_logo').attr('src','uploads/properties/'+itinerariesArray[0].logo);
-               for (var actit in itinerariesArray[0].activities){
-                  var actnameit = itinerariesArray[0].activities[actit].toLowerCase();
-                  actnameit = actnameit.replace(/ /g,'')
-                  //console.log(actnameit);
-                  $('.upperparttab #iti_activities li a.'+actnameit).css('display','block');
-               }
               
               var infoWindow = new google.maps.InfoWindow();
 
@@ -815,7 +838,7 @@
                       $('#iti_highs').text(data.highlights);
                       $('#iti_logo').attr('src','uploads/properties/'+data.logo);
                       for (var actdatait in data.activities){
-                        var actnamedatait = data.activities[actdatait].toLowerCase();
+                        var actnamedatait = data.activities[actdatait].name.toLowerCase();
                         actnamedatait = actnamedatait.replace(/ /g,'')
                         //console.log(actnamedatait);
                         $('.upperparttab #iti_activities li a.'+actnamedatait).css('display','block');
