@@ -101,9 +101,15 @@
       <section class="tabviewnab">
          <div class="nabtab">
             <ul class="nav nav-tabs besttab">
-               <li><a data-toggle="tab" href="#accomodations" class="active">Accomodations <span><?php echo $accdesc;?></span></a></li>
-               <li><a data-toggle="tab" href="#highlights">Highlights <span><?php echo $highdesc;?></span></a></li>
-               <li><a data-toggle="tab" href="#itineraries">Itineraries <span><?php echo $itdesc;?></span></a></li>
+               @foreach($categories as $key => $category)
+                  <li>
+                     <a data-toggle="tab" href="#{{strtolower($category->name)}}" class="home-page-cat @if($key == 0) active @endif">{{$category->name}} <span>{{$category->description}}</span>
+                     </a>
+                  </li>
+               @endforeach
+               <!-- <li><a data-toggle="tab" href="#accomodations" class="home-page-cat active">Accomodations <span><?php //echo $accdesc;?></span></a></li>
+               <li><a data-toggle="tab" href="#highlights" class="home-page-cat">Highlights <span><?php //echo $highdesc;?></span></a></li>
+               <li><a data-toggle="tab" href="#itineraries" class="home-page-cat">Itineraries <span><?php //echo $itdesc;?></span></a></li> -->
             </ul>
             <div class="tab-content maintabview">
                <div id="accomodations" class="tab-pane in active">
@@ -603,7 +609,11 @@
            $('.book').click(function(){
               $('#booknowpopup').modal('show');
               $('.in').css('opacity','0.9');
-           })
+           });
+           $('.home-page-cat').click(function(){
+            $('.home-page-cat').removeClass("active");
+            $(this).addClass("active");
+           });
          });
       </script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPlxYBIjisvG84Q8mQo8RHWZqXJBUibKk">
