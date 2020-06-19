@@ -41,7 +41,7 @@
                      </select>
                   </div>
 
-                  <input type="submit" name="" class="btn btn-primary ml-auto" value="Update Accomodation">
+                  <input type="submit" name="" class="btn btn-primary ml-auto" value="Update Category">
                </div>
             </div>
          </form>
