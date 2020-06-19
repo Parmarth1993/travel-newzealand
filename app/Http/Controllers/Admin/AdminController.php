@@ -13,6 +13,7 @@ use DB;
 use App\User;
 use App\Properties;
 use App\Categories;
+use App\Experience;
 //use App\Accomodations;
 //use App\Highlights;
 //use App\Itineraries;
@@ -37,127 +38,39 @@ class AdminController extends Controller
         return view('admin.properties')->with([ "properties" => $properties]); 
     }
 
-    // public function accomodations(Request $request) {
-    // 	$accomodations = Accomodations::all();
-    // 	return view('admin.accomodations')->with([ "accomodations" => $accomodations]);	
-    // }
-
-    // public function highlights(Request $request) {
-    // 	$highlights = Highlights::all();
-    // 	return view('admin.highlights')->with([ "highlights" => $highlights]);	
-    // }
-
-    // public function itineraries(Request $request) {
-    // 	$itineraries = Itineraries::all();
-    // 	return view('admin.itineraries')->with([ "itineraries" => $itineraries]);	
-    // }
-
-    // public function addAccomodation(Request $request) {
-    // 	if($request->isMethod('post')) {
-    //         $input = $request->all();
-    //         try {
-               
-    //             $card = Accomodations::create($input);
-    //             return redirect('/admin/accomodations')->with('success', 'Accomodation Created Successfully.');
-
-    //         } catch(Exception $e) {
-    //             return redirect('/admin/accomodation/add')->with('error', $e->getMessage());
-    //         }
-    //     } 
-    // 	return view('admin.add-accomodation');	
-    // }
-
-    // public function addHighlight(Request $request) {
-    // 	if($request->isMethod('post')) {
-    //         $input = $request->all();
-    //         try {
-               
-    //             $card = Highlights::create($input);
-    //             return redirect('/admin/highlights')->with('success', 'Highlight Created Successfully.');
-
-    //         } catch(Exception $e) {
-    //             return redirect('/admin/highlight/add')->with('error', $e->getMessage());
-    //         }
-    //     } 
-    // 	return view('admin.add-highlight');	
-    // }
-
-    // public function addItinerarie(Request $request) {
-    // 	if($request->isMethod('post')) {
-    //         $input = $request->all();
-    //         try {
-               
-    //             $card = Itineraries::create($input);
-    //             return redirect('/admin/itineraries')->with('success', 'Itinerarie Created Successfully.');
-
-    //         } catch(Exception $e) {
-    //             return redirect('/admin/itinerarie/add')->with('error', $e->getMessage());
-    //         }
-    //     } 
-    // 	return view('admin.add-itinerarie');	
-    // }
-
-    // public function editAccomodation(Request $request) {
-    //     $id = $request->id;
-    // 	if($request->isMethod('post')) {
-    //         $input = $request->all();
-    //         try {
-               
-    //             $card = Accomodations::where(['id' => $id])
-    //             		->update(['name' => $input['name'], 'description' => $input['description']]);
-    //             return redirect('/admin/accomodation/edit/' . $id)->with('success', 'Accomodation Updated Successfully.');
-
-    //         } catch(Exception $e) {
-    //             return redirect('/admin/accomodation/edit/' . $id)->with('error', $e->getMessage());
-    //         }
-    //     } 
-    //     $accomodation = Accomodations::where(['id' => $id])->first(); 
-    // 	return view('admin.edit-accomodation')->with(['accomodation' => $accomodation]);	
-    // }
-
-    // public function editHighlight(Request $request) {
-    //     $id = $request->id;
-    // 	if($request->isMethod('post')) {
-    //         $input = $request->all();
-    //         try {
-               
-    //             $card = Highlights::where(['id' => $id])
-    //             		->update(['name' => $input['name'], 'description' => $input['description']]);
-    //             return redirect('/admin/highlights')->with('success', 'Highlight Updated Successfully.');
-
-    //         } catch(Exception $e) {
-    //             return redirect('/admin/highlight/edit/' . $id)->with('error', $e->getMessage());
-    //         }
-    //     } 
-    // 	$highlight = Highlights::where(['id' => $id])->first(); 
-    // 	return view('admin.edit-highlight')->with(['highlight' => $highlight]);		
-    // }
-
-    // public function editItinerarie(Request $request) {
-    //     $id = $request->id;
-    // 	if($request->isMethod('post')) {
-    //         $input = $request->all();
-    //         try {
-               
-    //             $card = Itineraries::where(['id' => $id])
-    //             		->update(['name' => $input['name'], 'description' => $input['description']]);
-    //             return redirect('/admin/itinerarie/edit/' . $id)->with('success', 'Itinerarie Updated Successfully.');
-
-    //         } catch(Exception $e) {
-    //             return redirect('/admin/itinerarie/edit/' . $id)->with('error', $e->getMessage());
-    //         }
-    //     } 
-    // 	$itinerarie = Itineraries::where(['id' => $id])->first(); 
-    // 	return view('admin.edit-itinerarie')->with(['itinerarie' => $itinerarie]);	
-    // }
-
     public function categories(Request $request) {
     	$categories = Categories::all();
     	return view('admin.categories')->with(['categories' => $categories]);	
     }
 
-    public function addCategory(Request $request) {
+    public function experience(Request $request) {
+        $experiences = Experience::all();
+        return view('admin.experience')->with(['experiences' => $experiences]);   
+    }
+
+    public function addExperience(Request $request) {
     	if($request->isMethod('post')) {
+            $input = $request->all();
+            try {
+                 // Image Upload
+                $image = $request->file('image');
+                $logo_name = time().'.'.$image->getClientOriginalExtension();
+                $destinationPath = public_path('/uploads/experience');
+                $image->move($destinationPath, $logo_name);
+
+                $input['image']  = $logo_name;
+                $card = Experience::create($input);
+                return redirect('/admin/experience')->with('success', 'Experience Created Successfully.');
+
+            } catch(Exception $e) {
+                return redirect('/admin/experience/add')->with('error', $e->getMessage());
+            }
+        } 
+    	return view('admin.add-experience');	
+    }
+
+    public function addCategory(Request $request) {
+        if($request->isMethod('post')) {
             $input = $request->all();
             try {
                
@@ -168,7 +81,7 @@ class AdminController extends Controller
                 return redirect('/admin/category/add')->with('error', $e->getMessage());
             }
         } 
-    	return view('admin.add-category');	
+        return view('admin.add-category');  
     }
 
     public function editCategory(Request $request) {

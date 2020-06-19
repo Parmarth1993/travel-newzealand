@@ -19,18 +19,6 @@
       <link rel="stylesheet" href="css/owl.carousel.css">
       <!-- <link rel="stylesheet" href="css/owl.theme.default.min.css"> -->
    </head>
-   <style>
-    #acco_activities li  a{
-      display: none;
-    }
-    #high_activities li  a{
-      display: none;
-    }
-    #iti_activities li  a{
-      display: none;
-    }
-    .carousel-inner>.item>a>img,.carousel-inner>.item>img,.img-responsive,.thumbnail a>img,.thumbnail>img{display:block;max-width:100%;height:auto} .carousel{position:relative}.carousel-inner{position:relative;width:90%;overflow:hidden;margin-bottom:50px;}.carousel-inner>.item{position:relative;display:none;-webkit-transition:.6s ease-in-out left;-o-transition:.6s ease-in-out left;transition:.6s ease-in-out left}.carousel-inner>.item>a>img,.carousel-inner>.item>img{line-height:1}@media all and (transform-3d),(-webkit-transform-3d){.carousel-inner>.item{-webkit-transition:-webkit-transform .6s ease-in-out;-o-transition:-o-transform .6s ease-in-out;transition:-webkit-transform .6s ease-in-out;transition:transform .6s ease-in-out;transition:transform .6s ease-in-out,-webkit-transform .6s ease-in-out,-o-transform .6s ease-in-out;-webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-perspective:1000px;perspective:1000px}.carousel-inner>.item.active.right,.carousel-inner>.item.next{-webkit-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0);left:0}.carousel-inner>.item.active.left,.carousel-inner>.item.prev{-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0);left:0}.carousel-inner>.item.active,.carousel-inner>.item.next.left,.carousel-inner>.item.prev.right{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);left:0}}.carousel-inner>.active,.carousel-inner>.next,.carousel-inner>.prev{display:block}.carousel-inner>.active{left:0}.carousel-inner>.next,.carousel-inner>.prev{position:absolute;top:0;width:100%}.carousel-inner>.next{left:100%}.carousel-inner>.prev{left:-100%}.carousel-inner>.next.left,.carousel-inner>.prev.right{left:0}.carousel-inner>.active.left{left:-100%}.carousel-inner>.active.right{left:100%}.carousel-control{position:absolute;top:0;bottom:0;left:0;width:15%;font-size:20px;color:#fff;text-align:center;text-shadow:0 1px 2px rgba(0,0,0,.6);background-color:rgba(0,0,0,0);filter:alpha(opacity=50);opacity:.5}.carousel-control.left{background-image:-webkit-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);background-image:-o-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);background-image:-webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.0001)));background-image:linear-gradient(to right,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);background-repeat:repeat-x}.carousel-control.right{right:0;left:auto;background-image:-webkit-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);background-image:-o-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);background-image:-webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.0001)),to(rgba(0,0,0,.5)));background-image:linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);background-repeat:repeat-x}.carousel-control:focus,.carousel-control:hover{color:#fff;text-decoration:none;outline:0;filter:alpha(opacity=90);opacity:.9}.carousel-control .glyphicon-chevron-left,.carousel-control .glyphicon-chevron-right,.carousel-control .icon-next,.carousel-control .icon-prev{position:absolute;top:50%;z-index:5;display:inline-block;margin-top:-10px}.carousel-control .glyphicon-chevron-left,.carousel-control .icon-prev{left:50%;margin-left:-10px}.carousel-control .glyphicon-chevron-right,.carousel-control .icon-next{right:50%;margin-right:-10px}.carousel-control .icon-next,.carousel-control .icon-prev{width:20px;height:20px;font-family:serif;line-height:1}.carousel-control .icon-prev:before{content:"\2039"}.carousel-control .icon-next:before{content:"\203a"}.carousel-indicators{position:absolute;bottom:10px;left:50%;z-index:15;width:60%;padding-left:0;margin-left:-30%;text-align:center;list-style:none}.carousel-indicators li{display:inline-block;width:10px;height:10px;margin:1px;text-indent:-999px;cursor:pointer;background-color:#000\9;background-color:rgba(0,0,0,0);border:1px solid #000;border-radius:10px}.carousel-indicators .active{width:12px;height:12px;margin:0;background-color:#fff}.carousel-caption{position:absolute;right:15%;bottom:20px;left:15%;z-index:10;padding-top:20px;padding-bottom:20px;color:#fff;text-align:center;text-shadow:0 1px 2px rgba(0,0,0,.6)}.carousel-caption .btn{text-shadow:none}@media screen and (min-width:768px){.carousel-control .glyphicon-chevron-left,.carousel-control .glyphicon-chevron-right,.carousel-control .icon-next,.carousel-control .icon-prev{width:30px;height:30px;margin-top:-10px;font-size:30px}.carousel-control .glyphicon-chevron-left,.carousel-control .icon-prev{margin-left:-10px}.carousel-control .glyphicon-chevron-right,.carousel-control .icon-next{margin-right:-10px}.carousel-caption{right:20%;left:20%;padding-bottom:30px}.carousel-indicators{bottom:20px}}
-   </style>
    <body>
       <a id="top"></a>
       <!-- Navigation -->
@@ -109,13 +97,13 @@
          </div>
       </header>
       <!-- Main Content -->
-      <?php //echo "<pre>";print_r($properties);?>
+      <?php //echo "<pre>";print_r($experiences);?>
       <section class="tabviewnab">
          <div class="nabtab">
             <ul class="nav nav-tabs besttab">
-               <li><a data-toggle="tab" href="#accomodations" class="active">Accomodations <span>Best places to stay</span></a></li>
-               <li><a data-toggle="tab" href="#highlights">Highlights <span>Great things to do</span></a></li>
-               <li><a data-toggle="tab" href="#itineraries">Itineraries <span>Luxury timelines</span></a></li>
+               <li><a data-toggle="tab" href="#accomodations" class="active">Accomodations <span><?php echo $accdesc;?></span></a></li>
+               <li><a data-toggle="tab" href="#highlights">Highlights <span><?php echo $highdesc;?></span></a></li>
+               <li><a data-toggle="tab" href="#itineraries">Itineraries <span><?php echo $itdesc;?></span></a></li>
             </ul>
             <div class="tab-content maintabview">
                <div id="accomodations" class="tab-pane in active">
@@ -160,13 +148,13 @@
                                     <div class="tab-pane in active" id="about_desc">
                                        <p id="about_accom"></p>
                                        <div class="logosbtn">
-                                          <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="javascript:void(0)" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
                                     <div class="tab-pane" id="highlights_desc">
                                        <p id="high_accom"></p>
                                        <div class="logosbtn">
-                                          <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="javascript:void(0)" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
                                  </div>
@@ -218,13 +206,13 @@
                                     <div  class="tab-pane in active" id="about_highdesc">
                                        <p id="about_highs"></p>
                                        <div class="logosbtn">
-                                          <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="javascript:void(0)" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
                                     <div class="tab-pane" id="highlights_highdesc">
                                        <p id="high_highs"></p>
                                        <div class="logosbtn">
-                                          <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="javascript:void(0)" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
                                  </div>
@@ -276,13 +264,13 @@
                                     <div  class="tab-pane in active" id="about_itdesc">
                                        <p id="iti_about"></p>
                                        <div class="logosbtn">
-                                          <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="javascript:void(0)" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
                                     <div class="tab-pane" id="highlights_itdesc">
                                        <p id="iti_highs"></p>
                                        <div class="logosbtn">
-                                          <a href="#" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="javascript:void(0)" class="btn btn-primary book">Book now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
                                  </div>
@@ -308,6 +296,56 @@
             <div class="row">
                <div class="col-lg-12 fcright">
                   <div class="owl-carousel owl-theme">
+                     <?php foreach ($experiences as $key => $value) {
+                        # code...
+                     ?>
+                     <div class="item">
+                        <div class="imgcontainer">
+                           
+                           <h4><?php echo $value->title ;?></h4>
+                           <a href=""> <img src="uploads/experience/<?php echo $value->image ;?>"></a>
+                        </div>
+                        <p><?php echo $value->description ;?></p>
+                       
+                     </div>
+                     <?php } ?>
+                     <!-- <div class="item">
+                        <div class="imgcontainer">
+                           
+                           <h4>Mckenzie - Riding through the vineyards</h4>
+                           <a href=""> <img src="img/imghome002.jpg"></a>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                       
+                     </div>
+                     <div class="item">
+                        <div class="imgcontainer">
+                           
+                           <h4>Lake Taupo riverboat cruise</h4>
+                           <a href=""> <img src="img/imghome003.jpg"></a>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                       
+                     </div>
+                     <div class="item">
+                        <div class="imgcontainer">
+                           
+                           <h4>Fiordland - mountian hiking for a large group
+                           </h4>
+                           <a href=""> <img src="img/imghome004.jpg"></a>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                       
+                     </div>
+                     <div class="item">
+                        <div class="imgcontainer">
+                           
+                           <h4>Waitomo Glowworm Caves Waikat</h4>
+                           <a href=""> <img src="img/imghome003.jpg"></a>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                       
+                     </div>
                      <div class="item">
                         <div class="imgcontainer">
                            
@@ -353,53 +391,7 @@
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
                        
-                     </div>
-                     <div class="item">
-                        <div class="imgcontainer">
-                           
-                           <h4>Waitomo Glowworm Caves Waikat</h4>
-                           <a href=""> <img src="img/imghome001.jpg"></a>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                       
-                     </div>
-                     <div class="item">
-                        <div class="imgcontainer">
-                           
-                           <h4>Mckenzie - Riding through the vineyards</h4>
-                           <a href=""> <img src="img/imghome002.jpg"></a>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                       
-                     </div>
-                     <div class="item">
-                        <div class="imgcontainer">
-                           
-                           <h4>Lake Taupo riverboat cruise</h4>
-                           <a href=""> <img src="img/imghome003.jpg"></a>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                       
-                     </div>
-                     <div class="item">
-                        <div class="imgcontainer">
-                           
-                           <h4>Fiordland - mountian hiking for a large group
-                           </h4>
-                           <a href=""> <img src="img/imghome004.jpg"></a>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                       
-                     </div>
-                     <div class="item">
-                        <div class="imgcontainer">
-                           
-                           <h4>Waitomo Glowworm Caves Waikat</h4>
-                           <a href=""> <img src="img/imghome003.jpg"></a>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                       
-                     </div>
+                     </div> -->
                   </div>
                </div>
             </div>
@@ -524,16 +516,27 @@
       </footer>
       <!-- Bootstrap core JavaScript -->
       <!-- Modal -->
-      <div id="videopop" class="homevidio modal fade" role="dialog">
+      <div id="booknowpopup" class="modal">
          <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
                <div class="modal-header">
-                  <h4 class="modal-title">Minaret Station</h4>
+                  <h4 class="modal-title">Book Now</h4>
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                </div>
                <div class="modal-body">
-                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/v3LAYyz7cF4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <form>
+                    <div class="form-group">
+                      <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter Name">  
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter Email">  
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
                </div>
             </div>
          </div>
@@ -597,6 +600,10 @@
       <script>
          $(document).ready(function(){
            $('[data-tool="tooltip"]').tooltip();
+           $('.book').click(function(){
+              $('#booknowpopup').modal('show');
+              $('.in').css('opacity','0.9');
+           })
          });
       </script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPlxYBIjisvG84Q8mQo8RHWZqXJBUibKk">

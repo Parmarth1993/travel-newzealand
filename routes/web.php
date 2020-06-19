@@ -34,6 +34,9 @@ Route::post('/admin/category/add', 'Admin\AdminController@addCategory')->name('a
 Route::get('/admin/category/edit/{id}', 'Admin\AdminController@editCategory');
 Route::post('/admin/category/edit/{id}', 'Admin\AdminController@editCategory')->name('edit_category');
 Route::get('/admin/properties', 'Admin\AdminController@properties');
+Route::get('/admin/experience', 'Admin\AdminController@experience');
+Route::post('/admin/experience/add', 'Admin\AdminController@addExperience')->name('add_experience');
+Route::get('/admin/experience/add', 'Admin\AdminController@addExperience')->name('add_experience');
 // Route::get('/admin/accomodations', 'Admin\AdminController@accomodations');
 // Route::get('/admin/highlights', 'Admin\AdminController@highlights');
 // Route::get('/admin/itineraries', 'Admin\AdminController@itineraries');
