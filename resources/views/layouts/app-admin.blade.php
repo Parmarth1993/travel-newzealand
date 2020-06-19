@@ -66,6 +66,7 @@
                   @endif
                   <a href="/admin/properties" class="list-group-item list-group-item-action">Properties</a>
                   <a href="/admin/categories" class="list-group-item list-group-item-action">Categories</a>
+                  <a href="/admin/experience" class="list-group-item list-group-item-action">Experience</a>
                   <!-- <div class="dropdown">
                      <ul class="dropdown-menu">
                         <a href="/admin/accomodation/edit/1" class="list-group-item list-group-item-action">Accomodations</a>

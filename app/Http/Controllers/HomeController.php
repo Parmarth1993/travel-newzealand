@@ -8,6 +8,8 @@ use App\Accomodations;
 use App\Properties;
 use App\Highlights;
 use App\Itineraries;
+use App\Categories;
+use App\Experience;
 
 class HomeController extends Controller
 {
@@ -36,6 +38,20 @@ class HomeController extends Controller
         $accomodations = array();
         $highlights = array();
         $itineraries = array();
+        $categories = Categories::where(['active' => 1])->get();
+        $experiences = Experience::all();
+        foreach ($categories as $key => $value) {
+            # code...
+            if($value->name == 'Accomodations'){
+                $accdesc = ($value->description) ? ($value->description) : '';
+            }else if($value->name == 'Highlights'){
+                $highdesc =($value->description) ? ($value->description) : '';
+            }else if($value->name == 'Itineraries'){
+                $itdesc = ($value->description) ?  ($value->description) : '';
+            }else{
+
+            }
+        }
         $properties = DB::table('properties')
                         //->join('accomodations', 'accomodations.id', '=', 'properties.accommodation')
                         //->join('highlights', 'highlights.id', '=', 'properties.highlight')
@@ -54,7 +70,7 @@ class HomeController extends Controller
                     array_push($itineraries, $value);
                   }
         }                                
-        return view('welcome')->with([ 'itineraries' => $itineraries, 'highlights' => $highlights, 'accomodations' => $accomodations]);
+        return view('welcome')->with([ 'itineraries' => $itineraries, 'highlights' => $highlights, 'accomodations' => $accomodations, 'accdesc' => $accdesc ,'highdesc' => $highdesc, 'itdesc' => $itdesc,'experiences' => $experiences]);
     }
 
 }
