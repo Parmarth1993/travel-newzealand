@@ -634,11 +634,32 @@
           fullscreenControl: false,
           backgroundColor: '#FFF',
           minzoom: 5,
-          maxzoom: 15
+          maxzoom: 15,
+          styles: [
+            {
+               featureType: "all",
+               elementType: "labels",
+               stylers: [{ visibility: "off" }]
+            },
+            {
+               elementType: 'geometry', 
+               stylers: [{color: '#000000'}]
+            },
+            {
+               featureType: "water",
+               elementType: "geometry",
+               stylers: [
+                 { invert_lightness: true },
+                 { hue: "#ffffff" },
+                 { saturation: -100 },
+                 { lightness: 100 } /* generates "white" color */
+               ]
+            }]
         });
          var counter=0;
          var classact = '';
          if(accomodationsArray.length) {
+            $('#acco_activities li a').css('display','none');
             for (var act in accomodationsArray[0].activities){
 
                if(counter === 0){
@@ -655,9 +676,9 @@
                $('#ol_acco').append('<li data-target="#myCarousel" data-slide-to="'+ counter +'" class="'+ classact +'"></li>');               
 
                if(accomodationsArray[0].activities[act].type == 'image') {
-                  $('#carouse_acco.carousel-inner').append('<div class="item '+classact+' '+actname+' "><img width="100%" src="uploads/properties/'+accomodationsArray[0].activities[act].media+'" alt="Image" type="'+ accomodationsArray[0].activities[act].type +'"></div>');
+                  $('#carouse_acco.carousel-inner').append('<div class="item '+classact+' '+actname+' "><img src="uploads/properties/'+accomodationsArray[0].activities[act].media+'" alt="Image" type="'+ accomodationsArray[0].activities[act].type +'"></div>');
                } else {
-                  $('#carouse_acco.carousel-inner').append('<div class="item '+classact+' '+actname+' "><iframe width="100%" src="'+accomodationsArray[0].activities[act].media+'" alt="video" type="'+ accomodationsArray[0].activities[act].type +'"></div>');
+                  $('#carouse_acco.carousel-inner').append('<div class="item '+classact+' '+actname+' "><iframe src="'+accomodationsArray[0].activities[act].media+'" alt="video" type="'+ accomodationsArray[0].activities[act].type +'"></div>');
                }
 
                counter++;
@@ -711,9 +732,9 @@
                            //console.log(actnamedata);
                            $('.upperparttab #acco_activities li a.'+actnamedata).css('display','block');
                            if(data.activities[actdata].type == 'image') {
-                              $('#carouse_acco.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><img width="100%" src="uploads/properties/'+data.activities[actdata].media+'" alt="Image" type="'+ data.activities[actdata].type +'"></div>');
+                              $('#carouse_acco.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><img src="uploads/properties/'+data.activities[actdata].media+'" alt="Image" type="'+ data.activities[actdata].type +'"></div>');
                            } else {
-                              $('#carouse_acco.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><iframe width="100%" src="'+data.activities[actdata].media+'" alt="video" type="'+ data.activities[actdata].type +'"></div>');
+                              $('#carouse_acco.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><iframe src="'+data.activities[actdata].media+'" alt="video" type="'+ data.activities[actdata].type +'"></div>');
                            }
                            counterdata++;
                          }
@@ -731,12 +752,33 @@
           fullscreenControl: false,
           backgroundColor: '#FFF',
           minzoom: 5,
-          maxzoom: 15
+          maxzoom: 15,
+          styles: [
+            {
+               featureType: "all",
+               elementType: "labels",
+               stylers: [{ visibility: "off" }]
+            },
+            {
+               elementType: 'geometry', 
+               stylers: [{color: '#000000'}]
+            },
+            {
+               featureType: "water",
+               elementType: "geometry",
+               stylers: [
+                 { invert_lightness: true },
+                 { hue: "#ffffff" },
+                 { saturation: -100 },
+                 { lightness: 100 } /* generates "white" color */
+               ]
+            }]
       });
 
       var counter_high=0;
       var classact_high = '';
       if(highlightsArray.length) {
+         $('#high_activities li a').css('display','none');
          for (var acthigh in highlightsArray[0].activities){
             var actnamehigh = highlightsArray[0].activities[acthigh].name.toLowerCase();
             actnamehigh = actnamehigh.replace(/ /g,'')
@@ -755,9 +797,9 @@
             $('#ol_high').append('<li data-target="#myCarouse2" data-slide-to="'+ counter_high +'" class="'+ classact_high +'"></li>');
 
             if(highlightsArray[0].activities[acthigh].type == 'image') {
-               $('#carouse_high.carousel-inner').append('<div class="item '+classact_high+' '+actname_high+' "><img width="100%" src="uploads/properties/'+highlightsArray[0].activities[acthigh].media+'" alt="Image" type="'+ highlightsArray[0].activities[acthigh].type +'"></div>');
+               $('#carouse_high.carousel-inner').append('<div class="item '+classact_high+' '+actname_high+' "><img src="uploads/properties/'+highlightsArray[0].activities[acthigh].media+'" alt="Image" type="'+ highlightsArray[0].activities[acthigh].type +'"></div>');
             } else {
-               $('#carouse_high.carousel-inner').append('<div class="item '+classact_high+' '+actname_high+' "><iframe width="100%" src="'+highlightsArray[0].activities[acthigh].media+'" alt="video" type="'+ highlightsArray[0].activities[acthigh].type +'"></div>');
+               $('#carouse_high.carousel-inner').append('<div class="item '+classact_high+' '+actname_high+' "><iframe src="'+highlightsArray[0].activities[acthigh].media+'" alt="video" type="'+ highlightsArray[0].activities[acthigh].type +'"></div>');
             }
 
                counter_high++;
@@ -811,9 +853,9 @@
                         $('#ol_high').append('<li data-target="#myCarouse2" data-slide-to="'+ counterdata +'" class="'+ classactdata +'"></li>');
 
                         if(data.activities[actdata].type == 'image') {
-                           $('#carouse_high.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><img width="100%" src="uploads/properties/'+data.activities[actdata].media+'" alt="Image"></div>');
+                           $('#carouse_high.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><img src="uploads/properties/'+data.activities[actdata].media+'" alt="Image"></div>');
                         } else {
-                            $('#carouse_high.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><iframe width="100%" src="'+data.activities[actdata].media+'" alt="video" type="'+ data.activities[actdata].type +'"></div>');
+                            $('#carouse_high.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><iframe src="'+data.activities[actdata].media+'" alt="video" type="'+ data.activities[actdata].type +'"></div>');
                         }
                         counterdata++;
                       }
@@ -830,11 +872,32 @@
           fullscreenControl: false,
           backgroundColor: '#FFF',
           minzoom: 5,
-          maxzoom: 15
+          maxzoom: 15,
+          styles: [
+            {
+               featureType: "all",
+               elementType: "labels",
+               stylers: [{ visibility: "off" }]
+            },
+            {
+               elementType: 'geometry', 
+               stylers: [{color: '#000000'}]
+            },
+            {
+               featureType: "water",
+               elementType: "geometry",
+               stylers: [
+                 { invert_lightness: true },
+                 { hue: "#ffffff" },
+                 { saturation: -100 },
+                 { lightness: 100 } /* generates "white" color */
+               ]
+            }]
         });
          var counter_iti=0;
          var classact_iti = '';
          if(itinerariesArray.length) {
+            $('#iti_activities li a').css('display','none');
             for (var act in itinerariesArray[0].activities){
 
                if(counter_iti === 0){
@@ -846,14 +909,14 @@
                var actname_iti = itinerariesArray[0].activities[act].name.toLowerCase();
                actname_iti = actname_iti.replace(/ /g,'')
                      //console.log(actname_iti);
-               $('.upperparttab #acco_activities li a.'+actname_iti).css('display','block');
+               $('.upperparttab #iti_activities li a.'+actname_iti).css('display','block');
 
                $('#ol_iti').append('<li data-target="#myCarouse3" data-slide-to="'+ counter_iti +'" class="'+ classact_iti +'"></li>');
 
                if(itinerariesArray[0].activities[act].type == 'image') {
-                  $('#carouse_iti.carousel-inner').append('<div class="item '+classact_iti+' '+actname_iti+' "><img width="100%" src="uploads/properties/'+itinerariesArray[0].activities[act].media+'" alt="Image" type="'+ itinerariesArray[0].activities[act].type +'"></div>');
+                  $('#carouse_iti.carousel-inner').append('<div class="item '+classact_iti+' '+actname_iti+' "><img src="uploads/properties/'+itinerariesArray[0].activities[act].media+'" alt="Image" type="'+ itinerariesArray[0].activities[act].type +'"></div>');
                } else {
-                  $('#carouse_iti.carousel-inner').append('<div class="item '+classact_iti+' '+actname_iti+' "><iframe width="100%" src="'+itinerariesArray[0].activities[act].media+'" alt="video" type="'+ itinerariesArray[0].activities[act].type +'"></div>');
+                  $('#carouse_iti.carousel-inner').append('<div class="item '+classact_iti+' '+actname_iti+' "><iframe src="'+itinerariesArray[0].activities[act].media+'" alt="video" type="'+ itinerariesArray[0].activities[act].type +'"></div>');
                }
 
                counter_iti++;
@@ -908,9 +971,9 @@
                            $('#ol_iti').append('<li data-target="#myCarouse3" data-slide-to="'+ counterdata +'" class="'+ classactdata +'"></li>');
 
                            if(data.activities[actdata].type == 'image') {
-                              $('#carouse_iti.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><img width="100%" src="uploads/properties/'+data.activities[actdata].media+'" alt="Image"></div>');
+                              $('#carouse_iti.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><img src="uploads/properties/'+data.activities[actdata].media+'" alt="Image"></div>');
                            } else {
-                               $('#carouse_iti.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><iframe width="100%" src="'+data.activities[actdata].media+'" alt="video" type="'+ data.activities[actdata].type +'"></div>');
+                               $('#carouse_iti.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><iframe src="'+data.activities[actdata].media+'" alt="video" type="'+ data.activities[actdata].type +'"></div>');
                            }
                            counterdata++;
                          }
@@ -919,7 +982,7 @@
                }
             }
          }
-      }, 1000);
+      }, 2000);
         
       //}
     </script>

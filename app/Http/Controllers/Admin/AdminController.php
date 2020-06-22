@@ -92,7 +92,7 @@ class AdminController extends Controller
                
                 $card = Categories::where(['id' => $id])
                 		->update(['name' => $input['name'], 'description' => $input['description'], 'active' => $input['active']]);
-                return redirect('/admin/categories')->with('success', 'Itinerarie Updated Successfully.');
+                return redirect('/admin/categories')->with('success', 'Category Updated Successfully.');
 
             } catch(Exception $e) {
                 return redirect('/admin/category/edit/' . $id)->with('error', $e->getMessage());
@@ -135,7 +135,7 @@ class AdminController extends Controller
                 $input['activities'] = serialize($activitiesData);
                 $input['location'] = serialize($input['location']);
                 $card = Properties::create($input);
-                return redirect('/admin/properties')->with('success', 'Properties Created Successfully.');
+                return redirect('/admin/properties')->with('success', 'Property Created Successfully.');
 
             } catch(Exception $e) {
                 return redirect('/admin/properties/add')->with('error', $e->getMessage());
@@ -150,7 +150,7 @@ class AdminController extends Controller
      	$id = $request->id;
         if($request->isMethod('post')) {
             $input = $request->all();
-            $activity_media = $input['activity_media'];
+            //$activity_media = $input['activity_media'];
             $activities = $input['activities'];
             $activitiesData = array();
             $destinationPath = public_path('/uploads/properties');
@@ -170,24 +170,33 @@ class AdminController extends Controller
 
 	            for($i = 0; $i < sizeof($activities); $i++) {
 
-	            	if(!empty($input['activity_media'][$i]) && isset($input['activity_media'][$i])) {
-	                	$media = $input['activity_media'][$i];
-	                	$media_name = $i . time().'.'.$media->getClientOriginalExtension();
-		                $media->move($destinationPath, $media_name);
+                	if($input['activity_media_type'][$i] == 'image') {
+
+                		if(!empty($input['activity_media_image'][$i]) && isset($input['activity_media_image'][$i])) {
+		                	$media = $input['activity_media_image'][$i];
+		                	$media_name = $i . time().'.'.$media->getClientOriginalExtension();
+			                $media->move($destinationPath, $media_name);
+			            } else {
+			            	$media_name = $input['activity_media_image_hidden'][$i];
+			            }
 			            
-		                array_push($activitiesData, array('name' => $activities[$i], 'type' => $input['activity_media_type'][$i], 'media' => $media_name));
+                	} else {
+                		//$media_name = $input['activity_media_video'][$i];
+                		if(!empty($input['activity_media_video'][$i]) && isset($input['activity_media_video'][$i])) {
+		                	$media_name = $input['activity_media_video'][$i];
+			            } else {
+			            	$media_name = $input['activity_media_image_hidden'][$i];
+			            }
+                	}
 
-		            } else {
-		            	array_push($activitiesData, array('name' => $activities[$i], 'type' => $input['activity_media_type'][$i], 'media' => $input['activity_media_hidden'][$i]));
-		            }
-
+		            array_push($activitiesData, array('name' => $activities[$i], 'type' => $input['activity_media_type'][$i], 'media' => $media_name));
                 }
-
 	            $input = $request->only('name', 'location','address', 'logo','category','activities', 'type', 'about', 'highlights');
                 $input['activities'] = serialize($activitiesData);
+                $input['location'] = serialize($input['location']);
 	            $card = Properties::where(['id' => $id])
                 		->update($input);
-                return redirect('/admin/properties')->with('success', 'Properties Updated Successfully.');
+                return redirect('/admin/properties')->with('success', 'Property Updated Successfully.');
 
             } catch(Exception $e) {
                 return redirect('/admin/properties/edit/' . $id)->with('error', $e->getMessage());
@@ -197,8 +206,34 @@ class AdminController extends Controller
 
         $property = Properties::where(['id' => $id])->first();
         $property['activities'] = unserialize($property['activities']);
+        if($property['location'] && $property['location'] != null) {
+        	$property['location'] = unserialize($property['location']);
+        } else {
+        	$property['location'] = array('lat' => '', 'long' => '');
+        }
         $categories = Categories::where(['active' => 1])->get();
 
         return view('admin.edit-property')->with(['property' => $property, 'categories' => $categories]);  
+    }
+
+    public function profile(Request $request) {
+    	if($request->isMethod('post')) {
+    		$input = $request->all();
+    		$update = User::where(['id' => Auth::user()->id])
+    					->update(['name' => $input['name']]);
+			//if updating password
+			if($input['password'] != null) {
+				if($input['password'] == $input['confirm_password']) {
+					User::where(['id' => Auth::user()->id])
+                        		->update(['password' => Hash::make($input['password'])]);
+                    return redirect('/admin/profile')->with('success', 'Profile updated successfully.');
+				} else {
+					return redirect('/admin/profile')->with('error', 'Password and confirm password not matched.');
+				}
+			}
+			return redirect('/admin/profile')->with('success', 'Profile updated successfully.');
+    	}
+    	$user = User::where(['id' => Auth::user()->id])->first();
+    	return view('admin.profile')->with(['user' => $user]);  
     }
 }

@@ -33,7 +33,6 @@
                      <input id="autocomplete"
                       name= "address"
                       placeholder="Enter your address"
-                      onFocus="geolocate()"
                       onChange="getLatLOng()"
                       type="text" class="form-control" required/>
                   </div>

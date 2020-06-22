@@ -42,8 +42,8 @@
                      <p>{{ Auth::user()->name }}<p> <span><img src="{{asset('uploads/profiles')}}/{{Auth::user()->profile_pic}}" onerror="this.onerror=null;this.src='{{asset("uploads/profiles/l60Hf.png")}}'" class="profile-img"></span>
                      </button> 
                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="">{{ Auth::user()->first_name }}</a>
-                        <a class="dropdown-item" href="">Edit Profile</a>
+                        <a class="dropdown-item" href="/admin/profile">{{ Auth::user()->first_name }}</a>
+                        <a class="dropdown-item" href="/admin/profile">Edit Profile</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -97,6 +97,9 @@
       <script type="text/javascript">
          var activitiesCounter = 0;
          $(document).ready(function() {
+            if($('#activitiesCounter').length > 0) {
+               activitiesCounter = $('#activitiesCounter').val();
+            }
             $('#upload-image').hide();
             $('#upload-video').hide();
             //$('#addMoreBtn').hide();
@@ -120,7 +123,15 @@
 
             $('#addMoreBtn').click(function(){
                activitiesCounter++;
-               var el = $('#activities_selector').clone().prop('id', 'activities_selector' + activitiesCounter);
+               if($('#activitiesCounter').length > 0) {
+                  var el = $('#activities_selector' + (activitiesCounter - 1)).clone().prop('id', 'activities_selector' + activitiesCounter);
+                  el.find('.media-preview' + (activitiesCounter - 1)).attr("class","media-preview"+activitiesCounter);
+                  setTimeout(function(){
+                     $(document).find('.media-preview' + activitiesCounter).remove();
+                  },500);
+               } else {
+                  var el = $('#activities_selector').clone().prop('id', 'activities_selector' + activitiesCounter);
+               }
                el.find("#firstLabl").attr("id","firstLabl"+activitiesCounter);
                el.find("#removeBtn").attr("data-id", activitiesCounter);
                el.find("#removeBtn").attr("id","removeBtn"+activitiesCounter);
