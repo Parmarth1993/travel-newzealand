@@ -18,23 +18,22 @@
       <link href="css/main-style.css" rel="stylesheet">
       <link rel="stylesheet" href="css/owl.carousel.css">
       <!-- <link rel="stylesheet" href="css/owl.theme.default.min.css"> -->
-      
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+{!! NoCaptcha::renderJs() !!}
 
-   <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
-      
-      <style type="text/css">
-         .carousel-item {
-           height: 40vh;
-           min-height: 350px;
-           background: no-repeat center center scroll;
-           -webkit-background-size: auto;
-           -moz-background-size: auto;
-           -o-background-size: auto;
-           background-size: auto;
-         }
-
-      </style>
+<style type="text/css">
+  #g-recaptcha-response {
+    display: block !important;
+    position: absolute;
+    margin: -78px 0 0 0 !important;
+    width: 302px !important;
+    height: 76px !important;
+    z-index: -999999;
+    opacity: 0;
+  }
+</style>
    </head>
    <body>
       <a id="top"></a>
@@ -117,226 +116,186 @@
       <?php //echo "<pre>";print_r($experiences);?>
       <section class="tabviewnab">
          <div class="nabtab">
-            <ul class="nav nav-tabs besttab">
-               @foreach($categories as $key => $category)
-                  <li>
-                     <a data-toggle="tab" href="#{{strtolower($category->name)}}" class="home-page-cat @if($key == 0) active @endif">{{$category->name}} <span>{{$category->description}}</span>
-                     </a>
-                  </li>
-               @endforeach
-               <!-- <li><a data-toggle="tab" href="#accomodations" class="home-page-cat active">Accomodations <span><?php //echo $accdesc;?></span></a></li>
-               <li><a data-toggle="tab" href="#highlights" class="home-page-cat">Highlights <span><?php //echo $highdesc;?></span></a></li>
-               <li><a data-toggle="tab" href="#itineraries" class="home-page-cat">Itineraries <span><?php //echo $itdesc;?></span></a></li> -->
-            </ul>
-            <div class="tab-content maintabview">
-               <div id="accomodations" class="tab-pane in active">
-                  <div class="container-fluid">
-                     <div class="row">
-                        <div class="col-lg-4 col-md-12 mapform">
-                           <div class="map-newzealand">
-                              <!-- <p class="countryname">Catlins, Otago</p>
-                              <span class="iconmake"></span>  -->
-                              <!-- <img src="img/news-land-img.png"> -->
-                              <div id="map-canvas"></div>
-                           </div>
-                        </div>
-                        <div class="col-lg-8 col-md-12 tabform" id="acc_results">
-                           <div class="alltabview">
-                              <div class="alltopview-logo">
-                                 <img id="acc_logo" src="img/minarat-logo.png" height="50" width="100">
+            <div class="container">    
+    
+    <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-8 col-md-offset-3 col-sm-8 col-sm-offset-2">
+      
+      @if(Session::has('error'))
+        <h4 style="color:red;">{{ Session::get('error') }}</h4>
+      @endif
 
-                                  <img id="acc_logo" class="ml-auto" src="img/log-img.jpg" height="50" width="100">
-                              </div>
-                              <div class="upperparttab">
-                                 <ul class="nav nav-tabs stationnab" id="acco_activities">
-                                    <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Helicopter" class="helicopter active"></a></li>
-                                    <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Hili Area" class="hiliarea"></a></li>
-                                    <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Fishing" class="fishing"></a></li>
-                                    <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Food" class="food"></a></li>
-                                    <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Army" class="army"></a></li>
-                                    <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Religion" class="religion"></a></li>
-                                    <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Videos" class="videos"></a></li>
-                                 </ul>
-                                 <div class="stationviewpart">
-                                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                                       <!--  <ol class="carousel-indicators" id="ol_acco"></ol> -->
-                                        <div id="carouse_acco" class="carousel-inner">
-                                          
-                                        </div>
-                                        <!-- Left and right controls -->
-                                      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                                        <span class="glyphicon glyphicon-chevron-left"><i class="fa fa-angle-left left-acc"></i></span>
-                                        <span class="sr-only">Previous</span>
-                                      </a>
-                                      <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                                        <span class="glyphicon glyphicon-chevron-right"><i class="fa fa-angle-right right-acc"></i></span>
-                                        <span class="sr-only">Next</span>
-                                      </a>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="bottomparttab">
-                                 <ul class="nav nav-tabs adventuretab">
-                                    <li><a data-toggle="tab" class="active" href="#about_desc">About</a></li>
-                                    <li><a data-toggle="tab" href="#highlights_desc">Highlights</a></li>
-                                 </ul>
-                                 <div class="tab-content adventureview">
-                                    <div class="tab-pane in active" id="about_desc">
-                                       <p id="about_accom"></p>
-                                       <div class="logosbtn">
-                                          <a href="" class="btn btn-primary">Enquiry Now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
-                                       </div>
-                                    </div>
-                                    <div class="tab-pane" id="highlights_desc">
-                                       <p id="high_accom"></p>
-                                       <div class="logosbtn">
-                                          <a href="" class="btn btn-primary">Enquiry now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
+      @if(Session::has('success'))
+        <h4 style="color:green;">{{ Session::get('success') }}</h4>
+      @endif
+      
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">Questionnaire</div>
+                <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="/accounts/login/"></a></div>
+            </div>  
+            <div class="panel-body" >
+                <form method="post" action="{{route('addQuestionaire')}}">
+                    {{-- <input type='hidden' name='' value='' /> --}}
+                            
+
+                    {{-- <form class="form-horizontal" method="post" action="{{route('addQuestionaire')}}"> --}}
+                     @csrf
+                    
+                     
+                        <div id="div_id_people" class="form-group required">
+                            <label for="id_username" class="control-label col-md-4  requiredField"> No. of people<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textinput textInput form-control" id="id_people" maxlength="30" name="total_people" placeholder="Number of people" style="margin-bottom: 10px" type="number" required min=1 oninput="validity.valid||(value='');"/>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-               </div>
-               <div id="highlights" class="tab-pane">
-                  <div class="container-fluid">
-                     <div class="row">
-                        <div class="col-lg-4 col-md-12 mapform">
-                           <div class="map-newzealand">
-                              <div id="map-canvas-highlights"></div>
-                              <!-- <p class="countryname">Catlins, Otago1</p>
-                              <span class="iconmake"></span> 
-                              <img src="img/news-land-img.png"> -->
-                           </div>
+                        <div id="div_id_travel_date" class="form-group required">
+                            <label for="id_travel" class="control-label col-md-4  requiredField"> Travel Date<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md form-control" id="id_travel" name="travel_date" style="margin-bottom: 10px" type="date" required />
+                            </div>     
                         </div>
-                        <div class="col-lg-8 col-md-12 tabform" id="high_results">
-                           <div class="alltabview">
-                              <div class="alltopview-logo">
-                                 <img id="high_logo" src="img/minarat-logo.png" height="50" width="100">
-                              </div>
-                              <div class="upperparttab">
-                                 <ul class="nav nav-tabs stationnab" id="high_activities">
-                                    <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Helicopter" class="helicopter active"></a></li>
-                                    <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Hili Area" class="hiliarea"></a></li>
-                                    <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Fishing" class="fishing"></a></li>
-                                    <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Food" class="food"></a></li>
-                                    <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Army" class="army"></a></li>
-                                    <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Religion" class="religion"></a></li>
-                                    <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Videos" class="videos"></a></li>
-                                 </ul>
-                                 <div class="stationviewpart">
-                                    <div id="myCarouse2" class="carousel slide" data-ride="carousel">
-                                        <!-- <ol class="carousel-indicators" id="ol_high"></ol> -->
-                                        <div id="carouse_high" class="carousel-inner"></div>
-                                          <!-- Left and right controls -->
-                                      <a class="left carousel-control" href="#myCarouse2" data-slide="prev">
-                                        <span class="glyphicon glyphicon-chevron-left"><i class="fa fa-angle-left left-high"></i></span>
-                                        <span class="sr-only">Previous</span>
-                                      </a>
-                                      <a class="right carousel-control" href="#myCarouse2" data-slide="next">
-                                        <span class="glyphicon glyphicon-chevron-right"><i class="fa fa-angle-right right-high"></i></span>
-                                        <span class="sr-only">Next</span>
-                                      </a>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="bottomparttab">
-                                 <ul class="nav nav-tabs adventuretab">
-                                    <li><a data-toggle="tab" class="active" href="#about_highdesc">About</a></li>
-                                    <li><a data-toggle="tab" href="#highlights_highdesc">Highlights</a></li>
-                                 </ul>
-                                 <div class="tab-content adventureview">
-                                    <div  class="tab-pane in active" id="about_highdesc">
-                                       <p id="about_highs"></p>
-                                       <div class="logosbtn">
-                                          <a href="" class="btn btn-primary">Enquiry now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
-                                       </div>
-                                    </div>
-                                    <div class="tab-pane" id="highlights_highdesc">
-                                       <p id="high_highs"></p>
-                                       <div class="logosbtn">
-                                          <a href="" class="btn btn-primary">Enquiry now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
+
+                        <div id="div_id_flying" class="form-group required">
+                            <label for="id_flying" class="control-label col-md-4  requiredField"> Flying From<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md form-control" id="id_flying_from" name="flying_from" placeholder="Flying From" style="margin-bottom: 10px" type="text" required/>
+                            </div>     
                         </div>
-                     </div>
-                  </div>
-               </div>
-               <div id="itineraries" class="tab-pane">
-                  <div class="container-fluid">
-                     <div class="row">
-                        <div class="col-lg-4 col-md-12 mapform">
-                           <div class="map-newzealand">
-                              <!-- <p class="countryname">Catlins, Otago2</p>
-                              <span class="iconmake"></span> 
-                              <img src="img/news-land-img.png"> -->
-                              <div id="map-canvas-itineraries"></div>
-                           </div>
+                        <div id="div_id_stay" class="form-group required">
+                            <label for="id_length" class="control-label col-md-4  requiredField"> Length of stay<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md emailinput form-control" id="id_stay" name="stay_length" placeholder="Length of stay" style="margin-bottom: 10px" type="text" required/>
+                            </div>     
                         </div>
-                        <div class="col-lg-8 col-md-12 tabform" id="iti_results">
-                           <div class="alltabview">
-                              <div class="alltopview-logo">
-                                 <img id="iti_logo" src="img/minarat-logo.png" height="50" width="100">
-                              </div>
-                              <div class="upperparttab">
-                                 <ul class="nav nav-tabs stationnab" id="iti_activities">
-                                    <li><a data-toggle="tab" href="#stationview-1" data-tool="tooltip" data-placement="right" title="Helicopter" class="helicopter active"></a></li>
-                                    <li><a data-toggle="tab" href="#stationview-2" data-tool="tooltip" data-placement="right" title="Hili Area" class="hiliarea"></a></li>
-                                    <li><a data-toggle="tab" href="#stationview-3" data-tool="tooltip" data-placement="right" title="Fishing" class="fishing"></a></li>
-                                    <li><a data-toggle="tab" href="#stationview-4" data-tool="tooltip" data-placement="right" title="Food" class="food"></a></li>
-                                    <li><a data-toggle="tab" href="#stationview-5" data-tool="tooltip" data-placement="right" title="Army" class="army"></a></li>
-                                    <li><a data-toggle="tab" href="#stationview-6" data-tool="tooltip" data-placement="right" title="Religion" class="religion"></a></li>
-                                    <li><a data-toggle="tab" href="#stationview-7" data-tool="tooltip" data-placement="right" title="Videos" class="videos"></a></li>
-                                 </ul>
-                                  <div class="stationviewpart">
-                                    <div id="myCarouse3" class="carousel slide" data-interval="false">
-                                        <!-- <ol class="carousel-indicators" id="ol_iti"></ol> -->
-                                        <div class="carousel-inner" id="carouse_iti"></div>
-                              
-                                       <!-- Left and right controls -->
-                                      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                                        <span class="glyphicon glyphicon-chevron-left"><i class="fa fa-angle-left left-iti"></i></span>
-                                        <span class="sr-only">Previous</span>
-                                      </a>
-                                      <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                                        <span class="glyphicon glyphicon-chevron-right"><i class="fa fa-angle-right right-iti"></i></span>
-                                        <span class="sr-only">Next</span>
-                                      </a>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="bottomparttab">
-                                 <ul class="nav nav-tabs adventuretab">
-                                    <li><a data-toggle="tab" class="active" href="#about_itdesc">About</a></li>
-                                    <li><a data-toggle="tab" href="#highlights_itdesc">Highlights</a></li>
-                                 </ul>
-                                 <div class="tab-content adventureview">
-                                    <div  class="tab-pane in active" id="about_itdesc">
-                                       <p id="iti_about"></p>
-                                       <div class="logosbtn">
-                                          <a href="" class="btn btn-primary">Enquiry now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
-                                       </div>
-                                    </div>
-                                    <div class="tab-pane" id="highlights_itdesc">
-                                       <p id="iti_highs"></p>
-                                       <div class="logosbtn">
-                                          <a href="" class="btn btn-primary">Enquiry now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
+
+
+                        <div id="div_id_name" class="form-group required"> 
+                            <label for="id_name" class="control-label col-md-4  requiredField"> Trip Type<span class="asteriskField">*</span> </label> 
+                            <div class="controls col-md-8" style="margin-bottom: 10px"> 
+                                <select class="input-md form-control select" id="id_trip" name="trip_type" required>
+                                   <option value="">Select Option</option>
+                                   <option value="Self-Drive">Self-Drive</option>
+                                   <option value="Cruise">Cruise</option>
+                                   <option value="Guided Coach Tour">Guided Coach Tour</option>
+                                </select>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-               </div>
+
+
+                        <div id="div_id_name" class="form-group required"> 
+                            <label for="id_name" class="control-label col-md-4  requiredField"> Interests<span class="asteriskField">*</span> </label> 
+                            <div class="controls col-md-8" style="margin-bottom: 10px"> 
+                                <select class="input-md form-control select" id="id_interest" name="interest" required>
+                                   <option value="">Select Option</option>
+                                   <option value="Nature">Nature</option>
+                                   <option value="Wildlife">Wildlife</option>
+                                   <option value="Maori Culture">Maori Culture</option>
+
+                                   <option value="LOTR & Film">LOTR & Film</option>
+                                   <option value="Art/Museums">Art/Museums</option>
+                                   <option value="Fine Food">Fine Food</option>
+
+                                   <option value="Wine">Wine</option>
+                                   <option value="Adrenaline (Bungy jumping, Sky diving)">
+                                    Adrenaline (Bungy jumping, Sky diving)
+                                   </option>
+                                   <option value="Adventure (Rafting, Jet Boats, Kayaking)">
+                                    Adventure (Rafting, Jet Boats, Kayaking)
+                                   </option>
+
+                                   <option value="Golf">Golf</option>
+                                   <option value="Winter Sports">Winter Sports</option>
+                                   <option value="Fishing">Fishing</option>
+
+
+                                   <option value="Hiking">Hiking</option>
+                                   <option value="Biking">Biking</option>
+                                   <option value="Scenic Flights">Scenic Flights</option>
+
+                                   <option value="pas">Hot pools/Health spas</option>
+                                   <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+
+                         <div id="div_id_name" class="form-group required"> 
+                            <label for="id_name" class="control-label col-md-4  requiredField"> Accommodation Type<span class="asteriskField">*</span> </label> 
+                            <div class="controls col-md-8" style="margin-bottom: 10px"> 
+                                <select class="input-md form-control select" id="id_accomodation" name="accomodation" required>
+                                 <option value="">Select Option</option>
+                                   <option value="Lodges/Bed & Breakfasts">Lodges/Bed & Breakfasts</option>
+                                   <option value="Hotels/Motels/Resorts">Hotels/Motels/Resorts</option>
+                                   <option value="Farm Stays">Farm Stays</option>
+                                   <option value="House">House</option>
+                                   <option value="Something unique">Something unique</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        
+                        <div id="div_id_company" class="form-group required"> 
+                            <label for="id_company" class="control-label col-md-4  requiredField"> Special Requests<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 "> 
+                                 <input class="input-md textinput textInput form-control" id="id_special_request" name="special_request" placeholder="Special request" style="margin-bottom: 10px" type="text" required/>
+                            </div>
+                        </div> 
+                        <div id="div_id_catagory" class="form-group required">
+                            <label for="id_catagory" class="control-label col-md-4  requiredField"> Name<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 "> 
+                                 <input class="input-md textinput textInput form-control" id="id_name" name="name" placeholder="Enter name" style="margin-bottom: 10px" type="text" required/>
+                            </div>
+                        </div> 
+                        <div id="div_id_number" class="form-group required">
+                             <label for="id_number" class="control-label col-md-4  requiredField"> Email<span class="asteriskField">*</span> </label>
+                             <div class="controls col-md-8 ">
+                                 <input class="input-md textinput textInput form-control" id="id_email" name="email" placeholder="Enter email" style="margin-bottom: 10px" type="email" required/>
+                            </div> 
+                        </div> 
+
+
+                        <div id="div_id_gender" class="form-group required">
+                            <label for="id_gender"  class="control-label col-md-4  requiredField"> Physical Challenge<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 "  style="margin-bottom: 10px">
+                                 <label class="radio-inline"> <input type="radio" name="physical_challenge" id="id_physical_1" value="no"  style="margin-bottom: 20px" required>No</label>
+                                 <label class="radio-inline"> <input type="radio" name="physical_challenge" id="id_physical_2" value="yes"  style="margin-bottom: 20px">Yes</label>
+                            </div>
+                        </div>
+
+
+                        <div id="div_id_catagory" class="form-group required captcha" style="display: none;">
+                            <label for="id_catagory" class="control-label col-md-4  requiredField"><span class="asteriskField"></span> </label>
+                            <div class="controls col-md-8 "> 
+                                 {!! app('captcha')->display() !!}
+                                @if ($errors->has('g-recaptcha-response'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div> 
+
+                        
+
+
+                        <div class="form-group"> 
+                            <div class="aab controls col-md-4 "></div>
+                            <div class="controls col-md-8 ">
+                                <input type="submit" name="Signup" value="Submit" class="btn btn-primary btn btn-info sbm-btn" id="submit-id-signup" />
+                               
+                            </div>
+                        </div> 
+                            
+                    </form>
+
+                {{-- </form> --}}
             </div>
+        </div>
+    </div> 
+</div>
          </div>
+         
       </section>
       <section class="newsland-slider">
          <div class="container-fluid">
@@ -364,6 +323,89 @@
                        
                      </div>
                      <?php } ?>
+                     <!-- <div class="item">
+                        <div class="imgcontainer">
+                           
+                           <h4>Mckenzie - Riding through the vineyards</h4>
+                           <a href=""> <img src="img/imghome002.jpg"></a>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                       
+                     </div>
+                     <div class="item">
+                        <div class="imgcontainer">
+                           
+                           <h4>Lake Taupo riverboat cruise</h4>
+                           <a href=""> <img src="img/imghome003.jpg"></a>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                       
+                     </div>
+                     <div class="item">
+                        <div class="imgcontainer">
+                           
+                           <h4>Fiordland - mountian hiking for a large group
+                           </h4>
+                           <a href=""> <img src="img/imghome004.jpg"></a>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                       
+                     </div>
+                     <div class="item">
+                        <div class="imgcontainer">
+                           
+                           <h4>Waitomo Glowworm Caves Waikat</h4>
+                           <a href=""> <img src="img/imghome003.jpg"></a>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                       
+                     </div>
+                     <div class="item">
+                        <div class="imgcontainer">
+                           
+                           <h4>Waitomo Glowworm Caves Waikat</h4>
+                           <a href=""> <img src="img/imghome001.jpg"></a>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                       
+                     </div>
+                     <div class="item">
+                        <div class="imgcontainer">
+                           
+                           <h4>Mckenzie - Riding through the vineyards</h4>
+                           <a href=""> <img src="img/imghome002.jpg"></a>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                       
+                     </div>
+                     <div class="item">
+                        <div class="imgcontainer">
+                           
+                           <h4>Lake Taupo riverboat cruise</h4>
+                           <a href=""> <img src="img/imghome003.jpg"></a>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                       
+                     </div>
+                     <div class="item">
+                        <div class="imgcontainer">
+                           
+                           <h4>Fiordland - mountian hiking for a large group
+                           </h4>
+                           <a href=""> <img src="img/imghome004.jpg"></a>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                       
+                     </div>
+                     <div class="item">
+                        <div class="imgcontainer">
+                           
+                           <h4>Waitomo Glowworm Caves Waikat</h4>
+                           <a href=""> <img src="img/imghome003.jpg"></a>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                       
+                     </div> -->
                   </div>
                </div>
             </div>
@@ -515,27 +557,17 @@
       </div>
       <!-- <script src="vendor/jquery/jquery.min.js"></script>
       <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
-     
-
-     <script src="js/jquery.min.js"></script>
+      <script src="js/jquery.min.js"></script>
 
       <script src="js/bootstrap.min.js"></script>
 
       <script src="js/mainscript.js"></script>
       <!-- Custom scripts for this template -->
-      <script src="js/owl.carousel.js"></script> 
-      
-     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-      
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-      
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-      
-      <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
+      <script src="js/owl.carousel.js"></script>     
       <script type="text/javascript">
          if (window.matchMedia('(max-width: 480px)').matches)
             {
-              /* $('.owl-carousel').owlCarousel({
+               $('.owl-carousel').owlCarousel({
                stagePadding: 0,
                loop:true,
                margin:10,
@@ -554,11 +586,11 @@
                       items:3
                   }
                }
-            });*/
+            });
          }
       </script>
       <script type="text/javascript">
-         /*$('.owl-carousel').owlCarousel({
+         $('.owl-carousel').owlCarousel({
            stagePadding: 100,
            loop:true,
            margin:10,
@@ -577,7 +609,7 @@
                      items:3
                  }
                }
-            });*/      
+            });      
       </script>
       <script>
          $(document).ready(function(){
@@ -611,10 +643,6 @@
           backgroundColor: '#FFF',
           minzoom: 5,
           maxzoom: 15,
-          options: {
-             gestureHandling: 'greedy'
-         },
-         disableDefaultUI: true,
           styles: [
             {
                featureType: "all",
@@ -656,14 +684,13 @@
                $('#ol_acco').append('<li data-target="#myCarousel" data-slide-to="'+ counter +'" class="'+ classact +'"></li>');               
 
                if(accomodationsArray[0].activities[act].type == 'image') {
-                  $('#carouse_acco.carousel-inner').append('<div data-value="'+actname+'" class="carousel-item '+classact+' '+actname+' "><img src="uploads/properties/'+accomodationsArray[0].activities[act].media+'" alt="Image" type="'+ accomodationsArray[0].activities[act].type +'"></div>');
+                  $('#carouse_acco.carousel-inner').append('<div class="item '+classact+' '+actname+' "><img src="uploads/properties/'+accomodationsArray[0].activities[act].media+'" alt="Image" type="'+ accomodationsArray[0].activities[act].type +'"></div>');
                } else {
-                  $('#carouse_acco.carousel-inner').append('<div data-value="'+actname+'" class="carousel-item '+classact+' '+actname+' "><iframe src="'+accomodationsArray[0].activities[act].media+'" alt="video" type="'+ accomodationsArray[0].activities[act].type +'"></div>');
+                  $('#carouse_acco.carousel-inner').append('<div class="item '+classact+' '+actname+' "><iframe src="'+accomodationsArray[0].activities[act].media+'" alt="video" type="'+ accomodationsArray[0].activities[act].type +'"></div>');
                }
 
                counter++;
             }
-            //console.log(accomodationsArray);
             for(var i = 0; i < accomodationsArray.length ; i++) {
 
                //place marker
@@ -676,35 +703,16 @@
                  var infoWindow = new google.maps.InfoWindow();
 
                  var data = accomodationsArray[i];
-                 var latlong = {lat: parseFloat(accomodationsArray[i].location.lat), lng: parseFloat(accomodationsArray[i].location.long)};
-
-                 if(accomodationsArray[i].type === 'Premium'){
-                  var marker = new google.maps.Marker({
+                 var latlong = {lat: parseFloat(accomodationsArray[i].location.lat), lng: parseFloat(accomodationsArray[i].location.long)};      
+                 var marker = new google.maps.Marker({
                    position: latlong,
                    map: map,
-                   icon: 'https://www.staging.travelnewzealand.com/img/blue-dot.png',
+                   //icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+ 35,
                    title: accomodationsArray[i].name
-                  });
-                 }
-                 else{
-                  var marker = new google.maps.Marker({
-                   position: latlong,
-                   map: map,
-                   icon: 'https://www.staging.travelnewzealand.com/img/red-dot.png',
-                   title: accomodationsArray[i].name
-                  });
-                 }      
-                 
+                 });
 
                  //Attach click event to the marker.
                  (function (marker, data) {
-                     google.maps.event.addListener(marker, "mouseover", function (e) {
-                         infoWindow.setContent("<div ><h3>" + data.name + "</h3></div");
-                         infoWindow.open(map, marker);
-                     });
-                     google.maps.event.addListener(marker, "mouseout", function (e) {
-                         infoWindow.close();
-                     });
                      google.maps.event.addListener(marker, "click", function (e) {
                         $('#carouse_acco.carousel-inner').html('');
                         $('#ol_acco').html('');
@@ -712,7 +720,7 @@
                          infoWindow.setContent("<div ><h3>" + data.name + "</h3></div");
                          infoWindow.open(map, marker);
                          $('#acco_activities li a').css('display','none');
-                         //$('.carousel-inner').html('');
+                         $('.carousel-inner').html('');
                          $('#about_accom').text(data.about);
                          $('#high_accom').text(data.highlights);
                          $('#acc_logo').attr('src','uploads/properties/'+data.logo);
@@ -732,9 +740,9 @@
                            //console.log(actnamedata);
                            $('.upperparttab #acco_activities li a.'+actnamedata).css('display','block');
                            if(data.activities[actdata].type == 'image') {
-                              $('#carouse_acco.carousel-inner').append('<div data-value="'+actnamedata+'" class="carousel-item '+classactdata+' '+actnamedata+' "><img src="uploads/properties/'+data.activities[actdata].media+'" alt="Image" type="'+ data.activities[actdata].type +'"></div>');
+                              $('#carouse_acco.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><img src="uploads/properties/'+data.activities[actdata].media+'" alt="Image" type="'+ data.activities[actdata].type +'"></div>');
                            } else {
-                              $('#carouse_acco.carousel-inner').append('<div data-value="'+actnamedata+'" class="carousel-item '+classactdata+' '+actnamedata+' "><iframe src="'+data.activities[actdata].media+'" alt="video" type="'+ data.activities[actdata].type +'"></div>');
+                              $('#carouse_acco.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><iframe src="'+data.activities[actdata].media+'" alt="video" type="'+ data.activities[actdata].type +'"></div>');
                            }
                            counterdata++;
                          }
@@ -742,8 +750,6 @@
                  })(marker, data);
                }
             }
-         } else {
-          $('#acc_results').html('<h3 class="no-results">No results found</h3>');
          }
        
 
@@ -755,7 +761,6 @@
           backgroundColor: '#FFF',
           minzoom: 5,
           maxzoom: 15,
-        disableDefaultUI: true,
           styles: [
             {
                featureType: "all",
@@ -800,9 +805,9 @@
             $('#ol_high').append('<li data-target="#myCarouse2" data-slide-to="'+ counter_high +'" class="'+ classact_high +'"></li>');
 
             if(highlightsArray[0].activities[acthigh].type == 'image') {
-               $('#carouse_high.carousel-inner').append('<div data-value="'+actname_high+'" class="carousel-item '+classact_high+' '+actname_high+' "><img src="uploads/properties/'+highlightsArray[0].activities[acthigh].media+'" alt="Image" type="'+ highlightsArray[0].activities[acthigh].type +'"></div>');
+               $('#carouse_high.carousel-inner').append('<div class="item '+classact_high+' '+actname_high+' "><img src="uploads/properties/'+highlightsArray[0].activities[acthigh].media+'" alt="Image" type="'+ highlightsArray[0].activities[acthigh].type +'"></div>');
             } else {
-               $('#carouse_high.carousel-inner').append('<div data-value="'+actname_high+'" class="carousel-item '+classact_high+' '+actname_high+' "><iframe src="'+highlightsArray[0].activities[acthigh].media+'" alt="video" type="'+ highlightsArray[0].activities[acthigh].type +'"></div>');
+               $('#carouse_high.carousel-inner').append('<div class="item '+classact_high+' '+actname_high+' "><iframe src="'+highlightsArray[0].activities[acthigh].media+'" alt="video" type="'+ highlightsArray[0].activities[acthigh].type +'"></div>');
             }
 
                counter_high++;
@@ -829,13 +834,6 @@
 
               //Attach click event to the marker.
               (function (marker, data) {
-                  google.maps.event.addListener(marker, "mouseover", function (e) {
-                         infoWindow.setContent("<div ><h3>" + data.name + "</h3></div");
-                         infoWindow.open(map, marker);
-                  });
-                  google.maps.event.addListener(marker, "mouseout", function (e) {
-                         infoWindow.close();
-                  });
                   google.maps.event.addListener(marker, "click", function (e) {
                      $('#carouse_high.carousel-inner').html('');
                      $('#ol_high').html('');
@@ -863,9 +861,9 @@
                         $('#ol_high').append('<li data-target="#myCarouse2" data-slide-to="'+ counterdata +'" class="'+ classactdata +'"></li>');
 
                         if(data.activities[actdata].type == 'image') {
-                           $('#carouse_high.carousel-inner').append('<div data-value="'+actnamedata+'"  class="carousel-item '+classactdata+' '+actnamedata+' "><img src="uploads/properties/'+data.activities[actdata].media+'" alt="Image"></div>');
+                           $('#carouse_high.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><img src="uploads/properties/'+data.activities[actdata].media+'" alt="Image"></div>');
                         } else {
-                            $('#carouse_high.carousel-inner').append('<div data-value="'+actnamedata+'"  class="carousel-item '+classactdata+' '+actnamedata+' "><iframe src="'+data.activities[actdata].media+'" alt="video" type="'+ data.activities[actdata].type +'"></div>');
+                            $('#carouse_high.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><iframe src="'+data.activities[actdata].media+'" alt="video" type="'+ data.activities[actdata].type +'"></div>');
                         }
                         counterdata++;
                       }
@@ -873,8 +871,6 @@
               })(marker, data);
             }
         }
-      } else {
-        $('#high_results').html('<h3 class="no-results">No results found</h3>');
       }
         //map 3
 
@@ -885,7 +881,6 @@
           backgroundColor: '#FFF',
           minzoom: 5,
           maxzoom: 15,
-        disableDefaultUI: true,
           styles: [
             {
                featureType: "all",
@@ -927,9 +922,9 @@
                $('#ol_iti').append('<li data-target="#myCarouse3" data-slide-to="'+ counter_iti +'" class="'+ classact_iti +'"></li>');
 
                if(itinerariesArray[0].activities[act].type == 'image') {
-                  $('#carouse_iti.carousel-inner').append('<div data-value="'+actname_iti+'" class="carousel-item '+classact_iti+' '+actname_iti+' "><img src="uploads/properties/'+itinerariesArray[0].activities[act].media+'" alt="Image" type="'+ itinerariesArray[0].activities[act].type +'"></div>');
+                  $('#carouse_iti.carousel-inner').append('<div class="item '+classact_iti+' '+actname_iti+' "><img src="uploads/properties/'+itinerariesArray[0].activities[act].media+'" alt="Image" type="'+ itinerariesArray[0].activities[act].type +'"></div>');
                } else {
-                  $('#carouse_iti.carousel-inner').append('<div data-value="'+actname_iti+'" class="carousel-item '+classact_iti+' '+actname_iti+' "><iframe src="'+itinerariesArray[0].activities[act].media+'" alt="video" type="'+ itinerariesArray[0].activities[act].type +'"></div>');
+                  $('#carouse_iti.carousel-inner').append('<div class="item '+classact_iti+' '+actname_iti+' "><iframe src="'+itinerariesArray[0].activities[act].media+'" alt="video" type="'+ itinerariesArray[0].activities[act].type +'"></div>');
                }
 
                counter_iti++;
@@ -957,13 +952,6 @@
 
                  //Attach click event to the marker.
                  (function (marker, data) {
-                     google.maps.event.addListener(marker, "mouseover", function (e) {
-                         infoWindow.setContent("<div ><h3>" + data.name + "</h3></div");
-                         infoWindow.open(map, marker);
-                     });
-                     google.maps.event.addListener(marker, "mouseout", function (e) {
-                         infoWindow.close();
-                     });
                      google.maps.event.addListener(marker, "click", function (e) {
                         $('#carouse_iti.carousel-inner').html('');
                         $('#ol_iti').html('');
@@ -991,9 +979,9 @@
                            $('#ol_iti').append('<li data-target="#myCarouse3" data-slide-to="'+ counterdata +'" class="'+ classactdata +'"></li>');
 
                            if(data.activities[actdata].type == 'image') {
-                              $('#carouse_iti.carousel-inner').append('<div data-value="'+actnamedata+'" class="carousel-item '+classactdata+' '+actnamedata+' "><img src="uploads/properties/'+data.activities[actdata].media+'" alt="Image"></div>');
+                              $('#carouse_iti.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><img src="uploads/properties/'+data.activities[actdata].media+'" alt="Image"></div>');
                            } else {
-                               $('#carouse_iti.carousel-inner').append('<div data-value="'+actnamedata+'" class="carousel-item '+classactdata+' '+actnamedata+' "><iframe src="'+data.activities[actdata].media+'" alt="video" type="'+ data.activities[actdata].type +'"></div>');
+                               $('#carouse_iti.carousel-inner').append('<div class="item '+classactdata+' '+actnamedata+' "><iframe src="'+data.activities[actdata].media+'" alt="video" type="'+ data.activities[actdata].type +'"></div>');
                            }
                            counterdata++;
                          }
@@ -1001,121 +989,111 @@
                  })(marker, data);
                }
             }
-         } else {
-          $('#iti_results').html('<h3 class="no-results">No results found</h3>');
          }
       }, 2000);
         
       //}
-      
 
-     // Highlight accomodation activities on click
 
-     $(document).on('click', '#acco_activities li a', function(e) {
+     /* $(document).on('click','.sbm-btn', function(e){
+  
+         var email = $('#id_email').val();
+         var name = $('#id_name').val();
+         var people = $('#id_people').val();
+         var travel_date = $('#id_travel').val();
+         var flying_from = $('#id_flying_from').val();
+         var stay = $('#id_stay').val();
+         var trip = $('#id_trip').val();
+         var interest = $('#id_interest').val();
+         var accomodation = $('#id_accomodation').val();
+         var special_request = $('#id_special_request').val();
 
-         $('#acco_activities li a').removeClass('active');
-         $(this).addClass('active');
-         var item = this.className.split(/\s+/)
-         let text = $(this).parent('li').closest('.upperparttab');
-         let el = text.find('#carouse_acco');
-         text.find('.carousel-inner .carousel-item').removeClass('active');
-         el.find('.'+item[0]).addClass('active');
+         var physical_1 = $('#id_physical_1').val();
+         var physical_2 = $('#id_physical_2').val();
+
+         if ( ! $("#id_physical_1").is(':checked') && ! $("#id_physical_1").is(':checked'))
+         {
+           setAlert('#id_physical_1');
+         }
+
+        
+         if(email == '' || name == '' || people == '' || travel_date == '' || flying_from == '' || stay == '' || trip =='' || interest =='' || accomodation == '' || special_request == ''){
+            e.preventDefault();
+            
+            if(email === ''){ setAlert('#id_email'); }
+            
+            if(name === ''){ setAlert('#id_name'); }
+            if(people === ''){ setAlert('#id_people'); }
+            if(travel_date === ''){ setAlert('#id_travel'); }
+            if(flying_from === ''){ setAlert('#id_flying_from'); }
+            if(stay === ''){ setAlert('#id_stay'); }
+            if(trip === ''){ setAlert('#id_trip'); }
+            if(interest === ''){ setAlert('#id_interest'); }
+            if(accomodation === ''){ setAlert('#id_accomodation'); }
+            if(special_request === ''){ setAlert('#id_special_request'); }
+         }
+
+         // var recaptcha = $("#g-recaptcha-response").val();
+         //   if (recaptcha === "") {
+         //      event.preventDefault();
+         //      alert("Please check the recaptcha");
+         //  }
       });
 
-      // Highlight highlights activities on click
+      function setAlert(id_name) {
+        $(id_name).attr("required", true);
+        $(id_name).closest('.form-group').find('.asteriskField').css({"color": "red"});
+        
+      }*/
 
-      $(document).on('click', '#high_activities li a', function(e) {
-         $('#high_activities li a').removeClass('active');
-         $(this).addClass('active');
-         var item = this.className.split(/\s+/)
-         
-         let text = $(this).parent('li').closest('.upperparttab');
-         let el = text.find('#carouse_high');
-         text.find('.carousel-inner .carousel-item').removeClass('active');
-         el.find('.'+item[0]).addClass('active');
+      window.onload = function() {
+          var $recaptcha = document.querySelector('#g-recaptcha-response');
+
+          if($recaptcha) {
+              $recaptcha.setAttribute("required", "required");
+          }
+      };
+
+
+
+      $(document).on('keyup','input,select', function(e){
+          validateForm();
       });
 
-       // Highlight itinaries activities on click
-
-      $(document).on('click', '#iti_activities li a', function(e) {
-         $('#iti_activities li a').removeClass('active');
-         $(this).addClass('active');
-         var item = this.className.split(/\s+/)
-         
-         let text = $(this).parent('li').closest('.upperparttab');
-         let el = text.find('#carouse_iti');
-         text.find('.carousel-inner .carousel-item').removeClass('active');
-         el.find('.'+item[0]).addClass('active');
+      $(document).on('change','.select', function(e){
+         validateForm()
       });
 
-      // Accomodation Left and right arrows
 
-      $(document).on('click', '.left-acc', function(e) { 
-         $('#acco_activities li a').removeClass('active');
-         setTimeout(function(){
-            var activity  = $('#carouse_acco .active').attr("data-value");
-            $('#acco_activities li .'+activity).addClass('active');
-         }, 1000);
-      });
-      $(document).on('click', '.right-acc', function(e) { 
-         $('#acco_activities li a').removeClass('active');
-         setTimeout(function(){
-            var activity  = $('#carouse_acco .active').attr("data-value");
-            $('#acco_activities li .'+activity).addClass('active');
-         }, 1000);
+      $(document).on('change','input[type=radio][name=physical_challenge]', function(e){
+        validateForm()
       });
 
-      // Highlights Left and right arrows
+      function validateForm() {
+         var email = $('#id_email').val();
+         var name = $('#id_name').val();
+         var people = $('#id_people').val();
+         var travel_date = $('#id_travel').val();
+         var flying_from = $('#id_flying_from').val();
+         var stay = $('#id_stay').val();
+         var trip = $('#id_trip').val();
+         var interest = $('#id_interest').val();
+         var accomodation = $('#id_accomodation').val();
+         var special_request = $('#id_special_request').val();
 
-       $(document).on('click', '.left-high', function(e) { 
-         $('#high_activities li a').removeClass('active');
-         setTimeout(function(){
-            var activity  = $('#carouse_high .active').attr("data-value");
-            $('#high_activities li .'+activity).addClass('active');
-         }, 1000);
-      });
-      $(document).on('click', '.right-high', function(e) { 
-         $('#high_activities li a').removeClass('active');
-         setTimeout(function(){
-            var activity  = $('#carouse_high .active').attr("data-value");
-            $('#high_activities li .'+activity).addClass('active');
-         }, 1000);
-      });
+         var physical_1 = $('#id_physical_1').val();
+         var physical_2 = $('#id_physical_2').val();
 
-       // Itinaries Left and right arrows
+         if(email != '' && name != '' && people != '' && travel_date != '' && flying_from != '' && stay != '' && trip != '' && interest != '' && accomodation != '' && special_request != '' && ($("#id_physical_1").is(':checked') || $("#id_physical_2").is(':checked'))) {
 
-       $(document).on('click', '.left-iti', function(e) { 
-         $('#iti_activities li a').removeClass('active');
-         setTimeout(function(){
-            var activity  = $('#carouse_iti .active').attr("data-value");
-            $('#iti_activities li .'+activity).addClass('active');
-         }, 1000);
-      });
-      $(document).on('click', '.right-iti', function(e) { 
-         $('#iti_activities li a').removeClass('active');
-         setTimeout(function(){
-            var activity  = $('#carouse_iti .active').attr("data-value");
-            $('#iti_activities li .'+activity).addClass('active');
-         }, 1000);
-      });
+            $('.captcha').show();
+         }  
+        
+      }
 
-   
-      $(document).on('click', '.carousel-control-next', function(e){
-       let slider_area = $(this).closest('#myCarouse3').find('.carousel-inner');
-       let icon_area = $(this).closest('.upperparttab').find('#iti_activities');
 
-       let active_slide = slider_area.find('.active');
-       let className = active_slide.attr('class');
-       var class_list = className.split(/\s+/);
-       if(class_list[1] !== 'active'){
-         icon_area.find('li a').removeClass('active');
-         icon_area.find('.'+class_list[1]).addClass('active');
-       }
-       if(class_list[1] === 'active') {
-         icon_area.find('li a').removeClass('active');
-         icon_area.find('.'+class_list[2]).addClass('active');
-       }
-      });
+
+     
     </script>
    </body>
 </html>

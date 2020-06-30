@@ -20,8 +20,9 @@
             </p>
             @endif
          </div>
-         <div class="form-group d-flex">                                
-            <a href="/admin/experience/add" class="btn btn-primary ml-auto" >Add Experience</a>
+         <div class="form-group d-flex">  
+            
+            <a href="{{ route('add_experience') }}" class="btn btn-primary ml-auto" >Add Experiences</a>
          </div>
           <div class="card shadow mb-4">
             <div class="card-body">
@@ -30,30 +31,33 @@
                      <thead>
                         <tr>
                            <th>Title</th>
-                           <th>Description</th>
-                           <th>Image</th>
-                           
+                           <th>Sub Title</th>
+                           <th>Address</th>
+                           {{-- <th>Description</th> --}}
+                           <th>Actions</th>
                         </tr>
                      </thead>
-                     <tfoot>
-                        <tr>
-                           <th>Title</th>
-                           <th>Description</th>
-                           <th>Image</th>
-                           
-                        </tr>
-                     </tfoot>
+                     
                      <tbody>
                         @foreach($experiences as $experience)
-                        <tr class="plan-{{$experience->id}}">
-                           <td>{{$experience->title}}</td>
-                           <td>{{$experience->description}}</td>
-                           <td><img src="/uploads/experience/{{$experience->image}}" height="100" width="100" /></td>
-                          
+                        <tr class="exp-{{@$experience->id}}">
+                           <td>{{@$experience->title}}</td>
+                           <td>{{@$experience->sub_title}}</td>
+                           <td>{{@$experience->address}}</td>
+                           {{-- <td>{{@$experience->description}}</td> --}}
+                           
+                           <td>
+                              <a href="{{route('edit_experience',$experience->id)}}" >Edit</a>
+                              <a href="javascript:void(0);" data-id="{{$experience->id}}" class="delete-btn">Delete</a>
+                           </td>
                         </tr>
                         @endforeach
                      </tbody>
                   </table>
+                  <form method="post" action="{{route('delete_experience')}}" id="del-form">
+                  @csrf
+                     <input type="hidden" name="experience_id" id="id_property">
+                  </form>
                </div>
             </div>
          </div>

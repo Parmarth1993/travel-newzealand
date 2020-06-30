@@ -5,7 +5,7 @@
       <div class="container">
          <div class="row headingtop">
             <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-               <h2 class="textlog">Add New Experience</h2>
+               <h2 class="textlog">Edit Experience</h2>
             </div>
          </div>
          <div class="row">
@@ -20,18 +20,18 @@
             </p>
             @endif
          </div>
-         <form action="{{route('add_experience')}}" name="profile_form" enctype='multipart/form-data' method="POST">
+         <form action="{{route('edit_experience',$experience->id)}}" name="profile_form" enctype='multipart/form-data' method="POST">
             @csrf
             <div class="row">
                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                   <div class="form-group">
                      <label>Title</label>
-                     <input type="text" name="title" class="form-control" value="" required>
+                     <input type="text" name="title" class="form-control" value="{{$experience->title}}" required>
                   </div>
 
                   <div class="form-group">
                      <label>Sub Title</label>
-                     <input type="text" name="sub_title" class="form-control" value="" required>
+                     <input type="text" name="sub_title" class="form-control" value="{{$experience->sub_title}}" required>
                   </div>
 
                   <div class="form-group">
@@ -39,18 +39,19 @@
                      <input id="autocomplete"
                       name= "address"
                       placeholder="Enter your address"
-                      onChange="getLatLong()"
-                      type="text" class="form-control" required/>
+                      onChange="getLatLOng()"
+                      type="text" class="form-control" 
+                      value="{{$experience->address}}" required/>
                   </div>
-                  <input type="hidden" name="location[lat]" id="lat_val">
-                  <input type="hidden" name="location[long]" id="long_val">
+                  <input type="hidden" name="location[lat]" id="lat_val" value="{{$experience->location['lat']}}">
+                  <input type="hidden" name="location[long]" id="long_val" value="{{$experience->location['long']}}">
                   <div class="form-group">
                      <label>Select Image</label>
                       <main class="page">
                           <!-- input file -->
                         <div class="box">
                           <input type="file" name="" id="file-input">
-                            <input type="hidden" name="experience_image" id="set_img">
+                            <input type="hidden" name="experience_image" id="set_img" value="{{$experience->image}}">
                           </div>
                           <!-- leftbox -->
                           <div class="box-2">
@@ -70,14 +71,16 @@
                             <button class="btn save hide">Crop</button>
                           </div>
                         </main>
+
+                        <img class="media-preview" src="{{asset('/uploads/experience/'.$experience->image)}}" width="150" style="border: 1px solid #000">
                   </div>
                  
                   <div class="form-group" >
                     <label>Description </label>
-                    <textarea name="description" class="form-control"></textarea>
+                    <textarea name="description" class="form-control">{{$experience->description}}</textarea>
                   </div>
                  
-                  <input type="submit" name="" class="btn btn-primary ml-auto" value="Add Experience">
+                  <input type="submit" name="" class="btn btn-primary ml-auto" value="Edit Experience">
                </div>
             </div>
          </form>

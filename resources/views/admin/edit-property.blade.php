@@ -5,7 +5,7 @@
       <div class="container">
          <div class="row headingtop">
             <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-               <h2 class="textlog">Add New Property</h2>
+               <h2 class="textlog">Edit Property</h2>
             </div>
          </div>
          <div class="row">
@@ -38,11 +38,14 @@
                   </div>
                   <input type="hidden" name="location[lat]" id="lat_val" value="{{$property->location['lat']}}">
                   <input type="hidden" name="location[long]" id="long_val" value="{{$property->location['long']}}">
+
+
                   <div class="form-group">
-                     <label>Select Logo</label>
-                     <input type="file" name="logo" id="file-upload" class="file">
+                     <label>Select Logo</label><br/>
+                     <input type="file" name="logo" id="file-upload" class="file" accept="image/*">
                      <input type="hidden" name="logo2" value="{{$property->logo}}">
-                     <img src="/uploads/properties/{{$property->logo}}" width="150" style="border: 1px solid #000">
+                     
+                     <img src="{{asset('/uploads/properties/'.$property->logo)}}" width="150" style="border: 1px solid #000">
                   </div>
                   
                   <div class="form-group">
@@ -77,13 +80,15 @@
                             <option value="video" @if($property['activities'][$i]['type'] == 'video') selected='selected' @endif>Video</option>
                           </select>
                           <br>
-                          <label class="image-file">Select Image</label>
-                          <input type="file" name="activity_media_image[]" >
+                          <label class="image-file">Select Image</label><br/>
+                          <input type="file" name="activity_media_image[]" accept="image/*">
                           <input class="media-preview{{$counter}}" type="hidden" name="activity_media_image_hidden[]" value="{{$property['activities'][$i]['media']}}">
                           <label class="vide-link">Enter Video Link</label>
                           <input type="url" class="vide-link form-control" name="activity_media_video[]" >
                           @if($property['activities'][$i]['type'] == 'image')
-                           <img class="media-preview{{$counter}}" src="/uploads/properties/{{$property['activities'][$i]['media']}}" width="150" style="border: 1px solid #000">
+                           <img class="media-preview{{$counter}}" src="{{asset('/uploads/properties/'.$property['activities'][$i]['media'])}}" width="150" style="border: 1px solid #000">
+
+
                           @else
                            <iframe class="media-preview{{$counter}}" width="150" src="{{$property['activities'][$i]['media']}}"></iframe>
                           @endif

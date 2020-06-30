@@ -20,7 +20,7 @@
             </p>
             @endif
          </div>
-         <form action="{{route('add_properties')}}" name="profile_form" enctype='multipart/form-data' method="POST">
+         <form action="{{route('add_properties')}}" name="profile_form" enctype='multipart/form-data' method="POST" class="addcontainerpart">
             @csrf
             <div class="row">
                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
@@ -40,7 +40,7 @@
                   <input type="hidden" name="location[long]" id="long_val">
                   <div class="form-group">
                      <label>Select Logo</label>
-                     <input type="file" name="logo" id="file-upload" class="file" required>
+                     <input type="file" name="logo" id="file-upload" class="file" accept="image/*" required>
                   </div>
                   <div class="form-group">
                      <label>Category</label>
@@ -72,7 +72,7 @@
                        </select>
                        <br>
                        <label class="image-file">Select Image</label>
-                       <input type="file" class="image-file" name="activity_media_image[]" >
+                       <input type="file" class="image-file" name="activity_media_image[]" accept="image/*">
                        <label class="vide-link">Enter Video Link</label>
                        <input type="url" class="vide-link form-control" name="activity_media_video[]" >
                        <br>                      
@@ -91,11 +91,11 @@
                   </div>
                   <div class="form-group" >
                     <label>About </label>
-                    <textarea name="about" class="form-control" required></textarea>
+                    <textarea name="about" class="form-control"></textarea>
                   </div>
                   <div class="form-group" >
                     <label>Highlights </label>
-                    <textarea name="highlights" class="form-control" required></textarea>
+                    <textarea name="highlights" class="form-control"></textarea>
                   </div>
                   <input type="submit" name="" class="btn btn-primary ml-auto" value="Add Property">
                </div>
