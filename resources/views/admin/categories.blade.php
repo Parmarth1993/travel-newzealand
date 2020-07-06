@@ -40,7 +40,7 @@
                         @foreach($categories as $category)
                         <tr class="plan-{{$category->id}}">
                            <td>{{$category->name}}</td>
-                           <td>{{$category->description}}</td>
+                           <td>{!!html_entity_decode($category->description)!!}</td>
                            <td>@if($category->active == 1) Yes @else No @endif</td>
                            <td>
                               <a href="/admin/category/edit/{{$category->id}}" >Edit</a>

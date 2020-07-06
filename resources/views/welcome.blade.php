@@ -36,7 +36,7 @@
 
       </style>
    </head>
-   <body>
+   <body class="homein">
       <a id="top"></a>
       <!-- Navigation -->
       <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -120,7 +120,7 @@
             <ul class="nav nav-tabs besttab">
                @foreach($categories as $key => $category)
                   <li>
-                     <a data-toggle="tab" href="#{{strtolower($category->name)}}" class="home-page-cat @if($key == 0) active @endif">{{$category->name}} <span>{{$category->description}}</span>
+                     <a data-toggle="tab" href="#{{strtolower($category->name)}}" class="home-page-cat @if($key == 0) active @endif">{{$category->name}} <span>{!!html_entity_decode($category->description)!!}</span>
                      </a>
                   </li>
                @endforeach
@@ -184,13 +184,13 @@
                                     <div class="tab-pane in active" id="about_desc">
                                        <p id="about_accom"></p>
                                        <div class="logosbtn">
-                                          <a href="" class="btn btn-primary">Enquiry Now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="/quetionarie" class="btn btn-primary">Enquiry Now</a> <a href="/quetionarie" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
                                     <div class="tab-pane" id="highlights_desc">
                                        <p id="high_accom"></p>
                                        <div class="logosbtn">
-                                          <a href="" class="btn btn-primary">Enquiry now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="/quetionarie" class="btn btn-primary">Enquiry now</a> <a href="/quetionarie" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
                                  </div>
@@ -216,7 +216,7 @@
                               <div class="alltopview-logo">
                                  <img id="high_logo" src="img/minarat-logo.png" height="50" width="100">
                               </div>
-                              <div class="upperparttab">
+                              <div class="upperparttab" style="display: none;">
                                  <ul class="nav nav-tabs stationnab" id="high_activities">
                                     <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Helicopter" class="helicopter active"></a></li>
                                     <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Hili Area" class="hiliarea"></a></li>
@@ -245,19 +245,19 @@
                               <div class="bottomparttab">
                                  <ul class="nav nav-tabs adventuretab">
                                     <li><a data-toggle="tab" class="active" href="#about_highdesc">About</a></li>
-                                    <li><a data-toggle="tab" href="#highlights_highdesc">Highlights</a></li>
+                                    <!-- <li><a data-toggle="tab" href="#highlights_highdesc">Highlights</a></li> -->
                                  </ul>
                                  <div class="tab-content adventureview">
                                     <div  class="tab-pane in active" id="about_highdesc">
                                        <p id="about_highs"></p>
                                        <div class="logosbtn">
-                                          <a href="" class="btn btn-primary">Enquiry now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="/quetionarie" class="btn btn-primary">Enquiry now</a> <a href="/quetionarie" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
                                     <div class="tab-pane" id="highlights_highdesc">
                                        <p id="high_highs"></p>
                                        <div class="logosbtn">
-                                          <a href="" class="btn btn-primary">Enquiry now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="/quetionarie" class="btn btn-primary">Enquiry now</a> <a href="/quetionarie" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
                                  </div>
@@ -283,7 +283,7 @@
                               <div class="alltopview-logo">
                                  <img id="iti_logo" src="img/minarat-logo.png" height="50" width="100">
                               </div>
-                              <div class="upperparttab">
+                              <div class="upperparttab" style="display: none;">
                                  <ul class="nav nav-tabs stationnab" id="iti_activities">
                                     <li><a data-toggle="tab" href="#stationview-1" data-tool="tooltip" data-placement="right" title="Helicopter" class="helicopter active"></a></li>
                                     <li><a data-toggle="tab" href="#stationview-2" data-tool="tooltip" data-placement="right" title="Hili Area" class="hiliarea"></a></li>
@@ -313,19 +313,19 @@
                               <div class="bottomparttab">
                                  <ul class="nav nav-tabs adventuretab">
                                     <li><a data-toggle="tab" class="active" href="#about_itdesc">About</a></li>
-                                    <li><a data-toggle="tab" href="#highlights_itdesc">Highlights</a></li>
+                                    <!-- <li><a data-toggle="tab" href="#highlights_itdesc">Highlights</a></li> -->
                                  </ul>
                                  <div class="tab-content adventureview">
                                     <div  class="tab-pane in active" id="about_itdesc">
                                        <p id="iti_about"></p>
                                        <div class="logosbtn">
-                                          <a href="" class="btn btn-primary">Enquiry now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="/quetionarie" class="btn btn-primary">Enquiry now</a> <a href="/quetionarie" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
                                     <div class="tab-pane" id="highlights_itdesc">
                                        <p id="iti_highs"></p>
                                        <div class="logosbtn">
-                                          <a href="" class="btn btn-primary">Enquiry now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="/quetionarie" class="btn btn-primary">Enquiry now</a> <a href="/quetionarie" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
                                  </div>
@@ -669,8 +669,8 @@
                //place marker
                if(accomodationsArray[i].address && accomodationsArray[i].address != '' && accomodationsArray[i].address != null) { 
 
-                  $('#about_accom').text(accomodationsArray[0].about);
-                  $('#high_accom').text(accomodationsArray[0].highlights);
+                  $('#about_accom').html(accomodationsArray[0].about);
+                  $('#high_accom').html(accomodationsArray[0].highlights);
                   $('#acc_logo').attr('src','uploads/properties/'+accomodationsArray[0].logo);
                  
                  var infoWindow = new google.maps.InfoWindow();
@@ -713,8 +713,8 @@
                          infoWindow.open(map, marker);
                          $('#acco_activities li a').css('display','none');
                          //$('.carousel-inner').html('');
-                         $('#about_accom').text(data.about);
-                         $('#high_accom').text(data.highlights);
+                         $('#about_accom').html(data.about);
+                         $('#high_accom').html(data.highlights);
                          $('#acc_logo').attr('src','uploads/properties/'+data.logo);
                          var counterdata=0;
                          var classactdata = '';
@@ -795,15 +795,15 @@
             var actname_high = highlightsArray[0].activities[acthigh].name.toLowerCase();
             actname_high = actname_high.replace(/ /g,'')
                   //console.log(actname_high);
-            $('.upperparttab #high_activities li a.'+actname_high).css('display','block');
+            //$('.upperparttab #high_activities li a.'+actname_high).css('display','block');
 
-            $('#ol_high').append('<li data-target="#myCarouse2" data-slide-to="'+ counter_high +'" class="'+ classact_high +'"></li>');
+            //$('#ol_high').append('<li data-target="#myCarouse2" data-slide-to="'+ counter_high +'" class="'+ classact_high +'"></li>');
 
-            if(highlightsArray[0].activities[acthigh].type == 'image') {
-               $('#carouse_high.carousel-inner').append('<div data-value="'+actname_high+'" class="carousel-item '+classact_high+' '+actname_high+' "><img src="uploads/properties/'+highlightsArray[0].activities[acthigh].media+'" alt="Image" type="'+ highlightsArray[0].activities[acthigh].type +'"></div>');
-            } else {
-               $('#carouse_high.carousel-inner').append('<div data-value="'+actname_high+'" class="carousel-item '+classact_high+' '+actname_high+' "><iframe src="'+highlightsArray[0].activities[acthigh].media+'" alt="video" type="'+ highlightsArray[0].activities[acthigh].type +'"></div>');
-            }
+            // if(highlightsArray[0].activities[acthigh].type == 'image') {
+            //    $('#carouse_high.carousel-inner').append('<div data-value="'+actname_high+'" class="carousel-item '+classact_high+' '+actname_high+' "><img src="uploads/properties/'+highlightsArray[0].activities[acthigh].media+'" alt="Image" type="'+ highlightsArray[0].activities[acthigh].type +'"></div>');
+            // } else {
+            //    $('#carouse_high.carousel-inner').append('<div data-value="'+actname_high+'" class="carousel-item '+classact_high+' '+actname_high+' "><iframe src="'+highlightsArray[0].activities[acthigh].media+'" alt="video" type="'+ highlightsArray[0].activities[acthigh].type +'"></div>');
+            // }
 
                counter_high++;
          }
@@ -812,8 +812,8 @@
             //place marker
             if(highlightsArray[i].address && highlightsArray[i].address != '' && highlightsArray[i].address != null) { 
 
-               $('#about_highs').text(highlightsArray[0].about);
-               $('#high_highs').text(highlightsArray[0].highlights);
+               $('#about_highs').html(highlightsArray[0].about);
+               $('#high_highs').html(highlightsArray[0].highlights);
                $('#high_logo').attr('src','uploads/properties/'+highlightsArray[0].logo);
               
               var infoWindow = new google.maps.InfoWindow();
@@ -843,32 +843,32 @@
                       infoWindow.setContent("<div ><h3>" + data.name + "</h3></div");
                       infoWindow.open(map, marker);
                       $('#high_activities li a').css('display','none');
-                      $('#about_highs').text(data.about);
-                      $('#high_highs').text(data.highlights);
+                      $('#about_highs').html(data.about);
+                      //$('#high_highs').html(data.highlights);
                       $('#high_logo').attr('src','uploads/properties/'+data.logo);
                       var counterdata=0;
                       var classactdata = '';
-                      for (var actdata in data.activities){
-                      //console.log('data.activities ', data.activities[actdata])
-                        if(counterdata === 0){
-                           classactdata = 'active';
-                        }else{
-                           classactdata = '';
-                        }
-                        var actnamedata = data.activities[actdata].name.toLowerCase();
-                        actnamedata = actnamedata.replace(/ /g,'')
-                        //console.log(actnamedata);
-                        $('.upperparttab #high_activities li a.'+actnamedata).css('display','block');
+                      // for (var actdata in data.activities){
+                      // //console.log('data.activities ', data.activities[actdata])
+                      //   if(counterdata === 0){
+                      //      classactdata = 'active';
+                      //   }else{
+                      //      classactdata = '';
+                      //   }
+                      //   var actnamedata = data.activities[actdata].name.toLowerCase();
+                      //   actnamedata = actnamedata.replace(/ /g,'')
+                      //   //console.log(actnamedata);
+                      //   $('.upperparttab #high_activities li a.'+actnamedata).css('display','block');
 
-                        $('#ol_high').append('<li data-target="#myCarouse2" data-slide-to="'+ counterdata +'" class="'+ classactdata +'"></li>');
+                      //   $('#ol_high').append('<li data-target="#myCarouse2" data-slide-to="'+ counterdata +'" class="'+ classactdata +'"></li>');
 
-                        if(data.activities[actdata].type == 'image') {
-                           $('#carouse_high.carousel-inner').append('<div data-value="'+actnamedata+'"  class="carousel-item '+classactdata+' '+actnamedata+' "><img src="uploads/properties/'+data.activities[actdata].media+'" alt="Image"></div>');
-                        } else {
-                            $('#carouse_high.carousel-inner').append('<div data-value="'+actnamedata+'"  class="carousel-item '+classactdata+' '+actnamedata+' "><iframe src="'+data.activities[actdata].media+'" alt="video" type="'+ data.activities[actdata].type +'"></div>');
-                        }
-                        counterdata++;
-                      }
+                      //   if(data.activities[actdata].type == 'image') {
+                      //      $('#carouse_high.carousel-inner').append('<div data-value="'+actnamedata+'"  class="carousel-item '+classactdata+' '+actnamedata+' "><img src="uploads/properties/'+data.activities[actdata].media+'" alt="Image"></div>');
+                      //   } else {
+                      //       $('#carouse_high.carousel-inner').append('<div data-value="'+actnamedata+'"  class="carousel-item '+classactdata+' '+actnamedata+' "><iframe src="'+data.activities[actdata].media+'" alt="video" type="'+ data.activities[actdata].type +'"></div>');
+                      //   }
+                      //   counterdata++;
+                      // }
                   });
               })(marker, data);
             }
@@ -885,7 +885,8 @@
           backgroundColor: '#FFF',
           minzoom: 5,
           maxzoom: 15,
-        disableDefaultUI: true,
+          mapTypeId: "hybrid"
+        /*disableDefaultUI: true,
           styles: [
             {
                featureType: "all",
@@ -903,34 +904,54 @@
                  { invert_lightness: true },
                  { hue: "#ffffff" },
                  { saturation: -100 },
-                 { lightness: 100 } /* generates "white" color */
+                 { lightness: 100 } 
                ]
-            }]
+            }]*/
         });
+        
+
          var counter_iti=0;
          var classact_iti = '';
          if(itinerariesArray.length) {
-            $('#iti_activities li a').css('display','none');
+          console.log(itinerariesArray[0]);
+          var flightPlanCoordinates = [
+            { lat: parseFloat(itinerariesArray[0].location_start.lat), lng: parseFloat(itinerariesArray[0].location_start.long) },
+            { lat: parseFloat(itinerariesArray[0].location_end.lat), lng: parseFloat(itinerariesArray[0].location_end.long) }];
+          var flightPath = new google.maps.Polyline({
+            path: flightPlanCoordinates,
+            geodesic: true,
+            strokeColor: "#2e9cca",
+            strokeOpacity: 1.0,
+            strokeWeight: 5
+          });
+
+          flightPath.setMap(map);
+          console.log('flightPlanCoordinates ', flightPlanCoordinates);
+
+           // $('#iti_activities li a').css('display','none');
+            $('#iti_about').html(itinerariesArray[0].about);
+            $('#iti_highs').html(itinerariesArray[0].highlights);
+            $('#iti_logo').attr('src','uploads/properties/'+itinerariesArray[0].logo);
             for (var act in itinerariesArray[0].activities){
 
-               if(counter_iti === 0){
-                  classact_iti = 'active';
-               }else{
-                  classact_iti = '';
-               }
+               // if(counter_iti === 0){
+               //    classact_iti = 'active';
+               // }else{
+               //    classact_iti = '';
+               // }
 
-               var actname_iti = itinerariesArray[0].activities[act].name.toLowerCase();
-               actname_iti = actname_iti.replace(/ /g,'')
-                     //console.log(actname_iti);
-               $('.upperparttab #iti_activities li a.'+actname_iti).css('display','block');
+               // var actname_iti = itinerariesArray[0].activities[act].name.toLowerCase();
+               // actname_iti = actname_iti.replace(/ /g,'')
+               //       //console.log(actname_iti);
+               // $('.upperparttab #iti_activities li a.'+actname_iti).css('display','block');
 
-               $('#ol_iti').append('<li data-target="#myCarouse3" data-slide-to="'+ counter_iti +'" class="'+ classact_iti +'"></li>');
+               // $('#ol_iti').append('<li data-target="#myCarouse3" data-slide-to="'+ counter_iti +'" class="'+ classact_iti +'"></li>');
 
-               if(itinerariesArray[0].activities[act].type == 'image') {
-                  $('#carouse_iti.carousel-inner').append('<div data-value="'+actname_iti+'" class="carousel-item '+classact_iti+' '+actname_iti+' "><img src="uploads/properties/'+itinerariesArray[0].activities[act].media+'" alt="Image" type="'+ itinerariesArray[0].activities[act].type +'"></div>');
-               } else {
-                  $('#carouse_iti.carousel-inner').append('<div data-value="'+actname_iti+'" class="carousel-item '+classact_iti+' '+actname_iti+' "><iframe src="'+itinerariesArray[0].activities[act].media+'" alt="video" type="'+ itinerariesArray[0].activities[act].type +'"></div>');
-               }
+               // if(itinerariesArray[0].activities[act].type == 'image') {
+               //    $('#carouse_iti.carousel-inner').append('<div data-value="'+actname_iti+'" class="carousel-item '+classact_iti+' '+actname_iti+' "><img src="uploads/properties/'+itinerariesArray[0].activities[act].media+'" alt="Image" type="'+ itinerariesArray[0].activities[act].type +'"></div>');
+               // } else {
+               //    $('#carouse_iti.carousel-inner').append('<div data-value="'+actname_iti+'" class="carousel-item '+classact_iti+' '+actname_iti+' "><iframe src="'+itinerariesArray[0].activities[act].media+'" alt="video" type="'+ itinerariesArray[0].activities[act].type +'"></div>');
+               // }
 
                counter_iti++;
             }
@@ -940,8 +961,8 @@
                //place marker
                if(itinerariesArray[i].address && itinerariesArray[i].address != '' && itinerariesArray[i].address != null) { 
 
-                  $('#iti_about').text(itinerariesArray[0].about);
-                  $('#iti_highs').text(itinerariesArray[0].highlights);
+                  $('#iti_about').html(itinerariesArray[0].about);
+                  $('#iti_highs').html(itinerariesArray[0].highlights);
                   $('#iti_logo').attr('src','uploads/properties/'+itinerariesArray[0].logo);
                  
                  var infoWindow = new google.maps.InfoWindow();
@@ -971,8 +992,8 @@
                          infoWindow.setContent("<div ><h3>" + data.name + "</h3></div");
                          infoWindow.open(map, marker);
                          $('#iti_activities li a').css('display','none');
-                         $('#iti_about').text(data.about);
-                         $('#iti_highs').text(data.highlights);
+                         $('#iti_about').html(data.about);
+                         $('#iti_highs').html(data.highlights);
                          $('#iti_logo').attr('src','uploads/properties/'+data.logo);
                          var counterdata=0;
                          var classactdata = '';
@@ -1108,12 +1129,12 @@
        let className = active_slide.attr('class');
        var class_list = className.split(/\s+/);
        if(class_list[1] !== 'active'){
-         icon_area.find('li a').removeClass('active');
-         icon_area.find('.'+class_list[1]).addClass('active');
+         //icon_area.find('li a').removeClass('active');
+         //icon_area.find('.'+class_list[1]).addClass('active');
        }
        if(class_list[1] === 'active') {
-         icon_area.find('li a').removeClass('active');
-         icon_area.find('.'+class_list[2]).addClass('active');
+         //icon_area.find('li a').removeClass('active');
+         //icon_area.find('.'+class_list[2]).addClass('active');
        }
       });
     </script>
