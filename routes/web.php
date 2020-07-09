@@ -20,11 +20,17 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'HomeController@welcome')->name('welcome');
-Route::get('/quetionarie', 'HomeController@questionaire')->name('questionaire');
+//Route::get('/quetionarie', 'HomeController@questionaire')->name('questionaire');
 
 Route::post('/questionaire/add', 'HomeController@addQuestionaire')->name('addQuestionaire');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/why-us', 'HomeController@whyUs')->name('whyUs');
+Route::get('/faq', 'HomeController@faq')->name('faq');
+Route::get('/experiences', 'HomeController@experiences')->name('experiences');
+Route::get('/accommodations', 'HomeController@accommodations')->name('accommodations');
+Route::get('/quetionarie', 'HomeController@quiz')->name('quiz');
 
 /*
 * Admin Routes

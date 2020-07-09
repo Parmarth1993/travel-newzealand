@@ -21,6 +21,7 @@ div.dataTables_wrapper div.dataTables_info{font-size:14px; }
 table.dataTable thead>tr>th.sorting_asc, table.dataTable thead>tr>th.sorting_desc, table.dataTable thead>tr>th.sorting, table.dataTable thead>tr>td.sorting_asc, table.dataTable thead>tr>td.sorting_desc, table.dataTable thead>tr>td.sorting{
 background: #f1f1f1; border: none; font-size: 14px; }
 .table-responsive table.table-bordered.dataTable.addaddress tbody th:nth-child(2), .table-responsive table.table-bordered.dataTable.addaddress tbody td:nth-child(2){ width:400px; } 
+.table-responsive table.table-bordered.dataTable.addaddress tbody th:last-child, .table-responsive table.table-bordered.dataTable.addaddress tbody td:last-child{ width:160px; }
 div.dataTables_wrapper div.dataTables_paginate ul.pagination {font-size: 14px; }
 .loginlogout .dropdown-toggle {width: auto; outline: none; background: transparent !important; border-color: transparent !important; }
 table.table-bordered.dataTable th{font-size: 14px; }
@@ -427,7 +428,12 @@ p{font-size:14px; }
 .textlogin .textlog span {font-size: 14px; }
 .sortby {padding-top: 0px; flex-direction: column; }
 .textlog {font-size: 30px; }
-#wrapper.toggled #sidebar-wrapper {margin-left: 0rem; position: absolute; z-index: 100; }
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0rem;
+    position: initial;
+    z-index: 100;
+    bottom: 0;
+}
 #sidebar-wrapper {margin-left: -170px; position: absolute; z-index: 100; }
 #page-content-wrapper {width:100%; }
 .mainmenubtn.btn {position: fixed; right: 0px; bottom: 0px; top: 0px; z-index: 100; display: block; border: none; padding: 0px; margin-bottom: 0px; }
@@ -444,14 +450,28 @@ p{font-size:14px; }
     table.table tr:nth-child(even){ background:#ddd;  }
     table.table tr:nth-child(even) td{background:#f3f3f3; }
 
-    table.table td {border-bottom: 1px solid #ddd; display: block; text-align: right; }
+table.table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    text-align: right;
+    border-right: none;
+}
 
     table.table td::before {content: attr(data-label); float: left; }
     .loginlogout .dropdown-toggle:hover {outline: none; background: transparent !important; border: none !important; }
+    	.table-responsive table.table-bordered.dataTable.addaddress tbody th:nth-child(2), .table-responsive table.table-bordered.dataTable.addaddress tbody td:nth-child(2) {
+width: auto;
+}
+	.table-responsive table.table-bordered.dataTable.addaddress tbody th:last-child, .table-responsive table.table-bordered.dataTable.addaddress tbody td:last-child{width: auto;}
 
 }
+@media (max-width: 650px) {
 
+}
 @media (max-width: 480px) {
+
+
+
 .loginlogout .dropdown-toggle {width: auto; background: transparent; border: none; outline:none !important; box-shadow:none !important; }
 .filt .newmonth.calenpart .form-group {margin-bottom: 10px; }
 .assignsub .sortby .form-group {width: 100%; margin-top: 7px; margin-bottom: 7px; }

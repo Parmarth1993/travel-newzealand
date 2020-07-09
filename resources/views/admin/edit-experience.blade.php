@@ -35,6 +35,11 @@
                   </div>
 
                   <div class="form-group">
+                     <label>Short Description</label>
+                     <input type="text" name="short_description" class="form-control" value="{{$experience->short_description}}" required>
+                  </div>
+
+                  <div class="form-group">
                      <label>Address</label>
                      <input id="autocomplete"
                       name= "address"

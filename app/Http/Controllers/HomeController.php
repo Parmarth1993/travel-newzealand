@@ -33,7 +33,49 @@ class HomeController extends Controller
     {
         return view('home');
     }
+	
+	public function about()
+    {
+        return view('about');
+    }
+	
+	public function whyUs()
+    {
+        return view('why-us');
+    }
+	
+	public function faq()
+    {
+        return view('faq');
+    }
+	
+	public function experiences()
+    {
+        $experiences = Experience::all();
+        foreach ($experiences as $key => $experience) {
+          $experience->location = unserialize($experience->location);
+        }
+        return view('experiences')->with(['experiences' => $experiences]);
+    }
+	
+	public function accommodations()
+    {
+        $accommodations = Properties::where(['category' => 1])->get();
+        foreach ($accommodations as $key => $accommodation) {
+          $accommodation->activities = unserialize($accommodation->activities);
+        }
+        return view('accommodations')->with(['accommodations' => $accommodations]);
+    }
+	
+	public function quiz()
+    {
+	    $experiences = Experience::all();
+                           
+        return view('quiz')->with(['experiences' => $experiences]);		
 
+    }
+
+	
     public function welcome()
     {
         $accomodations = array();

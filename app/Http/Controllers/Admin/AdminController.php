@@ -114,7 +114,7 @@ class AdminController extends Controller
                     $input['image']  = $request->experience_image;
                 }
                 
-                $input = $request->only('title', 'location','address', 'sub_title','description');
+                $input = $request->only('title', 'location','address', 'sub_title', 'short_description', 'description');
                 $input['location'] = serialize($input['location']);
                 
                 

@@ -41,7 +41,7 @@
       <!-- Navigation -->
       <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
          <div class="container">
-            <a class="navbar-brand" href="#"></a>  
+            <a class="navbar-brand" href="/"></a>  
             <div class="nablast">
                <ul>
                   <li class="nav-item lastone">
@@ -58,10 +58,10 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
-                     <a class="nav-link" href="#">Experiences</a>
+                     <a class="nav-link" href="/experiences">Experiences</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">Accommodations</a>
+                     <a class="nav-link" href="/accommodations">Accommodations</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="#">Itineraries</a>
@@ -70,13 +70,13 @@
                      <a class="nav-link text-nowrap" href="#">Not Just New Zealand</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">About</a>
+                     <a class="nav-link" href="/about">About</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link text-nowrap" href="#">Why Us</a>
+                     <a class="nav-link text-nowrap" href="/why-us">Why Us</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">FAQ</a>
+                     <a class="nav-link" href="/faq">FAQ</a>
                   </li>
                   <li class="nav-item lastone inhome">
                      <a class="nav-link searchicon" href="javascript:void(0)"></a>
@@ -592,7 +592,8 @@
            });
          });
       </script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPlxYBIjisvG84Q8mQo8RHWZqXJBUibKk">
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYb9xso8huTtmqNluNb9sOt__rFapLW-w&libraries=&v=weekly">
     </script>
     <script>
 
@@ -878,7 +879,57 @@
       }
         //map 3
 
-        var map = new google.maps.Map(document.getElementById('map-canvas-itineraries'), {
+        function initMap() {
+           var directionsService = new google.maps.DirectionsService();
+            var directionsRenderer = new google.maps.DirectionsRenderer({
+              preserveViewport: true
+            });
+            var map = new google.maps.Map(document.getElementById("map-canvas-itineraries"), {
+              zoom: 5,
+              center: auck,
+              fullscreenControl: false,
+              backgroundColor: '#FFF',
+              minzoom: 5,
+              maxzoom: 15,
+              mapTypeId: "hybrid",
+              //disableDefaultUI: true,
+              preserveViewport: true
+            });
+            directionsRenderer.setMap(map);
+
+           // var onChangeHandler = function() {
+             // calculateAndDisplayRoute(directionsService, directionsRenderer);
+           // };
+           calculateAndDisplayRoute(directionsService, directionsRenderer);
+           // document.getElementById("start").addEventListener("change", onChangeHandler);
+           // document.getElementById("end").addEventListener("change", onChangeHandler);
+          }
+
+          function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+            if(itinerariesArray && itinerariesArray.length) {
+              var startLat = parseFloat(itinerariesArray[0].location_start.lat);
+              var startlong = parseFloat(itinerariesArray[0].location_start.long);
+              var endLat = parseFloat(itinerariesArray[0].location_end.lat);
+              var endLong = parseFloat(itinerariesArray[0].location_end.long);
+              directionsService.route(
+                {
+                  origin: new google.maps.LatLng(startLat, startlong),
+                  destination: new google.maps.LatLng(endLat, endLong),
+                  travelMode: "DRIVING"
+                },
+                function(response, status) {
+                  if (status === "OK") {
+                    directionsRenderer.setDirections(response);
+                  } else {
+                    //window.alert("Directions request failed due to " + status);
+                  }
+                }
+              );
+            }
+          }
+
+          initMap();
+        /*var map = new google.maps.Map(document.getElementById('map-canvas-itineraries'), {
           zoom: 5,
           center: auck,
           fullscreenControl: false,
@@ -886,7 +937,7 @@
           minzoom: 5,
           maxzoom: 15,
           mapTypeId: "hybrid"
-        /*disableDefaultUI: true,
+        disableDefaultUI: true,
           styles: [
             {
                featureType: "all",
@@ -906,27 +957,27 @@
                  { saturation: -100 },
                  { lightness: 100 } 
                ]
-            }]*/
-        });
+            }]
+        });*/
         
 
          var counter_iti=0;
          var classact_iti = '';
          if(itinerariesArray.length) {
-          console.log(itinerariesArray[0]);
-          var flightPlanCoordinates = [
-            { lat: parseFloat(itinerariesArray[0].location_start.lat), lng: parseFloat(itinerariesArray[0].location_start.long) },
-            { lat: parseFloat(itinerariesArray[0].location_end.lat), lng: parseFloat(itinerariesArray[0].location_end.long) }];
-          var flightPath = new google.maps.Polyline({
-            path: flightPlanCoordinates,
-            geodesic: true,
-            strokeColor: "#2e9cca",
-            strokeOpacity: 1.0,
-            strokeWeight: 5
-          });
+          //console.log(itinerariesArray[0]);
+          // var flightPlanCoordinates = [
+          //   { lat: parseFloat(itinerariesArray[0].location_start.lat), lng: parseFloat(itinerariesArray[0].location_start.long) },
+          //   { lat: parseFloat(itinerariesArray[0].location_end.lat), lng: parseFloat(itinerariesArray[0].location_end.long) }];
+          // var flightPath = new google.maps.Polyline({
+          //   path: flightPlanCoordinates,
+          //   geodesic: true,
+          //   strokeColor: "#2e9cca",
+          //   strokeOpacity: 1.0,
+          //   strokeWeight: 5
+          // });
 
-          flightPath.setMap(map);
-          console.log('flightPlanCoordinates ', flightPlanCoordinates);
+          // flightPath.setMap(map);
+          //console.log('flightPlanCoordinates ', flightPlanCoordinates);
 
            // $('#iti_activities li a').css('display','none');
             $('#iti_about').html(itinerariesArray[0].about);
