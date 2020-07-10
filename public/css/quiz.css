@@ -1,5 +1,22 @@
 /*quiz page*/
-
+input.error {
+    border: 2px solid red !important;
+    border-color: red !important;
+    border-radius: 4px !important;
+    /* height: 2.2em !important; */
+}
+select.error {
+    border: 2px solid red !important;
+    border-color: red !important;
+    border-radius: 4px !important;
+    /* height: 2.2em !important; */
+}
+textarea.error {
+    border: 2px solid red !important;
+    border-color: red !important;
+    border-radius: 4px !important;
+    /* height: 2.2em !important; */
+}
 .quiz-header-sec {
     margin-top: 50px !important;
 }

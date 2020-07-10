@@ -19,7 +19,6 @@
       <link rel="stylesheet" href="css/owl.carousel.css">
       <!-- <link rel="stylesheet" href="css/owl.theme.default.min.css"> -->
       <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-{!! NoCaptcha::renderJs() !!}
 
 <style type="text/css">
   #g-recaptcha-response {
@@ -262,17 +261,6 @@
                         </div>
 
 
-                        <div id="div_id_catagory" class="form-group required captcha" style="display: none;">
-                            <label for="id_catagory" class="control-label col-md-4  requiredField"><span class="asteriskField"></span> </label>
-                            <div class="controls col-md-8 "> 
-                                 {!! app('captcha')->display() !!}
-                                @if ($errors->has('g-recaptcha-response'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div> 
 
                         
 

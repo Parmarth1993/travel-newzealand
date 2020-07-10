@@ -11,6 +11,7 @@ use App\Itineraries;
 use App\Categories;
 use App\Experience;
 use App\Questionaire;
+use App\Questionnaire;
 
 class HomeController extends Controller
 {
@@ -51,12 +52,20 @@ class HomeController extends Controller
   
   public function experiences()
     {
-        return view('experiences');
+        $experiences = Experience::all();
+        foreach ($experiences as $key => $experience) {
+          $experience->location = unserialize($experience->location);
+        }
+        return view('experiences')->with(['experiences' => $experiences]);
     }
   
   public function accommodations()
     {
-        return view('accommodations');
+        $accommodations = Properties::where(['category' => 1])->get();
+        foreach ($accommodations as $key => $accommodation) {
+          $accommodation->activities = unserialize($accommodation->activities);
+        }
+        return view('accommodations')->with(['accommodations' => $accommodations]);
     }
   
   public function quiz()
@@ -169,6 +178,42 @@ class HomeController extends Controller
                 $addQuestionaire->special_request = $request->special_request;
                 $addQuestionaire->name = $request->name;
                 $addQuestionaire->email = $request->email;
+                $addQuestionaire->save();
+
+                $send_mail = $this->sendMail($request); //sending mail
+              
+                return redirect()->back()->with('success', 'Questionnaire added successfully...!!');
+
+            } catch(\Exception $e) {
+                return redirect()->back()->with('error', $e->getMessage());
+            }
+        } 
+    }
+
+    public function addQuestionnaire(Request $request){
+      if($request->isMethod('post')) {
+            
+            try {
+              //print_r($request->all());die;
+                $addQuestionaire = new Questionnaire;
+                $addQuestionaire->adults = $request->adults;
+                $addQuestionaire->childrens = $request->childrens;
+                $addQuestionaire->infants = $request->infants;
+                $addQuestionaire->start_date = $request->start_date;
+                $addQuestionaire->length_stay = $request->length_stay;
+                $addQuestionaire->flexible = $request->flexible;
+                $addQuestionaire->country = $request->country;
+                $addQuestionaire->state = $request->state;
+                $addQuestionaire->city = $request->city;
+                $addQuestionaire->interests = $request->interests;
+                $addQuestionaire->cost_trip = $request->cost_trip;
+                $addQuestionaire->no_of_days = $request->no_of_days;
+                $addQuestionaire->accommodation = $request->accommodation;
+                $addQuestionaire->challenges = $request->challenges;
+                $addQuestionaire->challenge_details = $request->challenge_details;
+                $addQuestionaire->name = $request->name;
+                $addQuestionaire->email = $request->email;
+                $addQuestionaire->join_mailing = $request->join_mailing;
                 $addQuestionaire->save();
 
                 $send_mail = $this->sendMail($request); //sending mail

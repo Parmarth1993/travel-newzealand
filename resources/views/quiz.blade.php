@@ -18,6 +18,7 @@
       <link href="css/quiz.css" rel="stylesheet">
       <link rel="stylesheet" href="css/owl.carousel.css">
       <link rel="stylesheet" href="css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="css/jquery.mobile.css">
    </head>
    <body class="innerpage">
       <a id="top"></a>
@@ -97,10 +98,12 @@
                   <a class="carousel-control-next arrow-active" href="#quiZ" data-slide="next"><span class="carousel-control-next-icon"><i class="fas fa-arrow-right"></i></span></a>
                </div>
          </div>
+
       <!-- Main Content -->
       <div class="quiz-content-wrappper">
                <div id="quiZ" class="carousel slide">
-                     <input type="hidden" name="quizType" id="quizType" value="patient">
+                  <form method="post" action="{{route('addQuestionnaire')}}" class="quiz-form">
+                      @csrf
                      <div class="validation-message text-center"><p>Please fill required fields.</p></div>
                      <div class="carousel-inner">
                         <div class="carousel-item active" data-id="1">
@@ -111,21 +114,15 @@
                            <div class="formquestion">
                               <div class="form-group">
                                  <label>Adults</label>
-                                 <select class="form-control">
-                                    <option>Select Adults</option>
-                                 </select>
+                                 <input type="number" min="0" max="10" name="adults" required/>
                               </div>
                               <div class="form-group">
                                  <label>Children</label>
-                                 <select class="form-control">
-                                    <option>Select Children</option>
-                                 </select>
+                                 <input type="number" min="0" max="10" name="childrens" required/>
                               </div>
                               <div class="form-group">
                                  <label>Infants</label>
-                                 <select class="form-control">
-                                    <option>Select Infants</option>
-                                 </select>
+                                 <input type="number" min="0" max="10" name="infants" required/>
                               </div>                     
                            </div>       
                         </div>
@@ -138,19 +135,15 @@
                            <div class="formquestion">
                               <div class="form-group">
                                  <label>Start Date</label>
-                                 <select class="form-control">
-                                    <option>Select option</option>
-                                 </select>
+                                  <input class="input-md form-control" id="id_travel" name="start_date" style="margin-bottom: 10px" type="date" required />
                               </div>
                               <div class="form-group">
                                  <label>Length of Stay</label>
-                                 <select class="form-control">
-                                    <option>Select option</option>
-                                 </select>
+                                 <input class="input-md emailinput form-control" id="id_stay" name="length_stay" placeholder="Length of stay" style="margin-bottom: 10px" type="text" required/>
                               </div>
                               <div class="form-group">
                                  <label>Flexible?</label>
-                                 <select class="form-control">
+                                 <select class="form-control" name="flexible">
                                     <option>Yes</option>
                                     <option>No</option>
                                  </select>
@@ -166,22 +159,40 @@
                               <div class="formquestion">
                                  <div class="form-group">
                                     <label>Country</label>
-                                    <select class="form-control">
-                                       <option>Country</option>
-                                    </select>
-                                 </div>
-                                 <div class="form-group">
-                                    <label>City</label>
-                                    <select class="form-control">
-                                       <option>Austin</option>
+                                    <select class="form-control" name="country" id="countryId">
+                                      <!--  <option value="">Select Country</option> -->
+                                       <option value="New Zealand" countryid="NZ">New Zealand</option>
                                     </select>
                                  </div>
                                  <div class="form-group">
                                     <label>State</label>
-                                    <select class="form-control">
-                                       <option>Texas</option>                         
+                                    <select class="form-control states" name="state"  id="stateId" required>
+                                       <option value="">Select State</option>
+                                       <option value="Chatham Islands" stateid="10">Chatham Islands</option>
+                                       <option value="Auckland" stateid="E7">Auckland</option>
+                                       <option value="Bay of Plenty" stateid="E8">Bay of Plenty</option>
+                                       <option value="Canterbury" stateid="E9">Canterbury</option>
+                                       <option value="Gisborne" stateid="F1">Gisborne</option>
+                                       <option value="Hawke's Bay" stateid="F2">Hawke's Bay</option>
+                                       <option value="Manawatu-Wanganui" stateid="F3">Manawatu-Wanganui</option>
+                                       <option value="Marlborough" stateid="F4">Marlborough</option>
+                                       <option value="Nelson" stateid="F5">Nelson</option>
+                                       <option value="Northland" stateid="F6">Northland</option>
+                                       <option value="Otago" stateid="F7">Otago</option>
+                                       <option value="Southland" stateid="F8">Southland</option>
+                                       <option value="Taranaki" stateid="F9">Taranaki</option>
+                                       <option value="Waikato" stateid="G1">Waikato</option>
+                                       <option value="Wellington" stateid="G2">Wellington</option>
+                                       <option value="West Coast" stateid="G3">West Coast</option>
+                                       <option value="Tasman" stateid="TAS">Tasman</option>                          
                                     </select>
                                  </div>  
+                                 <div class="form-group">
+                                    <label>City</label>
+                                    <select class="form-control cities" name="city"  id="cityId" required>
+                                       <option value="">Select City</option>
+                                    </select>
+                                 </div>
                               </div>
                            </div>
                         </div>
@@ -193,9 +204,36 @@
                               <div class="formquestion">
                                  <div class="form-group">
                                     <label>Select all that apply</label>
-                                    <select class="form-control">
-                                       <option>Nature</option>
-                                    </select>
+                                     <select class="input-md form-control select" id="id_interest" name="interests" required>
+                                         <option value="">Select Option</option>
+                                         <option value="Nature">Nature</option>
+                                         <option value="Wildlife">Wildlife</option>
+                                         <option value="Maori Culture">Maori Culture</option>
+
+                                         <option value="LOTR & Film">LOTR & Film</option>
+                                         <option value="Art/Museums">Art/Museums</option>
+                                         <option value="Fine Food">Fine Food</option>
+
+                                         <option value="Wine">Wine</option>
+                                         <option value="Adrenaline (Bungy jumping, Sky diving)">
+                                          Adrenaline (Bungy jumping, Sky diving)
+                                         </option>
+                                         <option value="Adventure (Rafting, Jet Boats, Kayaking)">
+                                          Adventure (Rafting, Jet Boats, Kayaking)
+                                         </option>
+
+                                         <option value="Golf">Golf</option>
+                                         <option value="Winter Sports">Winter Sports</option>
+                                         <option value="Fishing">Fishing</option>
+
+
+                                         <option value="Hiking">Hiking</option>
+                                         <option value="Biking">Biking</option>
+                                         <option value="Scenic Flights">Scenic Flights</option>
+
+                                         <option value="pas">Hot pools/Health spas</option>
+                                         <option value="Other">Other</option>
+                                      </select>
                                  </div> 
                               </div>
                            </div>
@@ -211,12 +249,12 @@
                                     <form>
                                        <div data-role="rangeslider" class="costdiv">
                                           <label for="range-1b" class="costlabel"> Cost of total trip</label>
-                                          <input type="range" name="range-1b" id="range-1b" min="0" max="5000" value="3000" data-popup-enabled="true" data-show-value="false" class="">
+                                          <input type="range" name="cost_trip" id="range-1b" min="0" max="5000" value="3000" data-popup-enabled="true" data-show-value="false" class="">
                                        </div>
                                         <span class="maxp">Max</span>
                                         <div data-role="rangeslider" class="daysno">
                                           <label for="range-1c" class="costlabel nodays"> NUMBER OF DAYS</label>
-                                          <input type="range" name="range-1c" id="range-1c" min="0" max="10" value="3" data-popup-enabled="false" data-show-value="true" class="">
+                                          <input type="range" name="no_of_days" id="range-1c" min="0" max="10" value="3" data-popup-enabled="false" data-show-value="true" class="">
                                        </div>
                                     </form>
                                  </div>
@@ -231,8 +269,13 @@
                               <div class="formquestion">
                                  <div class="form-group">
                                     <label>Select all that apply</label>  
-                                    <select class="form-control">
-                                       <option>Lodges/Bed & Breakfast</option>
+                                    <select class="input-md form-control select" id="id_accomodation" name="accommodation" required>
+                                       <option value="">Select Option</option>
+                                         <option value="Lodges/Bed & Breakfasts">Lodges/Bed & Breakfasts</option>
+                                         <option value="Hotels/Motels/Resorts">Hotels/Motels/Resorts</option>
+                                         <option value="Farm Stays">Farm Stays</option>
+                                         <option value="House">House</option>
+                                         <option value="Something unique">Something unique</option>
                                     </select>                     
                                  </div> 
                               </div>
@@ -246,14 +289,13 @@
                               <div class="formquestion">
                                  <div class="form-group">
                                     <label>Challenges</label>
-                                    <select class="form-control">
+                                    <select class="form-control" name="challenges" required>
                                        <option>Wheelchair</option>
                                     </select>                       
                                  </div> 
                                  <div class="form-group">
                                     <label>Details of challenges below</label>
-                                    <textarea class="form-control">                          
-                                    </textarea>                     
+                                    <textarea class="form-control" name="challenge_details" required></textarea>                     
                                  </div> 
                               </div>
                            </div>
@@ -263,28 +305,27 @@
                            <h2>Let’s <strong><em>explore</em></strong> your travel needs.</h2>
                            <div class="stepdiv">Step  <span>8/8</span></div>
                            <h3>Special Requests?</h3>
-                           <div class="formquestion fullcontactform">
+                           <div class="formquestion fullcontactform" >
                               <div class="form-group">                        
-                                 <textarea class="form-control">                          
-                                 </textarea>                     
+                                  <textarea class="form-control" name="special_request" required></textarea>
                               </div>
                               <div class="row">
                                  <div class="col-lg-6">
                                     <div class="form-group">
                                        <label>Name</label>
-                                       <input type="text" name="" class="form-control">
+                                       <input type="text" name="name" class="form-control" required>
                                     </div>
                                  </div>
                                  <div class="col-lg-6">
                                     <div class="form-group">
                                        <label>Email</label>
-                                       <input type="email" name="" class="form-control">
+                                       <input type="email" name="email" class="form-control" required>
                                     </div>
                                  </div>
                               </div>
                               <div class="row">
                                  <div class="col-lg-12 text-center mt-3 joincheck">
-                                    <input type="checkbox" name="" class="incheck"> Join mailing list? 
+                                    <input type="checkbox" name="join_mailing" class="incheck" value="1"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Join mailing list? 
                                  </div>
                               </div>
                               <div class="row">
@@ -315,7 +356,7 @@
                            <li data-target="#quiZ" data-slide-to="7"></li>
                         </ul>
                      </div>
-                  <!-- </form> -->
+                  </form>
                </div>
             </div>
       <section class="newsland-slider">
@@ -454,7 +495,11 @@
       <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
       <script src="js/mainscript.js"></script>
       <!-- Custom scripts for this template -->
+      <script src="https://demos.jquerymobile.com/1.4.2/js/jquery.js"></script>
+      <script src="js/jquery.mobile-1.4.5.js"></script>
+      <script src="//geodata.solutions/includes/countrystatecity.js"></script>
       <script src="js/owl.carousel.js"></script>     
+      <script src="js/jquery.validate.min.js"></script>
       <script type="text/javascript">
          $('.owl-carousel').owlCarousel({
            stagePadding: 100,
@@ -477,6 +522,65 @@
                  }
                }
             });      
+      </script>
+      <script>
+         $(document).ready(function () {
+         $('.quiz-arrows a.carousel-control-prev').click(function () {
+            $(".carousel-control-next").show();
+            $(this).addClass('arrow-active');
+            $('.quiz-arrows a.carousel-control-next').removeClass('arrow-active');
+            setTimeout(function () {
+              if ($(".carousel-item.active").attr("data-id") == "1") {
+                $(".carousel-control-prev").hide();
+              }
+              if ($(".carousel-item.active").attr("data-id") == "8") {
+                $(".carousel-control-next").hide();
+              }
+            }, 1000);
+         });
+
+         $('.quiz-arrows a.carousel-control-next').click(function () {
+            if(!$(".quiz-form").valid()) {
+              $('label.error').each(function() {
+                $(this).remove();
+              });
+              
+              return false;
+            }
+            $(".carousel-control-prev").show();
+            $(this).addClass('arrow-active');
+            $('.quiz-arrows a.carousel-control-prev').removeClass('arrow-active');
+
+            setTimeout(function () {
+              if ($(".carousel-item.active").attr("data-id") == "1") {
+                $(".carousel-control-prev").hide();
+              }
+              if ($(".carousel-item.active").attr("data-id") == "8") {
+                $(".carousel-control-next").hide();
+              }
+            }, 1000);
+
+            $('.quiz-content-indicators ul.carousel-indicators li.active').addClass('active-show');
+            $('.quiz-content-indicators ul.carousel-indicators li.active').prevAll().addClass('active-show');
+
+         });
+
+          $('.quiz-content-indicators ul.carousel-indicators li').click(function () {
+
+              if(!$(".quiz-form").valid()) {
+                $('label.error').each(function() {
+                  $(this).remove();
+                });
+               
+                return false;
+              }
+
+              $(this).addClass('active-show');
+              $(this).prevAll().addClass('active-show');
+              $(this).nextAll().removeClass('active-show');
+              
+         });
+       });
       </script>
    </body>
 </html>
