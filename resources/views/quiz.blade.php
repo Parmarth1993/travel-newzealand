@@ -250,13 +250,14 @@
                               <h2>Let’s <strong><em>explore</em></strong> your travel needs.</h2>
                               <div class="stepdiv">Step  <span>5/8</span></div>
                               <h3>Travel Budget</h3>
+                              <span class="total_price"></span>
                               <p class="text-center">Slide to the cost of travel within your budget</p>
                               <div class="formquestion rangesliderpart">                   
                                  <div class="form-group rangepart">
                                     <form>
                                        <div data-role="rangeslider" class="costdiv">
                                           <label for="range-1b" class="costlabel"> Cost of total trip</label>
-                                          <input type="range" name="cost_trip" id="range-1b" min="0" max="5000" value="3000" data-popup-enabled="true" data-show-value="false" class="">
+                                          <input type="range" name="cost_trip" onchange="ChangeCost(this.value)" id="range-1b" min="0" max="5000" value="3000" data-popup-enabled="true" data-show-value="false" class="">
                                        </div>
                                         <span class="maxp">Max</span>
                                         <div data-role="rangeslider" class="daysno">
@@ -532,61 +533,74 @@
       </script>
       <script>
          $(document).ready(function () {
-         $('.quiz-arrows a.carousel-control-prev').click(function () {
-            $(".carousel-control-next").show();
-            $(this).addClass('arrow-active');
-            $('.quiz-arrows a.carousel-control-next').removeClass('arrow-active');
-            setTimeout(function () {
-              if ($(".carousel-item.active").attr("data-id") == "1") {
-                $(".carousel-control-prev").hide();
-              }
-              if ($(".carousel-item.active").attr("data-id") == "8") {
-                $(".carousel-control-next").hide();
-              }
-            }, 1000);
+         var costtrip = $('#range-1b').val();
+         var noofdays = $('#range-1c').val();   
+         $('.total_price').html('$ '+ costtrip * noofdays);   
+         $('#range-1b').change(function(){
+            var costtrip = $('#range-1b').val();
+            var noofdays = $('#range-1c').val();   
+            $('.total_price').html('$ '+ costtrip * noofdays); 
          });
+         $('#range-1c').change(function(){
+            var costtrip = $('#range-1b').val();
+            var noofdays = $('#range-1c').val();   
+            $('.total_price').html('$ '+ costtrip * noofdays); 
+         });
+         // $('.quiz-arrows a.carousel-control-prev').click(function () {
+         //    $(".carousel-control-next").show();
+         //    $(this).addClass('arrow-active');
+         //    $('.quiz-arrows a.carousel-control-next').removeClass('arrow-active');
+         //    setTimeout(function () {
+         //      if ($(".carousel-item.active").attr("data-id") == "1") {
+         //        $(".carousel-control-prev").hide();
+         //      }
+         //      if ($(".carousel-item.active").attr("data-id") == "8") {
+         //        $(".carousel-control-next").hide();
+         //      }
+         //    }, 1000);
+         // });
 
-         $('.quiz-arrows a.carousel-control-next').click(function () {
-            if(!$(".quiz-form").valid()) {
-              $('label.error').each(function() {
-                $(this).remove();
-              });
+         // $('.quiz-arrows a.carousel-control-next').click(function () {
+         //    if(!$(".quiz-form").valid()) {
+         //      $('label.error').each(function() {
+         //        $(this).remove();
+         //      });
               
-              return false;
-            }
-            $(".carousel-control-prev").show();
-            $(this).addClass('arrow-active');
-            $('.quiz-arrows a.carousel-control-prev').removeClass('arrow-active');
+         //      return false;
+         //    }
+         //    $(".carousel-control-prev").show();
+         //    $(this).addClass('arrow-active');
+         //    $('.quiz-arrows a.carousel-control-prev').removeClass('arrow-active');
 
-            setTimeout(function () {
-              if ($(".carousel-item.active").attr("data-id") == "1") {
-                $(".carousel-control-prev").hide();
-              }
-              if ($(".carousel-item.active").attr("data-id") == "8") {
-                $(".carousel-control-next").hide();
-              }
-            }, 1000);
+         //    setTimeout(function () {
+         //      if ($(".carousel-item.active").attr("data-id") == "1") {
+         //        $(".carousel-control-prev").hide();
+         //      }
+         //      if ($(".carousel-item.active").attr("data-id") == "8") {
+         //        $(".carousel-control-next").hide();
+         //      }
+         //    }, 1000);
 
-            $('.quiz-content-indicators ul.carousel-indicators li.active').addClass('active-show');
-            $('.quiz-content-indicators ul.carousel-indicators li.active').prevAll().addClass('active-show');
+         //    $('.quiz-content-indicators ul.carousel-indicators li.active').addClass('active-show');
+         //    $('.quiz-content-indicators ul.carousel-indicators li.active').prevAll().addClass('active-show');
 
-         });
+         // });
 
-          $('.quiz-content-indicators ul.carousel-indicators li').click(function () {
+         //  $('.quiz-content-indicators ul.carousel-indicators li').click(function () {
 
-              if(!$(".quiz-form").valid()) {
-                $('label.error').each(function() {
-                  $(this).remove();
-                });
+         //      if(!$(".quiz-form").valid()) {
+         //        $('label.error').each(function() {
+         //          $(this).remove();
+         //        });
                
-                return false;
-              }
+         //        return false;
+         //      }
 
-              $(this).addClass('active-show');
-              $(this).prevAll().addClass('active-show');
-              $(this).nextAll().removeClass('active-show');
+         //      $(this).addClass('active-show');
+         //      $(this).prevAll().addClass('active-show');
+         //      $(this).nextAll().removeClass('active-show');
               
-         });
+         // });
        });
       </script>
    </body>
