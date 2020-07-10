@@ -98,6 +98,13 @@
                   <a class="carousel-control-next arrow-active" href="#quiZ" data-slide="next"><span class="carousel-control-next-icon"><i class="fas fa-arrow-right"></i></span></a>
                </div>
          </div>
+         @if(Session::has('error'))
+           <h4 style="color:red;">{{ Session::get('error') }}</h4>
+         @endif
+
+         @if(Session::has('success'))
+           <h4 style="color:green;">{{ Session::get('success') }}</h4>
+         @endif
 
       <!-- Main Content -->
       <div class="quiz-content-wrappper">

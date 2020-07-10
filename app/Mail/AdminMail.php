@@ -11,15 +11,17 @@ class AdminMail extends Mailable
 {
     use Queueable, SerializesModels;
     public $details;
+    public $postdetails;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($details)
+    public function __construct($details, $postdetails)
     {
         $this->details = $details;
+        $this->postdetails = $postdetails;
     }
 
     /**

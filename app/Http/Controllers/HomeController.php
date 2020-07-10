@@ -216,7 +216,7 @@ class HomeController extends Controller
                 $addQuestionaire->join_mailing = $request->join_mailing;
                 $addQuestionaire->save();
 
-                $send_mail = $this->sendMail($request); //sending mail
+                $send_mail = $this->sendMail($addQuestionaire); //sending mail
               
                 return redirect()->back()->with('success', 'Questionnaire added successfully...!!');
 
@@ -235,7 +235,7 @@ class HomeController extends Controller
           ];
              
           \Mail::to($request->email)->send(new \App\Mail\SendMail($details));
-          \Mail::to('sagar@yopmail.com')->send(new \App\Mail\AdminMail($details));
+          \Mail::to('sagar@yopmail.com')->send(new \App\Mail\AdminMail($details, $request));
           return true;
 
         } catch(\Exception $e) {
