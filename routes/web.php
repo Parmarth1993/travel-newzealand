@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/', 'HomeController@welcome')->name('welcome');
 Route::get('/quetionarie1', 'HomeController@questionaire')->name('questionaire');
 
-Route::post('/questionaire/add', 'HomeController@addQuestionaire')->name('addQuestionaire');
+//Route::get('/questionaire/add', 'HomeController@addQuestionaire')->name('addQuestionaire');
 Route::post('/questionnaire/add', 'HomeController@addQuestionnaire')->name('addQuestionnaire');
 
 Route::get('/home', 'HomeController@index')->name('home');

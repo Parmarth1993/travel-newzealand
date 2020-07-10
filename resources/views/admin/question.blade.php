@@ -29,24 +29,22 @@
                   <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0">
                      <thead>
                         <tr>
-                           <th>Person</th>
+                           <th>Adults</th>
                            <th>Travel Date</th>
-                           <th>Flying From</th>
                            <th>Stay Length</th>
 
-                           <th>Trip Type</th>
+                           <th>Trip Cost</th>
                            <th>Name</th>
                            <th>Email</th>
                         </tr>
                      </thead>
                      {{-- <tfoot>
                         <tr>
-                           <th>Person</th>
+                           <th>Adults</th>
                            <th>Travel Date</th>
-                           <th>Flying From</th>
                            <th>Stay Length</th>
 
-                           <th>Trip Type</th>
+                           <th>Trip Cost</th>
                            <th>Name</th>
                            <th>Email</th>
                         </tr>
@@ -54,11 +52,10 @@
                      <tbody>
                         @foreach($question_list as $list)
                         <tr class="plan-{{$list->id}}">
-                           <td>{{$list->total_people}}</td>
-                           <td>{{$list->travel_date}}</td>
-                           <td>{{$list->flying_from}}</td>
-                           <td>{{$list->stay_length}}</td>
-                           <td>{{$list->trip_type}}</td>
+                           <td>{{$list->adults}}</td>
+                           <td>{{$list->start_date}}</td>
+                           <td>{{$list->length_stay}}</td>
+                           <td>{{$list->cost_trip}}</td>
                            <td>{{$list->name}}</td>
                            <td>{{$list->email}}</td>
                         </tr>

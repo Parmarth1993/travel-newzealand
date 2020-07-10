@@ -109,7 +109,7 @@
       <!-- Main Content -->
       <div class="quiz-content-wrappper">
                <div id="quiZ" class="carousel slide">
-                  <form method="post" action="{{route('addQuestionnaire')}}" class="quiz-form">
+                  <form method="post" id="quizForm" action="{{route('addQuestionnaire')}}" class="quiz-form" novalidate>
                       @csrf
                      <div class="validation-message text-center"><p>Please fill required fields.</p></div>
                      <div class="carousel-inner">
@@ -255,9 +255,9 @@
                               <div class="formquestion rangesliderpart">                   
                                  <div class="form-group rangepart">
                                     <form>
-                                       <div data-role="rangeslider" class="costdiv">
+                                       <div data-role="rangeslider" class="costdiv"  id="div-slider">
                                           <label for="range-1b" class="costlabel"> Cost of total trip</label>
-                                          <input type="range" name="cost_trip" onchange="ChangeCost(this.value)" id="range-1b" min="0" max="5000" value="3000" data-popup-enabled="true" data-show-value="false" class="">
+                                          <input type="range" name="cost_trip"  id="range-1b" min="0" max="5000" value="3000" data-popup-enabled="true" data-show-value="false" class="">
                                        </div>
                                         <span class="maxp">Max</span>
                                         <div data-role="rangeslider" class="daysno">
@@ -338,7 +338,7 @@
                               </div>
                               <div class="row">
                                  <div class="col-lg-12 text-center mt-4">
-                                    <input type="submit" name="" class="btn btn-primary submitbtn" value="Submit">
+                                    <input type="submit" name="" class="btn btn-primary submitbtn" id="submitbtn" value="Submit">
                                  </div>
                               </div>
                               <div class="row">
@@ -532,75 +532,114 @@
             });      
       </script>
       <script>
+        var priceVal = 3000;
+        var daysVal = 3;
          $(document).ready(function () {
-         var costtrip = $('#range-1b').val();
-         var noofdays = $('#range-1c').val();   
-         $('.total_price').html('$ '+ costtrip * noofdays);   
-         $('#range-1b').change(function(){
-            var costtrip = $('#range-1b').val();
-            var noofdays = $('#range-1c').val();   
-            $('.total_price').html('$ '+ costtrip * noofdays); 
-         });
-         $('#range-1c').change(function(){
-            var costtrip = $('#range-1b').val();
-            var noofdays = $('#range-1c').val();   
-            $('.total_price').html('$ '+ costtrip * noofdays); 
-         });
-         // $('.quiz-arrows a.carousel-control-prev').click(function () {
-         //    $(".carousel-control-next").show();
-         //    $(this).addClass('arrow-active');
-         //    $('.quiz-arrows a.carousel-control-next').removeClass('arrow-active');
-         //    setTimeout(function () {
-         //      if ($(".carousel-item.active").attr("data-id") == "1") {
-         //        $(".carousel-control-prev").hide();
-         //      }
-         //      if ($(".carousel-item.active").attr("data-id") == "8") {
-         //        $(".carousel-control-next").hide();
-         //      }
-         //    }, 1000);
-         // });
 
-         // $('.quiz-arrows a.carousel-control-next').click(function () {
-         //    if(!$(".quiz-form").valid()) {
-         //      $('label.error').each(function() {
-         //        $(this).remove();
-         //      });
+          $('#submitbtn').click(function(e){
+            e.preventDefault();
+            console.log('submit form here');
+            $.ajax({
+              url: $('#quizForm').attr('action'),
+              type: 'POST',
+              data: $('#quizForm').serialize(),
+              dataType: 'JSON',
+              success: function(response) {
+                $('html, body').animate({
+                    scrollTop: $(".validation-message").offset().top - 150
+                }, 500);
+               // console.log('done ', response);
+                if(response.success) {
+                  var msg = '<p>' + response.message + '</p>';
+                  $('.validation-message').html(msg);
+                  $('.validation-message').addClass('alert-success');
+                  $('.validation-message').removeClass('alert-danger');
+                } else {
+                  var msg = '<p>' + response.message + '</p>';
+                  $('.validation-message').html(msg);
+                  $('.validation-message').removeClass('alert-success');
+                  $('.validation-message').addClass('alert-danger');
+                }
+              },
+              error: function(error) {
+                $('html, body').animate({
+                    scrollTop: $(".validation-message").offset().top - 150
+                }, 500);
+              //  console.log('error ', error);
+                var msg = '<p>' + error.message + '</p>';
+                $('.validation-message').html(msg);
+                $('.validation-message').removeClass('alert-success');
+                $('.validation-message').addClass('alert-danger');
+              }
+            })
+          })
+
+          $('.total_price').html('$ '+ priceVal * daysVal); 
+        
+         $("#range-1b").on("slidestop", function(event) {
+          priceVal = $(this).val();
+          $('.total_price').html('$ '+ priceVal * daysVal); 
+        });
+         $("#range-1c").on("slidestop", function(event) {
+          daysVal = $(this).val();
+          $('.total_price').html('$ '+ priceVal * daysVal); 
+        });
+
+         $('.quiz-arrows a.carousel-control-prev').click(function () {
+            $(".carousel-control-next").show();
+            $(this).addClass('arrow-active');
+            $('.quiz-arrows a.carousel-control-next').removeClass('arrow-active');
+            setTimeout(function () {
+              if ($(".carousel-item.active").attr("data-id") == "1") {
+                $(".carousel-control-prev").hide();
+              }
+              if ($(".carousel-item.active").attr("data-id") == "8") {
+                $(".carousel-control-next").hide();
+              }
+            }, 1000);
+         });
+
+         $('.quiz-arrows a.carousel-control-next').click(function () {
+            if(!$(".quiz-form").valid()) {
+              $('label.error').each(function() {
+                $(this).remove();
+              });
               
-         //      return false;
-         //    }
-         //    $(".carousel-control-prev").show();
-         //    $(this).addClass('arrow-active');
-         //    $('.quiz-arrows a.carousel-control-prev').removeClass('arrow-active');
+              return false;
+            }
+            $(".carousel-control-prev").show();
+            $(this).addClass('arrow-active');
+            $('.quiz-arrows a.carousel-control-prev').removeClass('arrow-active');
 
-         //    setTimeout(function () {
-         //      if ($(".carousel-item.active").attr("data-id") == "1") {
-         //        $(".carousel-control-prev").hide();
-         //      }
-         //      if ($(".carousel-item.active").attr("data-id") == "8") {
-         //        $(".carousel-control-next").hide();
-         //      }
-         //    }, 1000);
+            setTimeout(function () {
+              if ($(".carousel-item.active").attr("data-id") == "1") {
+                $(".carousel-control-prev").hide();
+              }
+              if ($(".carousel-item.active").attr("data-id") == "8") {
+                $(".carousel-control-next").hide();
+              }
+            }, 1000);
 
-         //    $('.quiz-content-indicators ul.carousel-indicators li.active').addClass('active-show');
-         //    $('.quiz-content-indicators ul.carousel-indicators li.active').prevAll().addClass('active-show');
+            $('.quiz-content-indicators ul.carousel-indicators li.active').addClass('active-show');
+            $('.quiz-content-indicators ul.carousel-indicators li.active').prevAll().addClass('active-show');
 
-         // });
+         });
 
-         //  $('.quiz-content-indicators ul.carousel-indicators li').click(function () {
+          $('.quiz-content-indicators ul.carousel-indicators li').click(function () {
 
-         //      if(!$(".quiz-form").valid()) {
-         //        $('label.error').each(function() {
-         //          $(this).remove();
-         //        });
+              if(!$(".quiz-form").valid()) {
+                $('label.error').each(function() {
+                  $(this).remove();
+                });
                
-         //        return false;
-         //      }
+                return false;
+              }
 
-         //      $(this).addClass('active-show');
-         //      $(this).prevAll().addClass('active-show');
-         //      $(this).nextAll().removeClass('active-show');
+              $(this).addClass('active-show');
+              $(this).prevAll().addClass('active-show');
+              $(this).nextAll().removeClass('active-show');
               
-         // });
+         });
        });
       </script>
    </body>

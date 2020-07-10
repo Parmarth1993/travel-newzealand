@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+
 use DB;
 use App\Accomodations;
 use App\Properties;
@@ -192,7 +198,6 @@ class HomeController extends Controller
 
     public function addQuestionnaire(Request $request){
       if($request->isMethod('post')) {
-            
             try {
               //print_r($request->all());die;
                 $addQuestionaire = new Questionnaire;
@@ -226,10 +231,12 @@ class HomeController extends Controller
                 \Mail::to($request->email)->send(new \App\Mail\SendMail($details));
                 \Mail::to('sagar@yopmail.com')->send(new \App\Mail\AdminMail($details, $request));
               
-                return redirect()->back()->with('success', 'Questionnaire added successfully...!!');
+                //return redirect()->back()->with('success', 'Questionnaire added successfully...!!');
+                return response()->json(array('success' => true, 'message' => 'Questionnaire added successfully...!!'));
 
             } catch(\Exception $e) {
-                return redirect()->back()->with('error', $e->getMessage());
+                //return redirect()->back()->with('error', $e->getMessage());
+                return response()->json(array('success' => false, 'message' => $e->getMessage()));
             }
         } 
     }

@@ -15,6 +15,7 @@ use App\Properties;
 use App\Categories;
 use App\Experience;
 use App\Questionaire;
+use App\Questionnaire;
 use App\Travel;
 //use App\Accomodations;
 //use App\Highlights;
@@ -333,7 +334,7 @@ class AdminController extends Controller
 
 
     public function questionaireList(Request $request) {
-        $question_list = Questionaire::orderBy('id','desc')->get();
+        $question_list = Questionnaire::orderBy('id','desc')->get();
         return view('admin.question')->with(['question_list' => $question_list]);   
     }
     
