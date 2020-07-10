@@ -1093,22 +1093,22 @@
       });
 
    
-      $(document).on('click', '.carousel-control-next', function(e){
-       let slider_area = $(this).closest('#myCarouse3').find('.carousel-inner');
-       let icon_area = $(this).closest('.upperparttab').find('#iti_activities');
+      // $(document).on('click', '.carousel-control-next', function(e){
+      //  let slider_area = $(this).closest('#myCarouse3').find('.carousel-inner');
+      //  let icon_area = $(this).closest('.upperparttab').find('#iti_activities');
 
-       let active_slide = slider_area.find('.active');
-       let className = active_slide.attr('class');
-       var class_list = className.split(/\s+/);
-       if(class_list[1] !== 'active'){
-         icon_area.find('li a').removeClass('active');
-         icon_area.find('.'+class_list[1]).addClass('active');
-       }
-       if(class_list[1] === 'active') {
-         icon_area.find('li a').removeClass('active');
-         icon_area.find('.'+class_list[2]).addClass('active');
-       }
-      });
+      //  let active_slide = slider_area.find('.active');
+      //  let className = active_slide.attr('class');
+      //  var class_list = className.split(/\s+/);
+      //  if(class_list[1] !== 'active'){
+      //    icon_area.find('li a').removeClass('active');
+      //    icon_area.find('.'+class_list[1]).addClass('active');
+      //  }
+      //  if(class_list[1] === 'active') {
+      //    icon_area.find('li a').removeClass('active');
+      //    icon_area.find('.'+class_list[2]).addClass('active');
+      //  }
+      // });
     </script>
    </body>
 </html>
