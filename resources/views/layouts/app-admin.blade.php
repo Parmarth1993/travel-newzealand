@@ -24,8 +24,64 @@
       <link href="{{asset('css/fullcalendar/jquery-ui.min.css')}}" type="text/css" rel="stylesheet" />
       <link href="{{asset('css/fullcalendar/fullcalendar.min.css')}}" type="text/css" rel="stylesheet" />
       <link href="{{asset('js/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.css" />
+
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>tinymce.init({selector:'textarea'});</script>
       <style type="text/css">
+
+      #tinymce p {
+          padding: 0;
+          margin: 1px 0;
+      }
         nav#mainNav {background: #4a3c98; }
+
+.page {
+   margin: 1em auto;
+   max-width: 768px;
+   display: flex;
+   align-items: flex-start;
+   flex-wrap: wrap;
+   height: 100%;
+}
+
+.box {
+   padding: 0.5em;
+   width: 100%;
+   margin:0.5em;
+}
+
+.box-2 {
+   padding: 0.5em;
+   width: calc(100%/2 - 1em);
+}
+
+.options label,
+.options input{
+   width:4em;
+   padding:0.5em 1em;
+}
+/*.btn{
+   background:white;
+   color:black;
+   border:1px solid black;
+   padding: 0.5em 1em;
+   text-decoration:none;
+   margin:0.8em 0.3em;
+   display:inline-block;
+   cursor:pointer;
+}*/
+
+.hide {
+   display: none;
+}
+
+img {
+   max-width: 100%;
+}
+
+      
       </style>
    </head>
    <body>
@@ -64,9 +120,11 @@
                         <a href="" class="list-group-item list-group-item-action">Dashboard</a>
                      @endif
                   @endif
-                  <a href="/admin/properties" class="list-group-item list-group-item-action">Properties</a>
-                  <a href="/admin/categories" class="list-group-item list-group-item-action">Categories</a>
-                  <a href="/admin/experience" class="list-group-item list-group-item-action">Experience</a>
+                  <a href="{{ route('properties_list') }}" class="list-group-item list-group-item-action">Properties</a>
+                  <a href="{{ route('category_list') }}" class="list-group-item list-group-item-action">Categories</a>
+                  <a href="{{ route('experience_list') }}" class="list-group-item list-group-item-action">Experience</a>
+                  <a href="{{ route('questionaire_list') }}" class="list-group-item list-group-item-action">Questionaire</a>
+           <a href="{{ route('travel_list') }}" class="list-group-item list-group-item-action">Travel Type</a>
                   <!-- <div class="dropdown">
                      <ul class="dropdown-menu">
                         <a href="/admin/accomodation/edit/1" class="list-group-item list-group-item-action">Accomodations</a>
@@ -97,6 +155,26 @@
       <script type="text/javascript">
          var activitiesCounter = 0;
          $(document).ready(function() {
+          if(!$('#hiddenId').length) {
+
+            $('.is_iti').hide();
+          }
+            $('#category').change(function() {
+              if($(this).val() == '1') {
+                $('.activities_area').show()  
+              } else {
+                $('.activities_area').hide()  
+              }
+              
+              if($(this).val() == '3') {
+                $('.is_not_iti').hide();
+                $('.is_iti').show();
+              } else {
+                $('.is_not_iti').show();
+                $('.is_iti').hide();
+              }
+            });
+         // console.log($('#activitiesCounter').length, $('#activitiesCounter').val())
             if($('#activitiesCounter').length > 0) {
                activitiesCounter = $('#activitiesCounter').val();
             }
@@ -124,8 +202,13 @@
             $('#addMoreBtn').click(function(){
                activitiesCounter++;
                if($('#activitiesCounter').length > 0) {
+                if($('#hiddenId').length) {
+                  var el = $('#activities_selector' + (activitiesCounter - 2)).clone().prop('id', 'activities_selector' + activitiesCounter);
+                  el.find('.media-preview' + (activitiesCounter - 2)).attr("class","media-preview"+activitiesCounter);
+                } else {
                   var el = $('#activities_selector' + (activitiesCounter - 1)).clone().prop('id', 'activities_selector' + activitiesCounter);
                   el.find('.media-preview' + (activitiesCounter - 1)).attr("class","media-preview"+activitiesCounter);
+                }
                   setTimeout(function(){
                      $(document).find('.media-preview' + activitiesCounter).remove();
                   },500);
@@ -135,10 +218,15 @@
                el.find("#firstLabl").attr("id","firstLabl"+activitiesCounter);
                el.find("#removeBtn").attr("data-id", activitiesCounter);
                el.find("#removeBtn").attr("id","removeBtn"+activitiesCounter);
+               //console.log('activitiesCounter ', activitiesCounter)
                if(activitiesCounter == 1) {
                   $('#activities_selector').after(el);
                } else {
+                if($('#hiddenId').length) {
+                  $('#activities_selector' + (activitiesCounter - 2)).after(el);
+                } else {
                   $('#activities_selector' + (activitiesCounter - 1)).after(el);
+                }
                }
             });
 
@@ -190,6 +278,42 @@
                }
             }
          }
+
+         $(document).on('change','.category', function(e) {
+            var cat = $(this).val();
+            if(cat != ''){
+               $('#prop_form').submit();
+            }
+         });
+
+
+         
+         $(document).on('click','.delete-btn', function(e) {
+           var propId = $(this).data('id');
+           $('#id_property').val(propId);
+           swal({
+               title: "Are you sure?",
+               text: "You will not be able to recover this file!",
+               icon: "warning",
+               buttons: [
+                 'No, cancel it!',
+                 'Yes, I am sure!'
+               ],
+               dangerMode: true,
+             }).then(function(isConfirm) {
+               if (isConfirm) {
+                 swal({
+                    title: 'Success!',
+                   text: 'Data deleted successfully!',
+                   icon: 'success'
+                 }).then(function() {
+                   $('#del-form').submit();
+                 });
+               } else {
+                 swal("Cancelled", "Your file is safe :)", "error");
+               }
+             })
+         });
       </script>
    </body>
 </html>

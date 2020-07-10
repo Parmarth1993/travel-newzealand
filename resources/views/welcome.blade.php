@@ -36,12 +36,12 @@
 
       </style>
    </head>
-   <body>
+   <body class="homein">
       <a id="top"></a>
       <!-- Navigation -->
       <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
          <div class="container">
-            <a class="navbar-brand" href="#"></a>  
+            <a class="navbar-brand" href="/"></a>  
             <div class="nablast">
                <ul>
                   <li class="nav-item lastone">
@@ -58,10 +58,10 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
-                     <a class="nav-link" href="#">Experiences</a>
+                     <a class="nav-link" href="/experiences">Experiences</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">Accommodations</a>
+                     <a class="nav-link" href="/accommodations">Accommodations</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="#">Itineraries</a>
@@ -70,13 +70,13 @@
                      <a class="nav-link text-nowrap" href="#">Not Just New Zealand</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">About</a>
+                     <a class="nav-link" href="/about">About</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link text-nowrap" href="#">Why Us</a>
+                     <a class="nav-link text-nowrap" href="/why-us">Why Us</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">FAQ</a>
+                     <a class="nav-link" href="/faq">FAQ</a>
                   </li>
                   <li class="nav-item lastone inhome">
                      <a class="nav-link searchicon" href="javascript:void(0)"></a>
@@ -120,7 +120,7 @@
             <ul class="nav nav-tabs besttab">
                @foreach($categories as $key => $category)
                   <li>
-                     <a data-toggle="tab" href="#{{strtolower($category->name)}}" class="home-page-cat @if($key == 0) active @endif">{{$category->name}} <span>{{$category->description}}</span>
+                     <a data-toggle="tab" href="#{{strtolower($category->name)}}" class="home-page-cat @if($key == 0) active @endif">{{$category->name}} <span>{!!html_entity_decode($category->description)!!}</span>
                      </a>
                   </li>
                @endforeach
@@ -140,7 +140,7 @@
                               <div id="map-canvas"></div>
                            </div>
                         </div>
-                        <div class="col-lg-8 col-md-12 tabform">
+                        <div class="col-lg-8 col-md-12 tabform" id="acc_results">
                            <div class="alltabview">
                               <div class="alltopview-logo">
                                  <img id="acc_logo" src="img/minarat-logo.png" height="50" width="100">
@@ -160,7 +160,9 @@
                                  <div class="stationviewpart">
                                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
                                        <!--  <ol class="carousel-indicators" id="ol_acco"></ol> -->
-                                        <div id="carouse_acco" class="carousel-inner"></div>
+                                        <div id="carouse_acco" class="carousel-inner">
+                                          
+                                        </div>
                                         <!-- Left and right controls -->
                                       <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                                         <span class="glyphicon glyphicon-chevron-left"><i class="fa fa-angle-left left-acc"></i></span>
@@ -182,13 +184,13 @@
                                     <div class="tab-pane in active" id="about_desc">
                                        <p id="about_accom"></p>
                                        <div class="logosbtn">
-                                          <a href="" class="btn btn-primary">Enquiry Now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="/quetionarie" class="btn btn-primary">Enquiry Now</a> <a href="/quetionarie" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
                                     <div class="tab-pane" id="highlights_desc">
                                        <p id="high_accom"></p>
                                        <div class="logosbtn">
-                                          <a href="" class="btn btn-primary">Enquiry now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="/quetionarie" class="btn btn-primary">Enquiry now</a> <a href="/quetionarie" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
                                  </div>
@@ -209,12 +211,12 @@
                               <img src="img/news-land-img.png"> -->
                            </div>
                         </div>
-                        <div class="col-lg-8 col-md-12 tabform">
+                        <div class="col-lg-8 col-md-12 tabform" id="high_results">
                            <div class="alltabview">
                               <div class="alltopview-logo">
                                  <img id="high_logo" src="img/minarat-logo.png" height="50" width="100">
                               </div>
-                              <div class="upperparttab">
+                              <div class="upperparttab" style="display: none;">
                                  <ul class="nav nav-tabs stationnab" id="high_activities">
                                     <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Helicopter" class="helicopter active"></a></li>
                                     <li><a href="javascript:void(0)" data-tool="tooltip" data-placement="right" title="Hili Area" class="hiliarea"></a></li>
@@ -243,19 +245,19 @@
                               <div class="bottomparttab">
                                  <ul class="nav nav-tabs adventuretab">
                                     <li><a data-toggle="tab" class="active" href="#about_highdesc">About</a></li>
-                                    <li><a data-toggle="tab" href="#highlights_highdesc">Highlights</a></li>
+                                    <!-- <li><a data-toggle="tab" href="#highlights_highdesc">Highlights</a></li> -->
                                  </ul>
                                  <div class="tab-content adventureview">
                                     <div  class="tab-pane in active" id="about_highdesc">
                                        <p id="about_highs"></p>
                                        <div class="logosbtn">
-                                          <a href="" class="btn btn-primary">Enquiry now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="/quetionarie" class="btn btn-primary">Enquiry now</a> <a href="/quetionarie" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
                                     <div class="tab-pane" id="highlights_highdesc">
                                        <p id="high_highs"></p>
                                        <div class="logosbtn">
-                                          <a href="" class="btn btn-primary">Enquiry now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="/quetionarie" class="btn btn-primary">Enquiry now</a> <a href="/quetionarie" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
                                  </div>
@@ -276,12 +278,12 @@
                               <div id="map-canvas-itineraries"></div>
                            </div>
                         </div>
-                        <div class="col-lg-8 col-md-12 tabform">
+                        <div class="col-lg-8 col-md-12 tabform" id="iti_results">
                            <div class="alltabview">
                               <div class="alltopview-logo">
                                  <img id="iti_logo" src="img/minarat-logo.png" height="50" width="100">
                               </div>
-                              <div class="upperparttab">
+                              <div class="upperparttab" style="display: none;">
                                  <ul class="nav nav-tabs stationnab" id="iti_activities">
                                     <li><a data-toggle="tab" href="#stationview-1" data-tool="tooltip" data-placement="right" title="Helicopter" class="helicopter active"></a></li>
                                     <li><a data-toggle="tab" href="#stationview-2" data-tool="tooltip" data-placement="right" title="Hili Area" class="hiliarea"></a></li>
@@ -311,19 +313,19 @@
                               <div class="bottomparttab">
                                  <ul class="nav nav-tabs adventuretab">
                                     <li><a data-toggle="tab" class="active" href="#about_itdesc">About</a></li>
-                                    <li><a data-toggle="tab" href="#highlights_itdesc">Highlights</a></li>
+                                    <!-- <li><a data-toggle="tab" href="#highlights_itdesc">Highlights</a></li> -->
                                  </ul>
                                  <div class="tab-content adventureview">
                                     <div  class="tab-pane in active" id="about_itdesc">
                                        <p id="iti_about"></p>
                                        <div class="logosbtn">
-                                          <a href="" class="btn btn-primary">Enquiry now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="/quetionarie" class="btn btn-primary">Enquiry now</a> <a href="/quetionarie" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
                                     <div class="tab-pane" id="highlights_itdesc">
                                        <p id="iti_highs"></p>
                                        <div class="logosbtn">
-                                          <a href="" class="btn btn-primary">Enquiry now</a> <a href="" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="/quetionarie" class="btn btn-primary">Enquiry now</a> <a href="/quetionarie" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
                                  </div>
@@ -590,7 +592,8 @@
            });
          });
       </script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPlxYBIjisvG84Q8mQo8RHWZqXJBUibKk">
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYb9xso8huTtmqNluNb9sOt__rFapLW-w&libraries=&v=weekly">
     </script>
     <script>
 
@@ -654,9 +657,9 @@
                $('#ol_acco').append('<li data-target="#myCarousel" data-slide-to="'+ counter +'" class="'+ classact +'"></li>');               
 
                if(accomodationsArray[0].activities[act].type == 'image') {
-                  $('#carouse_acco.carousel-inner').append('<div data-value="'+actname+'" class="item '+classact+' '+actname+' "><img src="uploads/properties/'+accomodationsArray[0].activities[act].media+'" alt="Image" type="'+ accomodationsArray[0].activities[act].type +'"></div>');
+                  $('#carouse_acco.carousel-inner').append('<div data-value="'+actname+'" class="carousel-item '+classact+' '+actname+' "><img src="uploads/properties/'+accomodationsArray[0].activities[act].media+'" alt="Image" type="'+ accomodationsArray[0].activities[act].type +'"></div>');
                } else {
-                  $('#carouse_acco.carousel-inner').append('<div data-value="'+actname+'" class="item '+classact+' '+actname+' "><iframe src="'+accomodationsArray[0].activities[act].media+'" alt="video" type="'+ accomodationsArray[0].activities[act].type +'"></div>');
+                  $('#carouse_acco.carousel-inner').append('<div data-value="'+actname+'" class="carousel-item '+classact+' '+actname+' "><iframe src="'+accomodationsArray[0].activities[act].media+'" alt="video" type="'+ accomodationsArray[0].activities[act].type +'"></div>');
                }
 
                counter++;
@@ -667,8 +670,8 @@
                //place marker
                if(accomodationsArray[i].address && accomodationsArray[i].address != '' && accomodationsArray[i].address != null) { 
 
-                  $('#about_accom').text(accomodationsArray[0].about);
-                  $('#high_accom').text(accomodationsArray[0].highlights);
+                  $('#about_accom').html(accomodationsArray[0].about);
+                  $('#high_accom').html(accomodationsArray[0].highlights);
                   $('#acc_logo').attr('src','uploads/properties/'+accomodationsArray[0].logo);
                  
                  var infoWindow = new google.maps.InfoWindow();
@@ -711,8 +714,8 @@
                          infoWindow.open(map, marker);
                          $('#acco_activities li a').css('display','none');
                          //$('.carousel-inner').html('');
-                         $('#about_accom').text(data.about);
-                         $('#high_accom').text(data.highlights);
+                         $('#about_accom').html(data.about);
+                         $('#high_accom').html(data.highlights);
                          $('#acc_logo').attr('src','uploads/properties/'+data.logo);
                          var counterdata=0;
                          var classactdata = '';
@@ -730,9 +733,9 @@
                            //console.log(actnamedata);
                            $('.upperparttab #acco_activities li a.'+actnamedata).css('display','block');
                            if(data.activities[actdata].type == 'image') {
-                              $('#carouse_acco.carousel-inner').append('<div data-value="'+actnamedata+'" class="item '+classactdata+' '+actnamedata+' "><img src="uploads/properties/'+data.activities[actdata].media+'" alt="Image" type="'+ data.activities[actdata].type +'"></div>');
+                              $('#carouse_acco.carousel-inner').append('<div data-value="'+actnamedata+'" class="carousel-item '+classactdata+' '+actnamedata+' "><img src="uploads/properties/'+data.activities[actdata].media+'" alt="Image" type="'+ data.activities[actdata].type +'"></div>');
                            } else {
-                              $('#carouse_acco.carousel-inner').append('<div data-value="'+actnamedata+'" class="item '+classactdata+' '+actnamedata+' "><iframe src="'+data.activities[actdata].media+'" alt="video" type="'+ data.activities[actdata].type +'"></div>');
+                              $('#carouse_acco.carousel-inner').append('<div data-value="'+actnamedata+'" class="carousel-item '+classactdata+' '+actnamedata+' "><iframe src="'+data.activities[actdata].media+'" alt="video" type="'+ data.activities[actdata].type +'"></div>');
                            }
                            counterdata++;
                          }
@@ -740,6 +743,8 @@
                  })(marker, data);
                }
             }
+         } else {
+          $('#acc_results').html('<h3 class="no-results">No results found</h3>');
          }
        
 
@@ -791,15 +796,15 @@
             var actname_high = highlightsArray[0].activities[acthigh].name.toLowerCase();
             actname_high = actname_high.replace(/ /g,'')
                   //console.log(actname_high);
-            $('.upperparttab #high_activities li a.'+actname_high).css('display','block');
+            //$('.upperparttab #high_activities li a.'+actname_high).css('display','block');
 
-            $('#ol_high').append('<li data-target="#myCarouse2" data-slide-to="'+ counter_high +'" class="'+ classact_high +'"></li>');
+            //$('#ol_high').append('<li data-target="#myCarouse2" data-slide-to="'+ counter_high +'" class="'+ classact_high +'"></li>');
 
-            if(highlightsArray[0].activities[acthigh].type == 'image') {
-               $('#carouse_high.carousel-inner').append('<div data-value="'+actname_high+'" class="item '+classact_high+' '+actname_high+' "><img src="uploads/properties/'+highlightsArray[0].activities[acthigh].media+'" alt="Image" type="'+ highlightsArray[0].activities[acthigh].type +'"></div>');
-            } else {
-               $('#carouse_high.carousel-inner').append('<div data-value="'+actname_high+'" class="item '+classact_high+' '+actname_high+' "><iframe src="'+highlightsArray[0].activities[acthigh].media+'" alt="video" type="'+ highlightsArray[0].activities[acthigh].type +'"></div>');
-            }
+            // if(highlightsArray[0].activities[acthigh].type == 'image') {
+            //    $('#carouse_high.carousel-inner').append('<div data-value="'+actname_high+'" class="carousel-item '+classact_high+' '+actname_high+' "><img src="uploads/properties/'+highlightsArray[0].activities[acthigh].media+'" alt="Image" type="'+ highlightsArray[0].activities[acthigh].type +'"></div>');
+            // } else {
+            //    $('#carouse_high.carousel-inner').append('<div data-value="'+actname_high+'" class="carousel-item '+classact_high+' '+actname_high+' "><iframe src="'+highlightsArray[0].activities[acthigh].media+'" alt="video" type="'+ highlightsArray[0].activities[acthigh].type +'"></div>');
+            // }
 
                counter_high++;
          }
@@ -808,8 +813,8 @@
             //place marker
             if(highlightsArray[i].address && highlightsArray[i].address != '' && highlightsArray[i].address != null) { 
 
-               $('#about_highs').text(highlightsArray[0].about);
-               $('#high_highs').text(highlightsArray[0].highlights);
+               $('#about_highs').html(highlightsArray[0].about);
+               $('#high_highs').html(highlightsArray[0].highlights);
                $('#high_logo').attr('src','uploads/properties/'+highlightsArray[0].logo);
               
               var infoWindow = new google.maps.InfoWindow();
@@ -839,46 +844,99 @@
                       infoWindow.setContent("<div ><h3>" + data.name + "</h3></div");
                       infoWindow.open(map, marker);
                       $('#high_activities li a').css('display','none');
-                      $('#about_highs').text(data.about);
-                      $('#high_highs').text(data.highlights);
+                      $('#about_highs').html(data.about);
+                      //$('#high_highs').html(data.highlights);
                       $('#high_logo').attr('src','uploads/properties/'+data.logo);
                       var counterdata=0;
                       var classactdata = '';
-                      for (var actdata in data.activities){
-                      //console.log('data.activities ', data.activities[actdata])
-                        if(counterdata === 0){
-                           classactdata = 'active';
-                        }else{
-                           classactdata = '';
-                        }
-                        var actnamedata = data.activities[actdata].name.toLowerCase();
-                        actnamedata = actnamedata.replace(/ /g,'')
-                        //console.log(actnamedata);
-                        $('.upperparttab #high_activities li a.'+actnamedata).css('display','block');
+                      // for (var actdata in data.activities){
+                      // //console.log('data.activities ', data.activities[actdata])
+                      //   if(counterdata === 0){
+                      //      classactdata = 'active';
+                      //   }else{
+                      //      classactdata = '';
+                      //   }
+                      //   var actnamedata = data.activities[actdata].name.toLowerCase();
+                      //   actnamedata = actnamedata.replace(/ /g,'')
+                      //   //console.log(actnamedata);
+                      //   $('.upperparttab #high_activities li a.'+actnamedata).css('display','block');
 
-                        $('#ol_high').append('<li data-target="#myCarouse2" data-slide-to="'+ counterdata +'" class="'+ classactdata +'"></li>');
+                      //   $('#ol_high').append('<li data-target="#myCarouse2" data-slide-to="'+ counterdata +'" class="'+ classactdata +'"></li>');
 
-                        if(data.activities[actdata].type == 'image') {
-                           $('#carouse_high.carousel-inner').append('<div data-value="'+actnamedata+'"  class="item '+classactdata+' '+actnamedata+' "><img src="uploads/properties/'+data.activities[actdata].media+'" alt="Image"></div>');
-                        } else {
-                            $('#carouse_high.carousel-inner').append('<div data-value="'+actnamedata+'"  class="item '+classactdata+' '+actnamedata+' "><iframe src="'+data.activities[actdata].media+'" alt="video" type="'+ data.activities[actdata].type +'"></div>');
-                        }
-                        counterdata++;
-                      }
+                      //   if(data.activities[actdata].type == 'image') {
+                      //      $('#carouse_high.carousel-inner').append('<div data-value="'+actnamedata+'"  class="carousel-item '+classactdata+' '+actnamedata+' "><img src="uploads/properties/'+data.activities[actdata].media+'" alt="Image"></div>');
+                      //   } else {
+                      //       $('#carouse_high.carousel-inner').append('<div data-value="'+actnamedata+'"  class="carousel-item '+classactdata+' '+actnamedata+' "><iframe src="'+data.activities[actdata].media+'" alt="video" type="'+ data.activities[actdata].type +'"></div>');
+                      //   }
+                      //   counterdata++;
+                      // }
                   });
               })(marker, data);
             }
         }
+      } else {
+        $('#high_results').html('<h3 class="no-results">No results found</h3>');
       }
         //map 3
 
-        var map = new google.maps.Map(document.getElementById('map-canvas-itineraries'), {
+        function initMap() {
+           var directionsService = new google.maps.DirectionsService();
+            var directionsRenderer = new google.maps.DirectionsRenderer({
+              preserveViewport: true
+            });
+            var map = new google.maps.Map(document.getElementById("map-canvas-itineraries"), {
+              zoom: 5,
+              center: auck,
+              fullscreenControl: false,
+              backgroundColor: '#FFF',
+              minzoom: 5,
+              maxzoom: 15,
+              mapTypeId: "hybrid",
+              //disableDefaultUI: true,
+              preserveViewport: true
+            });
+            directionsRenderer.setMap(map);
+
+           // var onChangeHandler = function() {
+             // calculateAndDisplayRoute(directionsService, directionsRenderer);
+           // };
+           calculateAndDisplayRoute(directionsService, directionsRenderer);
+           // document.getElementById("start").addEventListener("change", onChangeHandler);
+           // document.getElementById("end").addEventListener("change", onChangeHandler);
+          }
+
+          function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+            if(itinerariesArray && itinerariesArray.length) {
+              var startLat = parseFloat(itinerariesArray[0].location_start.lat);
+              var startlong = parseFloat(itinerariesArray[0].location_start.long);
+              var endLat = parseFloat(itinerariesArray[0].location_end.lat);
+              var endLong = parseFloat(itinerariesArray[0].location_end.long);
+              directionsService.route(
+                {
+                  origin: new google.maps.LatLng(startLat, startlong),
+                  destination: new google.maps.LatLng(endLat, endLong),
+                  travelMode: "DRIVING"
+                },
+                function(response, status) {
+                  if (status === "OK") {
+                    directionsRenderer.setDirections(response);
+                  } else {
+                    //window.alert("Directions request failed due to " + status);
+                  }
+                }
+              );
+            }
+          }
+
+          initMap();
+        /*var map = new google.maps.Map(document.getElementById('map-canvas-itineraries'), {
           zoom: 5,
           center: auck,
           fullscreenControl: false,
           backgroundColor: '#FFF',
           minzoom: 5,
           maxzoom: 15,
+          mapTypeId: "hybrid"
         disableDefaultUI: true,
           styles: [
             {
@@ -897,34 +955,54 @@
                  { invert_lightness: true },
                  { hue: "#ffffff" },
                  { saturation: -100 },
-                 { lightness: 100 } /* generates "white" color */
+                 { lightness: 100 } 
                ]
             }]
-        });
+        });*/
+        
+
          var counter_iti=0;
          var classact_iti = '';
          if(itinerariesArray.length) {
-            $('#iti_activities li a').css('display','none');
+          //console.log(itinerariesArray[0]);
+          // var flightPlanCoordinates = [
+          //   { lat: parseFloat(itinerariesArray[0].location_start.lat), lng: parseFloat(itinerariesArray[0].location_start.long) },
+          //   { lat: parseFloat(itinerariesArray[0].location_end.lat), lng: parseFloat(itinerariesArray[0].location_end.long) }];
+          // var flightPath = new google.maps.Polyline({
+          //   path: flightPlanCoordinates,
+          //   geodesic: true,
+          //   strokeColor: "#2e9cca",
+          //   strokeOpacity: 1.0,
+          //   strokeWeight: 5
+          // });
+
+          // flightPath.setMap(map);
+          //console.log('flightPlanCoordinates ', flightPlanCoordinates);
+
+           // $('#iti_activities li a').css('display','none');
+            $('#iti_about').html(itinerariesArray[0].about);
+            $('#iti_highs').html(itinerariesArray[0].highlights);
+            $('#iti_logo').attr('src','uploads/properties/'+itinerariesArray[0].logo);
             for (var act in itinerariesArray[0].activities){
 
-               if(counter_iti === 0){
-                  classact_iti = 'active';
-               }else{
-                  classact_iti = '';
-               }
+               // if(counter_iti === 0){
+               //    classact_iti = 'active';
+               // }else{
+               //    classact_iti = '';
+               // }
 
-               var actname_iti = itinerariesArray[0].activities[act].name.toLowerCase();
-               actname_iti = actname_iti.replace(/ /g,'')
-                     //console.log(actname_iti);
-               $('.upperparttab #iti_activities li a.'+actname_iti).css('display','block');
+               // var actname_iti = itinerariesArray[0].activities[act].name.toLowerCase();
+               // actname_iti = actname_iti.replace(/ /g,'')
+               //       //console.log(actname_iti);
+               // $('.upperparttab #iti_activities li a.'+actname_iti).css('display','block');
 
-               $('#ol_iti').append('<li data-target="#myCarouse3" data-slide-to="'+ counter_iti +'" class="'+ classact_iti +'"></li>');
+               // $('#ol_iti').append('<li data-target="#myCarouse3" data-slide-to="'+ counter_iti +'" class="'+ classact_iti +'"></li>');
 
-               if(itinerariesArray[0].activities[act].type == 'image') {
-                  $('#carouse_iti.carousel-inner').append('<div data-value="'+actname_iti+'" class="carousel-item '+classact_iti+' '+actname_iti+' "><img src="uploads/properties/'+itinerariesArray[0].activities[act].media+'" alt="Image" type="'+ itinerariesArray[0].activities[act].type +'"></div>');
-               } else {
-                  $('#carouse_iti.carousel-inner').append('<div data-value="'+actname_iti+'" class="carousel-item '+classact_iti+' '+actname_iti+' "><iframe src="'+itinerariesArray[0].activities[act].media+'" alt="video" type="'+ itinerariesArray[0].activities[act].type +'"></div>');
-               }
+               // if(itinerariesArray[0].activities[act].type == 'image') {
+               //    $('#carouse_iti.carousel-inner').append('<div data-value="'+actname_iti+'" class="carousel-item '+classact_iti+' '+actname_iti+' "><img src="uploads/properties/'+itinerariesArray[0].activities[act].media+'" alt="Image" type="'+ itinerariesArray[0].activities[act].type +'"></div>');
+               // } else {
+               //    $('#carouse_iti.carousel-inner').append('<div data-value="'+actname_iti+'" class="carousel-item '+classact_iti+' '+actname_iti+' "><iframe src="'+itinerariesArray[0].activities[act].media+'" alt="video" type="'+ itinerariesArray[0].activities[act].type +'"></div>');
+               // }
 
                counter_iti++;
             }
@@ -934,8 +1012,8 @@
                //place marker
                if(itinerariesArray[i].address && itinerariesArray[i].address != '' && itinerariesArray[i].address != null) { 
 
-                  $('#iti_about').text(itinerariesArray[0].about);
-                  $('#iti_highs').text(itinerariesArray[0].highlights);
+                  $('#iti_about').html(itinerariesArray[0].about);
+                  $('#iti_highs').html(itinerariesArray[0].highlights);
                   $('#iti_logo').attr('src','uploads/properties/'+itinerariesArray[0].logo);
                  
                  var infoWindow = new google.maps.InfoWindow();
@@ -965,8 +1043,8 @@
                          infoWindow.setContent("<div ><h3>" + data.name + "</h3></div");
                          infoWindow.open(map, marker);
                          $('#iti_activities li a').css('display','none');
-                         $('#iti_about').text(data.about);
-                         $('#iti_highs').text(data.highlights);
+                         $('#iti_about').html(data.about);
+                         $('#iti_highs').html(data.highlights);
                          $('#iti_logo').attr('src','uploads/properties/'+data.logo);
                          var counterdata=0;
                          var classactdata = '';
@@ -995,6 +1073,8 @@
                  })(marker, data);
                }
             }
+         } else {
+          $('#iti_results').html('<h3 class="no-results">No results found</h3>');
          }
       }, 2000);
         
@@ -1008,10 +1088,9 @@
          $('#acco_activities li a').removeClass('active');
          $(this).addClass('active');
          var item = this.className.split(/\s+/)
-         
          let text = $(this).parent('li').closest('.upperparttab');
          let el = text.find('#carouse_acco');
-         text.find('.carousel-inner .item').removeClass('active');
+         text.find('.carousel-inner .carousel-item').removeClass('active');
          el.find('.'+item[0]).addClass('active');
       });
 
@@ -1024,7 +1103,7 @@
          
          let text = $(this).parent('li').closest('.upperparttab');
          let el = text.find('#carouse_high');
-         text.find('.carousel-inner .item').removeClass('active');
+         text.find('.carousel-inner .carousel-item').removeClass('active');
          el.find('.'+item[0]).addClass('active');
       });
 
@@ -1037,7 +1116,7 @@
          
          let text = $(this).parent('li').closest('.upperparttab');
          let el = text.find('#carouse_iti');
-         text.find('.carousel-inner .item').removeClass('active');
+         text.find('.carousel-inner .carousel-item').removeClass('active');
          el.find('.'+item[0]).addClass('active');
       });
 
@@ -1093,22 +1172,22 @@
       });
 
    
-      // $(document).on('click', '.carousel-control-next', function(e){
-      //  let slider_area = $(this).closest('#myCarouse3').find('.carousel-inner');
-      //  let icon_area = $(this).closest('.upperparttab').find('#iti_activities');
+      $(document).on('click', '.carousel-control-next', function(e){
+       let slider_area = $(this).closest('#myCarouse3').find('.carousel-inner');
+       let icon_area = $(this).closest('.upperparttab').find('#iti_activities');
 
-      //  let active_slide = slider_area.find('.active');
-      //  let className = active_slide.attr('class');
-      //  var class_list = className.split(/\s+/);
-      //  if(class_list[1] !== 'active'){
-      //    icon_area.find('li a').removeClass('active');
-      //    icon_area.find('.'+class_list[1]).addClass('active');
-      //  }
-      //  if(class_list[1] === 'active') {
-      //    icon_area.find('li a').removeClass('active');
-      //    icon_area.find('.'+class_list[2]).addClass('active');
-      //  }
-      // });
+       let active_slide = slider_area.find('.active');
+       let className = active_slide.attr('class');
+       var class_list = className.split(/\s+/);
+       if(class_list[1] !== 'active'){
+         //icon_area.find('li a').removeClass('active');
+         //icon_area.find('.'+class_list[1]).addClass('active');
+       }
+       if(class_list[1] === 'active') {
+         //icon_area.find('li a').removeClass('active');
+         //icon_area.find('.'+class_list[2]).addClass('active');
+       }
+      });
     </script>
    </body>
 </html>

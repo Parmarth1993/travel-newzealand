@@ -16,9 +16,8 @@
       <!-- Custom styles for this template -->
       <link href="css/main-style.css" rel="stylesheet">
       <link rel="stylesheet" href="css/owl.carousel.css">
-      <link rel="stylesheet" href="css/owl.theme.default.min.css">
    </head>
-   <body class="innerpage">
+   <body class="homein">
       <a id="top"></a>
       <!-- Navigation -->
       <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -35,10 +34,10 @@
                </ul>
             </div>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">            
-            <i class="fas fa-bars"></i>
+               <i class="fas fa-bars"></i>
             </button>          
             <div class="collapse navbar-collapse" id="navbarResponsive">
-               <ul class="navbar-nav">
+                <ul class="navbar-nav">
                   <li class="nav-item">
                      <a class="nav-link" href="/experiences">Experiences</a>
                   </li>
@@ -72,93 +71,72 @@
          </div>
       </div>
       <!-- Page Header -->
+      <header class="masthead half" style="background-image: url('img/partinnerpage.jpg')">
+         <div class="overlay"></div>
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-8 col-md-10 mx-auto">
+                  <h1><img src="img/flying.png" class="flyingicon">Accommodations</h1>
+               </div>
+            </div>
+         </div>
+      </header>
       <!-- Main Content -->
-      <section class="aboutsect">
+      <section class="offersdiv">
          <div class="container">
             <div class="row">
-               <div class="col-lg-8 col-md-8">
-                  <h2>Creating <strong>unforgettable experiences</strong> in the destination of your dreams.</h2>
-               </div>
-               <div class="col-lg-4 col-md-4">
-                  <div class="booknowbtn">Book your<br> Adventure<br> Today <span><a href="#">></a></span></div>
+               <div class="col-lg-10 mx-auto text-center">
+                  <p>Travel New Zealand offers a wide range of accommodation options depending on your style and preferences. All our accommodations 4 Star at a minimum. We have selected only the best New Zealand has to offer. </p>
                </div>
             </div>
          </div>
       </section>
-      <section class="newz">
+      <section class="luxurylodge">
          <div class="container">
             <div class="row">
-               <div class="col-lg-9 d-flex align-items-center">
-                  <h3>New zealand</h3>
-               </div>
-               <div class="col-lg-3">
-                  <div class="imgab">
-                     <span class="iconmap"><img src="img/location-icon1.png"></span>
-                     <img src="img/flow-loc.png" class="loc">
-                     <p>Windy Canyon Track, Auckland</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <section class="whysec">
-         <div class="container">
-            <div class="row">
+               @foreach($accommodations as $accommodation)
                <div class="col-lg-6">
-                  <div class="imgformat">
-                     <p>Why go through the lengthy process of researching and planning travel to a foreign destination when you can have the locals do it for you?</p>
-                     <img src="img/ab-img01.jpg">
+                  <div class="luxurydept">
+                     <div class="imgcon">
+                        
+                        @if(sizeof($accommodation->activities) > 0)
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <div id="carouse_acco" class="carousel-inner">
+                              @foreach($accommodation->activities as $key => $activities)
+                              <div class="carousel-item @if($key < 1) active @endif">
+                                 <img src="/uploads/properties/{{$activities['media']}}" alt="Image" >
+                              </div>
+                              @endforeach
+                            </div>
+                          <!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"><i class="fa fa-angle-left left-acc"></i></span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"><i class="fa fa-angle-right right-acc"></i></span>
+                            <span class="sr-only">Next</span>
+                          </a> -->
+                        </div>
+                        @else
+                           <img src="img/it-timg01.jpg">
+                        @endif
+                     </div>
+                     <a href="#myCarousel" class="arr right carousel-control" href="#myCarousel" data-slide="next"></a>
+                     <div class="righttext-lux">
+                        <h4>{{$accommodation->name}}</h4>
+                        <p><!-- {!!html_entity_decode($accommodation->about)!!} -->
+                           
+                            @if(strlen($accommodation->about) > 200)
+                              @php ($about = \Illuminate\Support\Str::limit($accommodation->about, 200))
+                              {!!html_entity_decode($about)!!}<a href="">Read more</a>
+                            @else
+                              {!!html_entity_decode($accommodation->about)!!}
+                            @endif
+                        </p>
+                     </div>
                   </div>
                </div>
-               <div class="col-lg-6 my-auto">
-                  <p>Travel New Zealand is a boutique travel agency based in Austin, Texas and specializing in personal luxury travel experiences through New Zealand.</p>
-                  <p>
-                     Our customized itineraries help couples, families, and individuals create the vacation of their dreams.  
-                  </p>
-                  <p>
-                     Founder Sam O’Malley has spent a lifetime exploring the hidden gems of New Zealand and 10 years working in the New Zealand tourism industry. His passion is helping the world discover and fall in love with the most majestic place on earth—from its fiords and glaciers to its beaches and rainforests. 
-                  </p>
-                  <p>
-                     We are a New Zealand Gold Specialist Agent and partner with Virtuosos—the world’s leading luxury travel service provider—to access the best exclusive perks and upgrades for our clients. 
-                  </p>
-               </div>
-            </div>
-         </div>
-      </section>
-      <section class="wetake">
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-7">
-                  <div class="weform">
-                     <p>We take pride in curating unique itineraries and bucket list experiences. Our itineraries are created from scratch to ensure each client encounters true warmth and wonder in uncompromising luxury. </p>
-                  </div>
-               </div>
-               <div class="col-lg-5">
-                  <div class="imgwe">
-                     <p>Nelson Tesman</p>
-                     <img src="img/ab-img02.jpg">
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <section class="wecustom">
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-7">
-                  <h3>
-                     Custom-designed trips to 
-                     <span>Suit every individual</span>
-                  </h3>
-                  <p>New Zealand is a once-in-a-lifetime experience, which is why it's important to get it right the first time. When booking with Travel New Zealand, every detail of your trip is carefully planned and designed to suit your taste and interests. All of your reservations are organized in one convenient place with full phone and email support in case of plan changes. </p>
-                  <p>Adventure is calling. What are you waiting for?</p>
-                  <a href="" class="btn btn-primary seeour">See our destinations</a>
-               </div>
-               <div class="col-lg-5">
-                  <div class="cusimg">
-                     <img src="img/ab-img03.jpg">
-                  </div>
-               </div>
+               @endforeach
             </div>
          </div>
       </section>
@@ -166,14 +144,14 @@
          <div class="container">
             <div class="row">
                <div class="col-lg-6 col-md-6">
-                  <h2 class="we"><span>For travelers with</span>
-                     Fine tastes
-                     <span class="text-right"> and wild spirits</span>
+                  <h2 class="we"><span>We Specialize in</span>
+                     Luxury travel
+                     <span class="text-right"> to New Zealand</span>
                   </h2>
                </div>
                <div class="col-lg-6 col-md-6">
                   <div class="wetxt">
-                     <p>Break free from the ordinary and explore the finest and most breathtaking experiences New Zealand has to offer. </p>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
                      <a href="" class="btn btn-primary learnb">Learn more</a>
                   </div>
                </div>
@@ -280,10 +258,77 @@
          <a href="#top" class="anchorLink"></a>
       </footer>
       <!-- Bootstrap core JavaScript -->
+      <!-- Modal -->
+      <div id="videopop" class="homevidio modal fade" role="dialog">
+         <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h4 class="modal-title">Minaret Station</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+               </div>
+               <div class="modal-body">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/v3LAYyz7cF4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+               </div>
+            </div>
+         </div>
+      </div>
       <script src="vendor/jquery/jquery.min.js"></script>
       <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
       <script src="js/mainscript.js"></script>
       <!-- Custom scripts for this template -->
       <script src="js/owl.carousel.js"></script>     
+      <script type="text/javascript">
+         if (window.matchMedia('(max-width: 480px)').matches)
+            {
+               $('.owl-carousel').owlCarousel({
+               stagePadding: 0,
+               loop:true,
+               margin:10,
+               nav:true,
+               responsive:{
+                  0:{
+                      items:1
+                  },
+                  540:{
+                      items:2
+                  },
+                  900:{
+                      items:3
+                  },
+                  1000:{
+                      items:3
+                  }
+               }
+            });
+         }
+      </script>
+      <script type="text/javascript">
+         $('.owl-carousel').owlCarousel({
+           stagePadding: 100,
+           loop:true,
+           margin:10,
+           nav:true,
+           responsive:{
+                 320:{
+                     items:1
+                 },
+                 400:{
+                     items:1
+                 },
+                 900:{
+                     items:3
+                 },
+                 1000:{
+                     items:3
+                 }
+               }
+            });         
+      </script>
+      <script>
+         $(document).ready(function(){
+           $('[data-tool="tooltip"]').tooltip();
+         });
+      </script>
    </body>
 </html>

@@ -5,7 +5,7 @@
       <div class="container">
          <div class="row headingtop">
             <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-               <h2 class="textlog">Add New Experience</h2>
+               <h2 class="textlog">Add New Travel Type</h2>
             </div>
          </div>
          <div class="row">
@@ -20,7 +20,7 @@
             </p>
             @endif
          </div>
-         <form action="{{route('add_experience')}}" name="profile_form" enctype='multipart/form-data' method="POST">
+         <form action="{{route('add_travel')}}" name="profile_form" enctype='multipart/form-data' method="POST">
             @csrf
             <div class="row">
                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
@@ -32,11 +32,6 @@
                   <div class="form-group">
                      <label>Sub Title</label>
                      <input type="text" name="sub_title" class="form-control" value="" required>
-                  </div>
-
-                  <div class="form-group">
-                     <label>Short Description</label>
-                     <input type="text" name="short_description" class="form-control" value="" required>
                   </div>
 
                   <div class="form-group">
@@ -82,7 +77,7 @@
                     <textarea name="description" class="form-control"></textarea>
                   </div>
                  
-                  <input type="submit" name="" class="btn btn-primary ml-auto" value="Add Experience">
+                  <input type="submit" name="" class="btn btn-primary ml-auto" value="Add Travel Type">
                </div>
             </div>
          </form>

@@ -51,7 +51,7 @@ $(".closebsearch").click(function(){
 
 
 $(document).ready(function(){
-  $(".anchorLink").click(function(e){
+  $(".anchorLink, .youlink").click(function(e){
     e.preventDefault();
  
     var id     = $(this).attr("href");

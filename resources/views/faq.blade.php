@@ -73,90 +73,86 @@
       </div>
       <!-- Page Header -->
       <!-- Main Content -->
-      <section class="aboutsect">
+      <section class="faqpage">
          <div class="container">
             <div class="row">
-               <div class="col-lg-8 col-md-8">
-                  <h2>Creating <strong>unforgettable experiences</strong> in the destination of your dreams.</h2>
-               </div>
-               <div class="col-lg-4 col-md-4">
-                  <div class="booknowbtn">Book your<br> Adventure<br> Today <span><a href="#">></a></span></div>
+               <div class="col-lg-12">
+                  <h2>Frequently Asked <strong><em> Questions. </em></strong> </h2>
                </div>
             </div>
          </div>
-      </section>
-      <section class="newz">
          <div class="container">
             <div class="row">
-               <div class="col-lg-9 d-flex align-items-center">
-                  <h3>New zealand</h3>
-               </div>
-               <div class="col-lg-3">
-                  <div class="imgab">
-                     <span class="iconmap"><img src="img/location-icon1.png"></span>
-                     <img src="img/flow-loc.png" class="loc">
-                     <p>Windy Canyon Track, Auckland</p>
+               <div class="col-lg-10 pl-5 faqinner">
+                  <div class="faqin">
+                     <h4>Why do I need a travel advisor?</h4>
+                     <p>Why spend countless hours researching and reserving when you can have someone else do it at no extra charge? Travel advisors can save you money based on their supplier relationships while also saving you time and effort. With any product 4-star and above, it’s always best to book through an agency, as a travel advisor can get you the best deals with extra perks and benefits. </p>
                   </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <section class="whysec">
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-6">
-                  <div class="imgformat">
-                     <p>Why go through the lengthy process of researching and planning travel to a foreign destination when you can have the locals do it for you?</p>
-                     <img src="img/ab-img01.jpg">
+                  <div class="faqin">
+                     <h4>Does it cost money to use a travel advisor? </h4>
+                     <p>There is no cost to the client for our services. Nor are the prices higher because of our commissions. When booking your own travel, you don't really know what you are getting until you arrive. We have carefully selected our accommodation providers to make sure you get the most value for money. </p>
                   </div>
-               </div>
-               <div class="col-lg-6 my-auto">
-                  <p>Travel New Zealand is a boutique travel agency based in Austin, Texas and specializing in personal luxury travel experiences through New Zealand.</p>
-                  <p>
-                     Our customized itineraries help couples, families, and individuals create the vacation of their dreams.  
-                  </p>
-                  <p>
-                     Founder Sam O’Malley has spent a lifetime exploring the hidden gems of New Zealand and 10 years working in the New Zealand tourism industry. His passion is helping the world discover and fall in love with the most majestic place on earth—from its fiords and glaciers to its beaches and rainforests. 
-                  </p>
-                  <p>
-                     We are a New Zealand Gold Specialist Agent and partner with Virtuosos—the world’s leading luxury travel service provider—to access the best exclusive perks and upgrades for our clients. 
-                  </p>
-               </div>
-            </div>
-         </div>
-      </section>
-      <section class="wetake">
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-7">
-                  <div class="weform">
-                     <p>We take pride in curating unique itineraries and bucket list experiences. Our itineraries are created from scratch to ensure each client encounters true warmth and wonder in uncompromising luxury. </p>
+                  <div class="faqin">
+                     <h4>Can I fly economy? </h4>
+                     <p>Air tickets booked by Travel New Zealand will be Business or First Class. If clients want to fly economy, we can assist with it, but it’s usually cheaper for them to book economy tickets themselves. </p>
                   </div>
-               </div>
-               <div class="col-lg-5">
-                  <div class="imgwe">
-                     <p>Nelson Tesman</p>
-                     <img src="img/ab-img02.jpg">
+                  <div class="faqin">
+                     <h4>How long does it take to get there? </h4>
+                     <p>It is a lot quicker to get to New Zealand than you think. With direct flights from Los Angeles, San Francisco, Dallas, Houston, Chicago and New York, your flight will take between 12-17 hours.</p>
                   </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <section class="wecustom">
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-7">
-                  <h3>
-                     Custom-designed trips to 
-                     <span>Suit every individual</span>
-                  </h3>
-                  <p>New Zealand is a once-in-a-lifetime experience, which is why it's important to get it right the first time. When booking with Travel New Zealand, every detail of your trip is carefully planned and designed to suit your taste and interests. All of your reservations are organized in one convenient place with full phone and email support in case of plan changes. </p>
-                  <p>Adventure is calling. What are you waiting for?</p>
-                  <a href="" class="btn btn-primary seeour">See our destinations</a>
-               </div>
-               <div class="col-lg-5">
-                  <div class="cusimg">
-                     <img src="img/ab-img03.jpg">
+                  <div class="faqin">
+                     <h4>Is New Zealand safe? </h4>
+                     <p>New Zealand is a very safe country to visit. However, theft from tourists can be a relatively common occurrence. Most theft happens from break-ins of parked vehicles. If you are parking your vehicle, especially in a remote area, hide your important belongings (such as cash and travel documents). As for dangerous creatures, New Zealand has no snakes, ticks, scorpions, poisonous spiders or anything else considered scary. The one thing you really do want to be careful about is the weather, which can change very quickly. Always be prepared when venturing out into the wilderness away from shelter. </p>
+                  </div>
+                  <div class="faqin">
+                     <h4>How much time will I need?</h4>
+                     <p>The recommended trip length is 14-21 days, but ask most people who visit and they will simply answer "more." New Zealand may look small but it is packed with a large variety of scenery and activities. Our suggested itineraries are designed to give you the best experience possible for your time frame without feeling rushed. 
+                     </p>
+                  </div>
+                  <div class="faqin">
+                     <h4>Is New Zealand expensive?</h4>
+                     <p>It depends on how comfortably you like to travel. New Zealand is an island nation separated from the rest of the world, so a lot of our products need to be imported which raises the price. Depending on which country you live in, you may well have an excellent exchange rate so the price difference may work out favorably. 
+                     </p>
+                  </div>
+                  <div class="faqin">
+                     <h4>How far will I drive each day?</h4>
+                     <p>No one wants to be stuck in a car all day while on vacation, so we have designed our itineraries to have you driving from 1hr to 4 hrs when changing location. </p>
+                  </div>
+                  <div class="faqin">
+                     <h4>What is it like to drive around? </h4>
+                     <p>New Zealand drives on the left side of the road. Don't let this deter you—it's easier than you think. New Zealand's diverse terrain means roads are often narrow, hilly and windy. Outside of the main cities, there are very few motorways. Most of our roads are single lanes in each direction without barriers in between. You may also encounter gravel roads. </p>
+                  </div>
+                  <div class="faqin">
+                     <h4>Do I need a special driver’s permit? </h4>
+                     <p>You can legally drive in New Zealand for 12 months if you have either a current full driver’s licence from your home country in the English language or an International Driving Permit.  You must carry your licence or permit at all times when driving and you are only able to drive the same types of vehicles you are licensed to drive in your home country. </p>
+                  </div>
+                   <div class="faqin">
+                     <h4>Do I need a Visa?</h4>
+                     <p>Visitors from visa-waiver countries must request an Electronic Travel Authority (ETA) prior to coming to New Zealand. Click on the link to see if your passport qualifies for an ETA. You may also have to pay an International Visitor Conservation and Tourism Levy (IVL). For more information on the ETA and IVL, visit Immigration New Zealand.</p>
+                  </div>
+                  <div class="faqin">
+                     <h4>What is the weather like?</h4>
+                     <p>New Zealand is home to a temperate climate with high sunshine hours and moderate rainfall. Much of the country lies near the coast, which means mild temperatures. The average temperature decreases as you travel south; January and February are the warmest months with July being the coldest month of the year. Find out more about New Zealand climate and weather here.</p>
+                  </div>
+                  <div class="faqin">
+                     <h4>How far in advance should I book? </h4>
+                     <p>We recommend booking 3-4 months in advance, although we can book up to a few weeks before your departure date. Our peak season runs from October through to April. During this period, it is strongly recommended that you book any tours, events, accommodation and transport ahead of time to ensure availability. Outside of these months there is less need to book in advance, except in ski resort towns such as Queenstown and Wanaka. </p>
+                  </div>
+                  <div class="faqin">
+                     <h4>When is the best time to visit? </h4>
+                     <p>New Zealand's peak season is during its summer months (December, January, February, March), during which prices are higher. Flights are more expensive around the Christmas/New year period. New Zealand is beautiful all year round, with each season providing different landscapes and opportunities.  </p>
+                  </div>
+                  <div class="faqin">
+                     <h4>What happens if I have to cancel? </h4>
+                     <p>Please click on the link for a copy of our cancellation policy.  </p>
+                  </div>
+                  <div class="faqin">
+                     <h4>I have my own itinerary, can I still book through TNZ?</h4>
+                     <p>If you have your own route and sites in mind we would be more than happy to book your flights, accommodation, rental car and activities on your behalf.  </p>
+                  </div>
+                  <div class="faqin">
+                     <h4>Who can book through Travel New Zealand?</h4>
+                     <p>Travelers and adventure-lovers from any country, including the U.S., Australia and European countries. </p>
                   </div>
                </div>
             </div>

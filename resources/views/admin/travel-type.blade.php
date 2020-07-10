@@ -5,7 +5,7 @@
       <div class="container">
          <div class="row headingtop">
             <div class="col-lg-4 col-md-4 col-sm-4 col-12">
-               <h2 class="textlog">Categories</h2>
+               <h2 class="textlog">Travel Type</h2>
             </div>
          </div>
          <div class="row">
@@ -20,39 +20,43 @@
             </p>
             @endif
          </div>
-         <div class="form-group d-flex">                                
-            <a href="/admin/category/add" class="btn btn-primary ml-auto" >Add Category</a>
+         <div class="form-group d-flex">  
+            
+            <a href="{{ route('add_travel') }}" class="btn btn-primary ml-auto" >Add Travel Type</a>
          </div>
-         <div class="card shadow mb-4">
+          <div class="card shadow mb-4">
             <div class="card-body">
                <div class="table-responsive">
                   <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0">
                      <thead>
                         <tr>
-                           <th>Name</th>
-                           <th>Description</th>
-                           <th>Is Active</th>
+                           <th>Title</th>
+                           <th>Sub Title</th>
+                           <th>Address</th>
+                           {{-- <th>Description</th> --}}
                            <th>Actions</th>
                         </tr>
                      </thead>
                      
                      <tbody>
-                        @foreach($categories as $category)
-                        <tr class="plan-{{$category->id}}">
-                           <td>{{$category->name}}</td>
-                           <td>{!!html_entity_decode($category->description)!!}</td>
-                           <td>@if($category->active == 1) Yes @else No @endif</td>
+                        @foreach($tavels as $tavel)
+                        <tr class="exp-{{@$tavel->id}}">
+                           <td>{{@$tavel->title}}</td>
+                           <td>{{@$tavel->sub_title}}</td>
+                           <td>{{@$tavel->address}}</td>
+                           {{-- <td>{{@$experience->description}}</td> --}}
+                           
                            <td>
-                              <a href="/admin/category/edit/{{$category->id}}" >Edit</a>
-                              <a href="javascript:vood(0);" data-id="{{$category->id}}" class="delete-btn">Delete</a>
+                              <a href="{{route('edit_travel',$tavel->id)}}" >Edit</a>
+                              <a href="javascript:void(0);" data-id="{{$tavel->id}}" class="delete-btn">Delete</a>
                            </td>
                         </tr>
                         @endforeach
                      </tbody>
                   </table>
-                  <form method="post" action="{{route('delete_categories')}}" id="del-form">
+                  <form method="post" action="{{route('delete_travel')}}" id="del-form">
                   @csrf
-                     <input type="hidden" name="category_id" id="id_property">
+                     <input type="hidden" name="travel_id" id="id_property">
                   </form>
                </div>
             </div>
