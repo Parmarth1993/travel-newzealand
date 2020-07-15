@@ -70,9 +70,6 @@
                      <a class="nav-link text-nowrap" href="#">Not Just New Zealand</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="/about">About</a>
-                  </li>
-                  <li class="nav-item">
                      <a class="nav-link text-nowrap" href="/why-us">Why Us</a>
                   </li>
                   <li class="nav-item">
@@ -184,13 +181,13 @@
                                     <div class="tab-pane in active" id="about_desc">
                                        <p id="about_accom"></p>
                                        <div class="logosbtn">
-                                          <a href="/quetionarie" class="btn btn-primary">Enquiry Now</a> <a href="/quetionarie" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="/quetionarie" class="btn btn-primary eq-btn">Enquiry Now</a> <a href="#" class="vi-logo"><img src="img/logosright.png" class="acco_logo_bottom"></a>
                                        </div>
                                     </div>
                                     <div class="tab-pane" id="highlights_desc">
                                        <p id="high_accom"></p>
                                        <div class="logosbtn">
-                                          <a href="/quetionarie" class="btn btn-primary">Enquiry now</a> <a href="/quetionarie" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="/quetionarie" class="btn btn-primary eq-btn">Enquiry now</a> <a href="#" class="vi-logo"><img src="img/logosright.png" lass="acco_logo_bottom"></a>
                                        </div>
                                     </div>
                                  </div>
@@ -251,13 +248,13 @@
                                     <div  class="tab-pane in active" id="about_highdesc">
                                        <p id="about_highs"></p>
                                        <div class="logosbtn">
-                                          <a href="/quetionarie" class="btn btn-primary">Enquiry now</a> <a href="/quetionarie" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="/quetionarie" class="btn btn-primary eq-btn">Enquiry now</a> <a href="#" class="vi-logo"><img src="img/logosright.png" id="high_logo_bottom"></a>
                                        </div>
                                     </div>
                                     <div class="tab-pane" id="highlights_highdesc">
                                        <p id="high_highs"></p>
                                        <div class="logosbtn">
-                                          <a href="/quetionarie" class="btn btn-primary">Enquiry now</a> <a href="/quetionarie" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="/quetionarie" class="btn btn-primary eq-btn">Enquiry now</a> <a href="#" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
                                  </div>
@@ -319,13 +316,13 @@
                                     <div  class="tab-pane in active" id="about_itdesc">
                                        <p id="iti_about"></p>
                                        <div class="logosbtn">
-                                          <a href="/quetionarie" class="btn btn-primary">Enquiry now</a> <a href="/quetionarie" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="/quetionarie" class="btn btn-primary eq-btn">Enquiry now</a> <a href="#" class="vi-logo"><img src="img/logosright.png" id="iti_logo_bottom"></a>
                                        </div>
                                     </div>
                                     <div class="tab-pane" id="highlights_itdesc">
                                        <p id="iti_highs"></p>
                                        <div class="logosbtn">
-                                          <a href="/quetionarie" class="btn btn-primary">Enquiry now</a> <a href="/quetionarie" class="vi-logo"><img src="img/logosright.png"></a>
+                                          <a href="/quetionarie" class="btn btn-primary eq-btn">Enquiry now</a> <a href="#" class="vi-logo"><img src="img/logosright.png"></a>
                                        </div>
                                     </div>
                                  </div>
@@ -526,7 +523,7 @@
       <script src="js/owl.carousel.js"></script> 
       
      <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-      
+      <script src="js/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
       
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -590,6 +587,14 @@
             $('.home-page-cat').removeClass("active");
             $(this).addClass("active");
            });
+
+           $('a.eq-btn').click(function(e){
+            e.preventDefault();
+            var link = $(this).attr('href');
+            if (link.indexOf('#') < 1){
+              window.location.href = link;
+            }
+           })
          });
       </script>
       <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -673,6 +678,7 @@
                   $('#about_accom').html(accomodationsArray[0].about);
                   $('#high_accom').html(accomodationsArray[0].highlights);
                   $('#acc_logo').attr('src','uploads/properties/'+accomodationsArray[0].logo);
+                  $('.acco_logo_bottom').attr('src','uploads/properties/'+accomodationsArray[0].bottom_logo);
                  
                  var infoWindow = new google.maps.InfoWindow();
 
@@ -716,6 +722,7 @@
                          //$('.carousel-inner').html('');
                          $('#about_accom').html(data.about);
                          $('#high_accom').html(data.highlights);
+                         $('#acc_logo').attr('src','uploads/properties/'+data.logo);
                          $('#acc_logo').attr('src','uploads/properties/'+data.logo);
                          var counterdata=0;
                          var classactdata = '';
@@ -816,6 +823,7 @@
                $('#about_highs').html(highlightsArray[0].about);
                $('#high_highs').html(highlightsArray[0].highlights);
                $('#high_logo').attr('src','uploads/properties/'+highlightsArray[0].logo);
+               $('#high_logo_bottom').attr('src','uploads/properties/'+highlightsArray[0].bottom_logo);
               
               var infoWindow = new google.maps.InfoWindow();
 
@@ -847,6 +855,7 @@
                       $('#about_highs').html(data.about);
                       //$('#high_highs').html(data.highlights);
                       $('#high_logo').attr('src','uploads/properties/'+data.logo);
+                      $('#high_logo_bottom').attr('src','uploads/properties/'+data.bottom_logo);
                       var counterdata=0;
                       var classactdata = '';
                       // for (var actdata in data.activities){
@@ -978,11 +987,12 @@
 
           // flightPath.setMap(map);
           //console.log('flightPlanCoordinates ', flightPlanCoordinates);
-
+          //console.log('itinerariesArray ', itinerariesArray)
            // $('#iti_activities li a').css('display','none');
             $('#iti_about').html(itinerariesArray[0].about);
             $('#iti_highs').html(itinerariesArray[0].highlights);
             $('#iti_logo').attr('src','uploads/properties/'+itinerariesArray[0].logo);
+            $('#iti_logo_bottom').attr('src','uploads/properties/'+itinerariesArray[0].bottom_logo);
             for (var act in itinerariesArray[0].activities){
 
                // if(counter_iti === 0){
@@ -1015,6 +1025,7 @@
                   $('#iti_about').html(itinerariesArray[0].about);
                   $('#iti_highs').html(itinerariesArray[0].highlights);
                   $('#iti_logo').attr('src','uploads/properties/'+itinerariesArray[0].logo);
+                  $('#iti_logo_bottom').attr('src','uploads/properties/'+itinerariesArray[0].bottom_logo);
                  
                  var infoWindow = new google.maps.InfoWindow();
 

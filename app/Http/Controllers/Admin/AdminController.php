@@ -244,12 +244,24 @@ class AdminController extends Controller
                 if(!empty($request->file('logo')) && isset($request->file)) {
                      $image = $request->file('logo');
                      $name = time().'.'.$image->getClientOriginalExtension();
-                     $destinationPath = public_path('/uploads/profiles');
+                     //$destinationPath = public_path('/uploads/profiles');
                      $image->move($destinationPath, $name);
 
-                     $input['logo'] = $name;
+                     $logo = $name;
                 } else {
-                    $input['logo'] = $input['logo2'];
+                    $logo = $input['logo2'];
+                }
+
+                if(!empty($request->file('bottom_logo'))) {
+                    //echo "upload logo  2";
+                     $image = $request->file('bottom_logo');
+                     $name_logo2 = time().'.'.$image->getClientOriginalExtension();
+                    // $destinationPath = public_path('/uploads/profiles');
+                     $image->move($destinationPath, $name_logo2);
+                     //echo $name_logo2; die();
+                     //$input['bottom_logo'] = $name_logo2;
+                } else {
+                    $name_logo2 = $input['bottom_logo2'];
                 }
 
 
@@ -276,11 +288,23 @@ class AdminController extends Controller
 
                     array_push($activitiesData, array('name' => $activities[$i], 'type' => $input['activity_media_type'][$i], 'media' => $media_name));
                 }
-                $input = $request->only('name', 'location','address', 'logo','category','activities', 'type', 'about', 'highlights');
+                $input = $request->only('name', 'location','address', 'logo', 'bottom_logo', 'category','activities', 'type', 'about', 'highlights');
                 $input['activities'] = serialize($activitiesData);
                 $input['location'] = serialize($input['location']);
+                 /*echo "<pre>";
+                print_r($input);
+                die();*/
                 $card = Properties::where(['id' => $id])
-                        ->update($input);
+                        ->update(['name' => $input['name'],
+                         'location' => $input['location'],
+                         'address' => $input['address'], 
+                         'logo' => $logo,
+                         'bottom_logo' => $name_logo2,
+                         'category' => $input['category'],
+                         'activities' => $input['activities'],
+                         'type' => $input['type'],
+                         'about' => $input['about'],
+                         'highlights' => $input['highlights']]);
                 return redirect('/admin/properties')->with('success', 'Property Updated Successfully.');
 
             } catch(Exception $e) {

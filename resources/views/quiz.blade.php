@@ -19,6 +19,11 @@
       <link rel="stylesheet" href="css/owl.carousel.css">
       <link rel="stylesheet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="css/jquery.mobile.css">
+      <style type="text/css">
+         .travel-budget {
+            display: none;
+         }
+      </style>
    </head>
    <body class="innerpage">
       <a id="top"></a>
@@ -71,7 +76,7 @@
          </div>
       </div>
 
-      <header class="masthead" style="background-image: url('img/home-bg.jpg')">
+      <!-- <header class="masthead" style="background-image: url('img/home-bg.jpg')">
          <div class="overlay"></div>
          <div class="container">
             <div class="row">
@@ -87,17 +92,11 @@
                </div>
             </div>
          </div>
-      </header>
+      </header> -->
 
 
       <!-- Page Header -->
-       <div class="quiz-header-sec">
-         <h2>Questionaire</h2>
-               <div class="quiz-arrows">
-                  <a class="carousel-control-prev" href="#quiZ" data-slide="prev"><span class="carousel-control-prev-icon"><i class="fas fa-arrow-left"></i></span></a>
-                  <a class="carousel-control-next arrow-active" href="#quiZ" data-slide="next"><span class="carousel-control-next-icon"><i class="fas fa-arrow-right"></i></span></a>
-               </div>
-         </div>
+         <h2 class="text-center">Questionaire</h2>
          @if(Session::has('error'))
            <h4 style="color:red;">{{ Session::get('error') }}</h4>
          @endif
@@ -108,266 +107,280 @@
 
       <!-- Main Content -->
       <div class="quiz-content-wrappper">
-               <div id="quiZ" class="carousel slide">
-                  <form method="post" id="quizForm" action="{{route('addQuestionnaire')}}" class="quiz-form" novalidate>
-                      @csrf
-                     <div class="validation-message text-center"><p>Please fill required fields.</p></div>
-                     <div class="carousel-inner">
-                        <div class="carousel-item active" data-id="1">
-                           <div class="col-lg-7 mx-auto">
-                           <h2>Let’s <strong><em>explore</em> </strong>your travel needs.</h2>
-                           <div class="stepdiv">Step <span> <sup> 1</sup>/<sub>2</sub></span></div>
-                           <h3>How many people will be traveling, including yourself?</h3>
-                           <div class="formquestion">
-                              <div class="form-group">
-                                 <label>Adults</label>
-                                 <input type="number" min="0" max="10" name="adults" required/>
-                              </div>
-                              <div class="form-group">
-                                 <label>Children</label>
-                                 <input type="number" min="0" max="10" name="childrens" required/>
-                              </div>
-                              <div class="form-group">
-                                 <label>Infants</label>
-                                 <input type="number" min="0" max="10" name="infants" required/>
-                              </div>                     
-                           </div>       
+         <div id="quiZ" class="carousel slide" data-interval="false">
+            <form method="post" id="quizForm" action="{{route('addQuestionnaire')}}" class="quiz-form" novalidate>
+                @csrf
+               <div class="carousel-inner">
+                  <div class="validation-message text-center"><p>Please fill required fields.</p></div>
+                  <div class="carousel-item active" data-id="1">
+                     <div class="col-lg-7 mx-auto">
+                     <h2>Let’s <strong><em>explore</em> </strong>your travel needs.</h2>
+                     <div class="stepdiv">Step <span> <sup> 1</sup>/<sub>2</sub></span></div>
+                     <h3>How many people will be traveling, including yourself?</h3>
+                     <div class="formquestion">
+                        <div class="form-group">
+                           <label>Adults</label>
+                           <input type="number" min="0" max="10" name="adults" required/>
                         </div>
+                        <div class="form-group">
+                           <label>Children</label>
+                           <input type="number" min="0" max="10" name="childrens" required/>
                         </div>
-                        <div class="carousel-item" data-id="2">
-                           <div class="col-lg-7 mx-auto">
-                           <h2>Let’s <strong><em>explore</em></strong> your travel needs.</h2>
-                           <div class="stepdiv">Step <span> 2/8</span></div>
-                           <h3>Dates you would like to travel?</h3>
-                           <div class="formquestion">
-                              <div class="form-group">
-                                 <label>Start Date</label>
-                                  <input class="input-md form-control" id="id_travel" name="start_date" style="margin-bottom: 10px" type="date" required />
-                              </div>
-                              <div class="form-group">
-                                 <label>Length of Stay</label>
-                                 <input class="input-md emailinput form-control" id="id_stay" name="length_stay" placeholder="Length of stay" style="margin-bottom: 10px" type="text" required/>
-                              </div>
-                              <div class="form-group">
-                                 <label>Flexible?</label>
-                                 <select class="form-control" name="flexible">
-                                    <option>Yes</option>
-                                    <option>No</option>
-                                 </select>
-                              </div>
-                           </div>
+                        <div class="form-group">
+                           <label>Infants</label>
+                           <input type="number" min="0" max="10" name="infants" required/>
+                        </div>                     
+                     </div>       
+                  </div>
+                  </div>
+                  <div class="carousel-item" data-id="2">
+                     <div class="col-lg-7 mx-auto">
+                     <h2>Let’s <strong><em>explore</em></strong> your travel needs.</h2>
+                     <div class="stepdiv">Step <span> 2/8</span></div>
+                     <h3>Dates you would like to travel?</h3>
+                     <div class="formquestion">
+                        <div class="form-group">
+                           <label>Start Date</label>
+                            <input class="input-md form-control" id="id_travel" name="start_date" style="margin-bottom: 10px" type="date" required />
                         </div>
+                        <div class="form-group">
+                           <label>Length of Stay</label>
+                           <input class="input-md emailinput form-control" id="id_stay" name="length_stay" placeholder="Length of stay" style="margin-bottom: 10px" type="text" required/>
                         </div>
-                        <div class="carousel-item" data-id="3">
-                           <div class="col-lg-7 mx-auto">
-                              <h2>Let’s <strong><em>explore</em></strong> your travel needs.</h2>
-                              <div class="stepdiv">Step <span>3/8</span></div>
-                              <h3>Location you will be leaving from?</h3>
-                              <div class="formquestion">
-                                 <div class="form-group">
-                                    <label>Country</label>
-                                    <select class="form-control" name="country" id="countryId">
-                                      <!--  <option value="">Select Country</option> -->
-                                       <option value="New Zealand" countryid="NZ">New Zealand</option>
-                                    </select>
-                                 </div>
-                                 <div class="form-group">
-                                    <label>State</label>
-                                    <select class="form-control states" name="state"  id="stateId" required>
-                                       <option value="">Select State</option>
-                                       <option value="Chatham Islands" stateid="10">Chatham Islands</option>
-                                       <option value="Auckland" stateid="E7">Auckland</option>
-                                       <option value="Bay of Plenty" stateid="E8">Bay of Plenty</option>
-                                       <option value="Canterbury" stateid="E9">Canterbury</option>
-                                       <option value="Gisborne" stateid="F1">Gisborne</option>
-                                       <option value="Hawke's Bay" stateid="F2">Hawke's Bay</option>
-                                       <option value="Manawatu-Wanganui" stateid="F3">Manawatu-Wanganui</option>
-                                       <option value="Marlborough" stateid="F4">Marlborough</option>
-                                       <option value="Nelson" stateid="F5">Nelson</option>
-                                       <option value="Northland" stateid="F6">Northland</option>
-                                       <option value="Otago" stateid="F7">Otago</option>
-                                       <option value="Southland" stateid="F8">Southland</option>
-                                       <option value="Taranaki" stateid="F9">Taranaki</option>
-                                       <option value="Waikato" stateid="G1">Waikato</option>
-                                       <option value="Wellington" stateid="G2">Wellington</option>
-                                       <option value="West Coast" stateid="G3">West Coast</option>
-                                       <option value="Tasman" stateid="TAS">Tasman</option>                          
-                                    </select>
-                                 </div>  
-                                 <div class="form-group">
-                                    <label>City</label>
-                                    <select class="form-control cities" name="city"  id="cityId" required>
-                                       <option value="">Select City</option>
-                                    </select>
-                                 </div>
-                              </div>
-                           </div>
+                        <div class="form-group">
+                           <label>Flexible?</label>
+                           <select class="form-control" name="flexible">
+                              <option>Yes</option>
+                              <option>No</option>
+                           </select>
                         </div>
-                        <div class="carousel-item" data-id="4">
-                           <div class="col-lg-7 mx-auto">
-                              <h2>Let’s <strong><em>explore</em></strong> your travel needs.</h2>
-                              <div class="stepdiv">Step  <span>4/8</span></div>
-                              <h3>Interests?</h3>
-                              <div class="formquestion">
-                                 <div class="form-group">
-                                    <label>Select all that apply</label>
-                                     <select class="input-md form-control select" id="id_interest" name="interests" required>
-                                         <option value="">Select Option</option>
-                                         <option value="Nature">Nature</option>
-                                         <option value="Wildlife">Wildlife</option>
-                                         <option value="Maori Culture">Maori Culture</option>
-
-                                         <option value="LOTR & Film">LOTR & Film</option>
-                                         <option value="Art/Museums">Art/Museums</option>
-                                         <option value="Fine Food">Fine Food</option>
-
-                                         <option value="Wine">Wine</option>
-                                         <option value="Adrenaline (Bungy jumping, Sky diving)">
-                                          Adrenaline (Bungy jumping, Sky diving)
-                                         </option>
-                                         <option value="Adventure (Rafting, Jet Boats, Kayaking)">
-                                          Adventure (Rafting, Jet Boats, Kayaking)
-                                         </option>
-
-                                         <option value="Golf">Golf</option>
-                                         <option value="Winter Sports">Winter Sports</option>
-                                         <option value="Fishing">Fishing</option>
-
-
-                                         <option value="Hiking">Hiking</option>
-                                         <option value="Biking">Biking</option>
-                                         <option value="Scenic Flights">Scenic Flights</option>
-
-                                         <option value="pas">Hot pools/Health spas</option>
-                                         <option value="Other">Other</option>
-                                      </select>
-                                 </div> 
-                              </div>
-                           </div>
-                        </div>
-                        <div class="carousel-item" data-id="5">
-                           <div class="col-lg-7 mx-auto">
-                              <h2>Let’s <strong><em>explore</em></strong> your travel needs.</h2>
-                              <div class="stepdiv">Step  <span>5/8</span></div>
-                              <h3>Travel Budget</h3>
-                              <span class="total_price"></span>
-                              <p class="text-center">Slide to the cost of travel within your budget</p>
-                              <div class="formquestion rangesliderpart">                   
-                                 <div class="form-group rangepart">
-                                    <form>
-                                       <div data-role="rangeslider" class="costdiv"  id="div-slider">
-                                          <label for="range-1b" class="costlabel"> Cost of total trip</label>
-                                          <input type="range" name="cost_trip"  id="range-1b" min="0" max="5000" value="3000" data-popup-enabled="true" data-show-value="false" class="">
-                                       </div>
-                                        <span class="maxp">Max</span>
-                                        <div data-role="rangeslider" class="daysno">
-                                          <label for="range-1c" class="costlabel nodays"> NUMBER OF DAYS</label>
-                                          <input type="range" name="no_of_days" id="range-1c" min="0" max="10" value="3" data-popup-enabled="false" data-show-value="true" class="">
-                                       </div>
-                                    </form>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="carousel-item" data-id="6">
-                           <div class="col-lg-7 mx-auto">
-                              <h2>Let’s <strong><em>explore</em></strong> your travel needs.</h2>
-                              <div class="stepdiv">Step  <span>6/8</span></div>
-                              <h3>Accommodation Types?</h3>
-                              <div class="formquestion">
-                                 <div class="form-group">
-                                    <label>Select all that apply</label>  
-                                    <select class="input-md form-control select" id="id_accomodation" name="accommodation" required>
-                                       <option value="">Select Option</option>
-                                         <option value="Lodges/Bed & Breakfasts">Lodges/Bed & Breakfasts</option>
-                                         <option value="Hotels/Motels/Resorts">Hotels/Motels/Resorts</option>
-                                         <option value="Farm Stays">Farm Stays</option>
-                                         <option value="House">House</option>
-                                         <option value="Something unique">Something unique</option>
-                                    </select>                     
-                                 </div> 
-                              </div>
-                           </div>
-                        </div>
-                        <div class="carousel-item" data-id="7">
-                           <div class="col-lg-7 mx-auto">
-                              <h2>Let’s <strong><em>explore</em></strong> your travel needs.</h2>
-                              <div class="stepdiv">Step  <span>7/8</span></div>
-                              <h3>Do you have any physical challenges when you travel?</h3>
-                              <div class="formquestion">
-                                 <div class="form-group">
-                                    <label>Challenges</label>
-                                    <select class="form-control" name="challenges" required>
-                                       <option>Wheelchair</option>
-                                    </select>                       
-                                 </div> 
-                                 <div class="form-group">
-                                    <label>Details of challenges below</label>
-                                    <textarea class="form-control" name="challenge_details" required></textarea>                     
-                                 </div> 
-                              </div>
-                           </div>
-                        </div>
-                        <div class="carousel-item" data-id="8">
-                           <div class="col-lg-7 mx-auto">
-                           <h2>Let’s <strong><em>explore</em></strong> your travel needs.</h2>
-                           <div class="stepdiv">Step  <span>8/8</span></div>
-                           <h3>Special Requests?</h3>
-                           <div class="formquestion fullcontactform" >
-                              <div class="form-group">                        
-                                  <textarea class="form-control" name="special_request" required></textarea>
-                              </div>
-                              <div class="row">
-                                 <div class="col-lg-6">
-                                    <div class="form-group">
-                                       <label>Name</label>
-                                       <input type="text" name="name" class="form-control" required>
-                                    </div>
-                                 </div>
-                                 <div class="col-lg-6">
-                                    <div class="form-group">
-                                       <label>Email</label>
-                                       <input type="email" name="email" class="form-control" required>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="row">
-                                 <div class="col-lg-12 text-center mt-3 joincheck">
-                                    <input type="checkbox" name="join_mailing" class="incheck" value="1"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Join mailing list? 
-                                 </div>
-                              </div>
-                              <div class="row">
-                                 <div class="col-lg-12 text-center mt-4">
-                                    <input type="submit" name="" class="btn btn-primary submitbtn" id="submitbtn" value="Submit">
-                                 </div>
-                              </div>
-                              <div class="row">
-                                 <div class="col-lg-12 text-center mt-4">
-                                    <p> *At a later date we will add coach tour options + Cruise Ship options + Campervan options
-                                       **All current trips are self-drive. TNZ will select the most suitable vehicle for the client.
-                                    </p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
+                        <div class="form-group">
+                           <input type="checkbox" value="1" name="my_flights">I will book my own flights
                         </div>
                      </div>
-                     <div class="quiz-content-indicators">
-                        <ul class="carousel-indicators">
-                           <li data-target="#quiZ" data-slide-to="0" class="active"></li>
-                           <li data-target="#quiZ" data-slide-to="1"></li>
-                           <li data-target="#quiZ" data-slide-to="2"></li>
-                           <li data-target="#quiZ" data-slide-to="3"></li>
-                           <li data-target="#quiZ" data-slide-to="4"></li>
-                           <li data-target="#quiZ" data-slide-to="5"></li>
-                           <li data-target="#quiZ" data-slide-to="6"></li>
-                           <li data-target="#quiZ" data-slide-to="7"></li>
-                        </ul>
+                  </div>
+                  </div>
+                  <div class="carousel-item" data-id="3">
+                     <div class="col-lg-7 mx-auto">
+                        <h2>Let’s <strong><em>explore</em></strong> your travel needs.</h2>
+                        <div class="stepdiv">Step <span>3/8</span></div>
+                        <h3>Location you will be leaving from?</h3>
+                        <div class="formquestion">
+                           <div class="form-group">
+                              <label>Country</label>
+                              <select class="form-control" name="country" id="countryId">
+                                <!--  <option value="">Select Country</option> -->
+                                 <option value="New Zealand" countryid="NZ">New Zealand</option>
+                              </select>
+                           </div>
+                           <div class="form-group">
+                              <label>State</label>
+                              <select class="form-control states" name="state"  id="stateId" required>
+                                 <option value="">Select State</option>
+                                 <option value="Chatham Islands" stateid="10">Chatham Islands</option>
+                                 <option value="Auckland" stateid="E7">Auckland</option>
+                                 <option value="Bay of Plenty" stateid="E8">Bay of Plenty</option>
+                                 <option value="Canterbury" stateid="E9">Canterbury</option>
+                                 <option value="Gisborne" stateid="F1">Gisborne</option>
+                                 <option value="Hawke's Bay" stateid="F2">Hawke's Bay</option>
+                                 <option value="Manawatu-Wanganui" stateid="F3">Manawatu-Wanganui</option>
+                                 <option value="Marlborough" stateid="F4">Marlborough</option>
+                                 <option value="Nelson" stateid="F5">Nelson</option>
+                                 <option value="Northland" stateid="F6">Northland</option>
+                                 <option value="Otago" stateid="F7">Otago</option>
+                                 <option value="Southland" stateid="F8">Southland</option>
+                                 <option value="Taranaki" stateid="F9">Taranaki</option>
+                                 <option value="Waikato" stateid="G1">Waikato</option>
+                                 <option value="Wellington" stateid="G2">Wellington</option>
+                                 <option value="West Coast" stateid="G3">West Coast</option>
+                                 <option value="Tasman" stateid="TAS">Tasman</option>                          
+                              </select>
+                           </div>  
+                           <div class="form-group">
+                              <label>City</label>
+                              <select class="form-control cities" name="city"  id="cityId" required>
+                                 <option value="">Select City</option>
+                              </select>
+                           </div>
+                        </div>
                      </div>
-                  </form>
+                  </div>
+                  <div class="carousel-item" data-id="4">
+                     <div class="col-lg-7 mx-auto">
+                        <h2>Let’s <strong><em>explore</em></strong> your travel needs.</h2>
+                        <div class="stepdiv">Step  <span>4/8</span></div>
+                        <h3>Interests?</h3>
+                        <div class="formquestion">
+                           <div class="form-group">
+                              <label>Select all that apply</label>
+                               <select class="input-md form-control select" id="id_interest" name="interests" required>
+                                   <option value="">Select Option</option>
+                                   <option value="Nature">Nature</option>
+                                   <option value="Wildlife">Wildlife</option>
+                                   <option value="Maori Culture">Maori Culture</option>
+
+                                   <option value="LOTR & Film">LOTR & Film</option>
+                                   <option value="Art/Museums">Art/Museums</option>
+                                   <option value="Fine Food">Fine Food</option>
+
+                                   <option value="Wine">Wine</option>
+                                   <option value="Adrenaline (Bungy jumping, Sky diving)">
+                                    Adrenaline (Bungy jumping, Sky diving)
+                                   </option>
+                                   <option value="Adventure (Rafting, Jet Boats, Kayaking)">
+                                    Adventure (Rafting, Jet Boats, Kayaking)
+                                   </option>
+
+                                   <option value="Golf">Golf</option>
+                                   <option value="Winter Sports">Winter Sports</option>
+                                   <option value="Fishing">Fishing</option>
+
+
+                                   <option value="Hiking">Hiking</option>
+                                   <option value="Biking">Biking</option>
+                                   <option value="Scenic Flights">Scenic Flights</option>
+
+                                   <option value="pas">Hot pools/Health spas</option>
+                                   <option value="Other">Other</option>
+                                </select>
+                           </div> 
+                        </div>
+                     </div>
+                  </div>
+                  <div class="carousel-item" data-id="5">
+                     <div class="col-lg-7 mx-auto">
+                        <h2>Let’s <strong><em>explore</em></strong> your travel needs.</h2>
+                        <div class="stepdiv">Step  <span>5/8</span></div>
+                        <p class="text-center">Slide to the cost of travel within your budget</p>
+                        <div class="formquestion rangesliderpart">                   
+                           <div class="form-group rangepart">
+                              <form>
+                                 <div data-role="rangeslider" class="costdiv"  id="div-slider">
+                                    <label for="range-1b" class="costlabel"> Cost of total trip</label>
+                                    <input type="range" name="cost_trip"  id="range-1b" min="0" max="50000" value="5000" data-popup-enabled="true" data-show-value="false" class="">
+                                 </div>
+                                  <span class="maxp">Max</span>
+                                  <div data-role="rangeslider" class="daysno">
+                                    <label for="range-1c" class="costlabel nodays"> NUMBER OF DAYS</label>
+                                    <input type="range" name="no_of_days" id="range-1c" min="0" max="30" value="3" data-popup-enabled="false" data-show-value="true" class="">
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+                        <div class="travel-budget">
+                           <h3>Travel Budget</h3>
+                           <span class="total_price_total"></span>
+                           <h3>Average Cost Per Day</h3>
+                           <span class="total_price"></span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="carousel-item" data-id="6">
+                     <div class="col-lg-7 mx-auto">
+                        <h2>Let’s <strong><em>explore</em></strong> your travel needs.</h2>
+                        <div class="stepdiv">Step  <span>6/8</span></div>
+                        <h3>Accommodation Types?</h3>
+                        <div class="formquestion">
+                           <div class="form-group">
+                              <label>Select all that apply</label>  
+                              <select class="input-md form-control select" id="id_accomodation" name="accommodation" required>
+                                 <option value="">Select Option</option>
+                                   <option value="Lodges/Bed & Breakfasts">Lodges/Bed & Breakfasts</option>
+                                   <option value="Hotels/Motels/Resorts">Hotels/Motels/Resorts</option>
+                                   <option value="Farm Stays">Farm Stays</option>
+                                   <option value="House">House</option>
+                                   <option value="Something unique">Something unique</option>
+                              </select>                     
+                           </div> 
+                        </div>
+                     </div>
+                  </div>
+                  <div class="carousel-item" data-id="7">
+                     <div class="col-lg-7 mx-auto">
+                        <h2>Let’s <strong><em>explore</em></strong> your travel needs.</h2>
+                        <div class="stepdiv">Step  <span>7/8</span></div>
+                        <h3>Do you have any physical challenges when you travel?</h3>
+                        <div class="formquestion">
+                           <div class="form-group">
+                              <label>Challenges</label>
+                              <select class="form-control" name="challenges" required>
+                                 <option>Wheelchair</option>
+                              </select>                       
+                           </div> 
+                           <div class="form-group">
+                              <label>Details of challenges below</label>
+                              <textarea class="form-control" name="challenge_details" required></textarea>                     
+                           </div> 
+                        </div>
+                     </div>
+                  </div>
+                  <div class="carousel-item" data-id="8">
+                     <div class="col-lg-7 mx-auto">
+                      <div class="validation-message text-center"><p>Please fill required fields.</p></div>
+                     <h2>Let’s <strong><em>explore</em></strong> your travel needs.</h2>
+                     <div class="stepdiv">Step  <span>8/8</span></div>
+                     <h3>Special Requests?</h3>
+                     <div class="formquestion fullcontactform" >
+                        <div class="form-group">                        
+                            <textarea class="form-control" name="special_request" required></textarea>
+                        </div>
+                        <div class="row">
+                           <div class="col-lg-6">
+                              <div class="form-group">
+                                 <label>Name</label>
+                                 <input type="text" name="name" class="form-control" required>
+                              </div>
+                           </div>
+                           <div class="col-lg-6">
+                              <div class="form-group">
+                                 <label>Email</label>
+                                 <input type="email" name="email" class="form-control" required>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-lg-12 text-center mt-3 joincheck">
+                              <input type="checkbox" name="join_mailing" class="incheck" value="1"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Join mailing list? 
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-lg-12 text-center mt-4">
+                              <input type="submit" name="" class="btn btn-primary submitbtn" id="submitbtn" value="Submit">
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-lg-12 text-center mt-4">
+                              <p> *At a later date we will add coach tour options + Cruise Ship options + Campervan options
+                                 **All current trips are self-drive. TNZ will select the most suitable vehicle for the client.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  </div>
                </div>
+               <div class="quiz-content-indicators">
+                  <ul class="carousel-indicators">
+                     <li data-target="#quiZ" data-slide-to="0" class="active"></li>
+                     <li data-target="#quiZ" data-slide-to="1"></li>
+                     <li data-target="#quiZ" data-slide-to="2"></li>
+                     <li data-target="#quiZ" data-slide-to="3"></li>
+                     <li data-target="#quiZ" data-slide-to="4"></li>
+                     <li data-target="#quiZ" data-slide-to="5"></li>
+                     <li data-target="#quiZ" data-slide-to="6"></li>
+                     <li data-target="#quiZ" data-slide-to="7"></li>
+                  </ul>
+               </div>
+            </form>
+         </div>
+         <div class="quiz-header-sec">
+            <div class="quiz-arrows">
+               <a class="carousel-control-prev" href="#quiZ" data-slide="prev"><span class="carousel-control-prev-icon"><i class="fas fa-arrow-left"></i></span></a>
+               <a class="carousel-control-next arrow-active" href="#quiZ" data-slide="next"><span class="carousel-control-next-icon"><i class="fas fa-arrow-right"></i></span></a>
             </div>
-      <section class="newsland-slider">
+         </div>
+      </div>
+      <!-- <section class="newsland-slider">
          <div class="container-fluid">
             <div class="row">
                <div class="col-lg-12">
@@ -398,7 +411,7 @@
                </div>
             </div>
          </div>
-      </section>
+      </section> -->
       <!-- Footer -->
       <footer>
          <div class="container">
@@ -514,7 +527,7 @@
            loop:false,
            margin:10,
            nav:true,
-           rewind: true,
+           rewind: false,
            responsive:{
                  320:{
                      items:1
@@ -535,10 +548,19 @@
         var priceVal = 3000;
         var daysVal = 3;
          $(document).ready(function () {
-
+         $('a.navbar-brand.ui-link').click(function(e){
+         e.preventDefault();
+         var link = $(this).attr('href');
+         if (link.indexOf('#') < 1){
+           window.location.href = link;
+         }
+          // $('#range-1b').slider("option", "max", 5000);
+          // $('#range-1c').slider("option", "max", 30);
+        })
+          //  console.log('page is read');
           $('#submitbtn').click(function(e){
             e.preventDefault();
-            console.log('submit form here');
+            //console.log('submit form here');
             $.ajax({
               url: $('#quizForm').attr('action'),
               type: 'POST',
@@ -574,15 +596,20 @@
             })
           })
 
-          $('.total_price').html('$ '+ priceVal * daysVal); 
+          $('.total_price_total').html('$ '+ priceVal); 
+          $('.total_price').html('$ '+ (priceVal / daysVal).toFixed(2)); 
         
          $("#range-1b").on("slidestop", function(event) {
           priceVal = $(this).val();
-          $('.total_price').html('$ '+ priceVal * daysVal); 
+          $('.total_price').html('$ '+ (priceVal / daysVal).toFixed(2)); 
+          $('.total_price_total').html('$ '+ priceVal); 
+          $('.travel-budget').show();
         });
          $("#range-1c").on("slidestop", function(event) {
           daysVal = $(this).val();
-          $('.total_price').html('$ '+ priceVal * daysVal); 
+          $('.total_price').html('$ '+(priceVal / daysVal).toFixed(2)); 
+          $('.total_price_total').html('$ '+ priceVal); 
+          $('.travel-budget').show();
         });
 
          $('.quiz-arrows a.carousel-control-prev').click(function () {
@@ -600,12 +627,14 @@
          });
 
          $('.quiz-arrows a.carousel-control-next').click(function () {
-            if(!$(".quiz-form").valid()) {
+            if($(".quiz-form").valid()) {
               $('label.error').each(function() {
                 $(this).remove();
               });
               
-              return false;
+              
+            } else {
+               return false;
             }
             $(".carousel-control-prev").show();
             $(this).addClass('arrow-active');

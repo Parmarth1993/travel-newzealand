@@ -41,7 +41,7 @@
                      <thead>
                         <tr>
                            <th>Name</th>
-                           <th>Address</th>
+                           <!-- <th>Address</th> -->
                            <th>Type</th>
                            <th>Category</th>
                            <th>Actions</th>
@@ -52,7 +52,7 @@
                         @foreach($properties as $property)
                         <tr class="plan-{{$property->id}}">
                            <td>{{$property->name}}</td>
-                           <td>{{$property->address}}</td>
+                           <!-- <td>{{$property->address}}</td> -->
                            <td>{{$property->type}}</td>
                            <td>{{$property->c_name}}</td>
                            
